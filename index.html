@@ -11,6 +11,23 @@
     content="埼玉県志木市の町中華・ラーメン店「ろびん」の公式DXページです。"
   >
 
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ろびんショップDX">
+  <meta
+    property="og:description"
+    content="埼玉県志木市の町中華・ラーメン店「ろびん」の公式DXページです。"
+  >
+  <meta
+    property="og:url"
+    content="https://ichirohns-jpg.github.io/robin-shop-dx/"
+  >
+  <meta
+    property="og:image"
+    content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main.jpg"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="manifest" href="manifest.json">
 
   <meta name="theme-color" content="#202124">
@@ -187,11 +204,14 @@
       display: inline-block;
       min-width: 180px;
       padding: 13px 22px;
+      border: 0;
       border-radius: 999px;
       color: #fff;
       background: var(--red);
+      font: inherit;
       font-weight: 900;
       text-align: center;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -333,8 +353,63 @@
       font-size: 0.95rem;
     }
 
-    .services {
+    .share-section {
       background: var(--cream);
+      text-align: center;
+    }
+
+    .share-box {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .share-box h3 {
+      margin: 0 0 18px;
+      color: var(--dark-red);
+      font-size: 1.4rem;
+    }
+
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .share-button {
+      min-width: 120px;
+      padding: 11px 16px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .share-line {
+      background: #06c755;
+    }
+
+    .share-x {
+      background: #000;
+    }
+
+    .share-facebook {
+      background: #1877f2;
+    }
+
+    .share-copy {
+      color: var(--charcoal);
+      background: var(--yellow);
+    }
+
+    .services {
+      background: #fff;
     }
 
     .service-grid {
@@ -347,7 +422,7 @@
       padding: 26px 20px;
       border: 1px solid var(--line);
       border-radius: 16px;
-      background: #fff;
+      background: var(--cream);
       text-align: center;
     }
 
@@ -364,7 +439,7 @@
     }
 
     .info {
-      background: #fff;
+      background: var(--cream);
     }
 
     .info-box {
@@ -373,7 +448,7 @@
       padding: 30px;
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: #fffaf0;
+      background: #fff;
     }
 
     .info-row {
@@ -398,7 +473,7 @@
     }
 
     .page-links {
-      background: var(--cream);
+      background: #fff;
     }
 
     .page-link-grid {
@@ -507,6 +582,10 @@
       .page-link-card {
         padding: 16px 8px;
         font-size: 0.9rem;
+      }
+
+      .share-button {
+        flex: 1 1 45%;
       }
     }
   </style>
@@ -680,6 +759,48 @@
       </div>
     </section>
 
+    <section class="share-section">
+      <h2 class="section-title">ろびんを共有する</h2>
+
+      <p class="section-lead">
+        ろびんショップDXを家族や友人に紹介できます。
+      </p>
+
+      <div class="share-box">
+        <h3>このページをSNSで共有</h3>
+
+        <div class="share-buttons">
+          <button
+            class="share-button share-line"
+            id="line-share"
+          >
+            LINE
+          </button>
+
+          <button
+            class="share-button share-x"
+            id="x-share"
+          >
+            X
+          </button>
+
+          <button
+            class="share-button share-facebook"
+            id="facebook-share"
+          >
+            Facebook
+          </button>
+
+          <button
+            class="share-button share-copy"
+            id="copy-share"
+          >
+            URLコピー
+          </button>
+        </div>
+      </div>
+    </section>
+
     <section class="services">
       <h2 class="section-title">ろびんショップDX</h2>
 
@@ -789,6 +910,113 @@
       ページ上部へ戻る
     </a>
   </footer>
+
+  <script>
+    function getShareUrl() {
+      return window.location.href;
+    }
+
+    function getShareText() {
+      return "ろびんショップDX｜志木市の町中華";
+    }
+
+    document
+      .getElementById("line-share")
+      .addEventListener(
+        "click",
+        () => {
+          const url =
+            "https://social-plugins.line.me/lineit/share" +
+            "?url=" +
+            encodeURIComponent(
+              getShareUrl()
+            );
+
+          window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+        }
+      );
+
+    document
+      .getElementById("x-share")
+      .addEventListener(
+        "click",
+        () => {
+          const url =
+            "https://twitter.com/intent/tweet" +
+            "?text=" +
+            encodeURIComponent(
+              getShareText()
+            ) +
+            "&url=" +
+            encodeURIComponent(
+              getShareUrl()
+            );
+
+          window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+        }
+      );
+
+    document
+      .getElementById("facebook-share")
+      .addEventListener(
+        "click",
+        () => {
+          const url =
+            "https://www.facebook.com/sharer/sharer.php" +
+            "?u=" +
+            encodeURIComponent(
+              getShareUrl()
+            );
+
+          window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+        }
+      );
+
+    document
+      .getElementById("copy-share")
+      .addEventListener(
+        "click",
+        async event => {
+          const button =
+            event.currentTarget;
+
+          try {
+            await navigator.clipboard.writeText(
+              getShareUrl()
+            );
+
+            button.textContent =
+              "コピーしました";
+
+            setTimeout(
+              () => {
+                button.textContent =
+                  "URLコピー";
+              },
+              1800
+            );
+
+          } catch (error) {
+            window.prompt(
+              "URLをコピーしてください",
+              getShareUrl()
+            );
+          }
+        }
+      );
+  </script>
 
 </body>
 </html>
