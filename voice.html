@@ -1,1205 +1,1146 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1,viewport-fit=cover"
->
-
-<title>お客様の声・写真｜ろびん</title>
-
-<meta
-  name="description"
-  content="志木市の町中華・ラーメン店「ろびん」のお客様の声と店内・料理写真をご紹介します。"
->
-
-<meta name="theme-color" content="#151515">
-
-<meta
-  property="og:title"
-  content="お客様の声・写真｜ろびん"
->
-
-<meta
-  property="og:description"
-  content="ろびんのお客様の声と料理・店舗写真をご紹介します。"
->
-
-<meta
-  property="og:image"
-  content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main-banner.jpg"
->
-
-<link
-  rel="apple-touch-icon"
-  href="ロビンアイコン.jpg"
->
-
-<style>
-
-:root{
-  --black:#111;
-  --charcoal:#1d1d1d;
-  --red:#a71919;
-  --bright-red:#d52b20;
-  --yellow:#f5c400;
-  --cream:#fff8e5;
-  --white:#fff;
-  --line:#e4ded2;
-  --gray:#666;
-  --shadow:0 12px 30px rgba(0,0,0,.18);
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#f8f4e9;
-  color:#222;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Hiragino Sans",
-    "Yu Gothic",
-    "Meiryo",
-    sans-serif;
-  line-height:1.7;
-}
-
-img{
-  max-width:100%;
-  height:auto;
-  display:block;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button{
-  font:inherit;
-}
-
-/* ヘッダー */
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(17,17,17,.97);
-  border-bottom:3px solid var(--red);
-  box-shadow:0 4px 18px rgba(0,0,0,.22);
-}
-
-.header-inner{
-  width:min(1160px,calc(100% - 24px));
-  min-height:72px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#fff;
-}
-
-.brand img{
-  width:48px;
-  height:48px;
-  object-fit:cover;
-  border-radius:10px;
-  border:2px solid var(--yellow);
-}
-
-.brand-text{
-  line-height:1.05;
-  font-weight:900;
-}
-
-.brand-text strong{
-  display:block;
-  color:var(--yellow);
-  font-size:20px;
-}
-
-.brand-text small{
-  display:block;
-  color:#fff;
-  font-size:10px;
-  letter-spacing:.12em;
-  margin-top:5px;
-}
-
-.main-nav{
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
-
-.main-nav a{
-  color:#fff;
-  font-size:14px;
-  font-weight:900;
-  padding:10px 13px;
-  border-radius:8px;
-}
-
-.main-nav a:hover{
-  color:#111;
-  background:var(--yellow);
-}
-
-.menu-button{
-  display:none;
-  width:45px;
-  height:42px;
-  border:0;
-  border-radius:8px;
-  background:var(--yellow);
-  color:#111;
-  font-size:24px;
-  font-weight:900;
-}
-
-/* ページタイトル */
-
-.page-hero{
-  position:relative;
-  min-height:370px;
-  overflow:hidden;
-  background:#111;
-}
-
-.page-hero-image{
-  width:100%;
-  height:370px;
-  object-fit:cover;
-}
-
-.page-hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0,0,0,.88) 0%,
-      rgba(0,0,0,.54) 43%,
-      rgba(0,0,0,.12) 100%
-    );
-}
-
-.page-hero-content{
-  position:absolute;
-  z-index:2;
-  top:50%;
-  left:max(22px,calc((100% - 1100px) / 2));
-  transform:translateY(-50%);
-  color:#fff;
-}
-
-.page-hero-kicker{
-  display:inline-block;
-  padding:5px 13px;
-  margin-bottom:14px;
-  color:#111;
-  background:var(--yellow);
-  border-left:6px solid var(--red);
-  font-size:15px;
-  font-weight:900;
-}
-
-.page-hero h1{
-  font-size:clamp(38px,7vw,72px);
-  line-height:1.1;
-  font-weight:900;
-  letter-spacing:.04em;
-  text-shadow:
-    3px 3px 0 var(--red),
-    5px 5px 14px rgba(0,0,0,.55);
-}
-
-.page-hero p{
-  margin-top:15px;
-  font-size:18px;
-  font-weight:800;
-}
-
-/* 共通 */
-
-.container{
-  width:min(1050px,calc(100% - 28px));
-  margin:0 auto;
-}
-
-.section{
-  padding:64px 0;
-}
-
-.section-dark{
-  background:
-    linear-gradient(
-      135deg,
-      #171717,
-      #2b2020
-    );
-  color:#fff;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:34px;
-}
-
-.section-title .small{
-  display:block;
-  color:var(--red);
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.18em;
-  margin-bottom:6px;
-}
-
-.section-dark .section-title .small{
-  color:var(--yellow);
-}
-
-.section-title h2{
-  font-size:clamp(28px,5vw,42px);
-  line-height:1.3;
-  font-weight:900;
-}
-
-.section-title h2::after{
-  content:"";
-  display:block;
-  width:70px;
-  height:5px;
-  margin:14px auto 0;
-  background:var(--red);
-}
-
-.section-dark .section-title h2::after{
-  background:var(--yellow);
-}
-
-/* お客様の声 */
-
-.voice-list{
-  display:grid;
-  gap:20px;
-}
-
-.voice-card{
-  display:grid;
-  grid-template-columns:190px 1fr;
-  gap:22px;
-  overflow:hidden;
-  background:#fff;
-  border-radius:16px;
-  border-top:7px solid var(--red);
-  box-shadow:var(--shadow);
-}
-
-.voice-card-image{
-  width:100%;
-  height:100%;
-  min-height:170px;
-  object-fit:cover;
-  background:#222;
-}
-
-.voice-card-body{
-  padding:22px 22px 22px 0;
-}
-
-.voice-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-  color:var(--red);
-  font-size:13px;
-  font-weight:900;
-}
-
-.voice-name{
-  color:#222;
-  font-size:15px;
-}
-
-.voice-card h3{
-  margin-top:8px;
-  color:#222;
-  font-size:23px;
-  line-height:1.35;
-  font-weight:900;
-}
-
-.voice-card p{
-  margin-top:10px;
-  color:#555;
-  font-size:15px;
-  white-space:pre-line;
-}
-
-/* 投稿なし */
-
-.empty-voice{
-  padding:52px 24px;
-  background:#fff;
-  border-radius:16px;
-  border-top:7px solid var(--yellow);
-  box-shadow:var(--shadow);
-  text-align:center;
-}
-
-.empty-voice-icon{
-  font-size:48px;
-  line-height:1;
-}
-
-.empty-voice h3{
-  margin-top:18px;
-  color:var(--red);
-  font-size:25px;
-}
-
-.empty-voice p{
-  margin-top:10px;
-  color:#666;
-  font-size:15px;
-}
-
-/* 写真 */
-
-.photo-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.photo-card{
-  overflow:hidden;
-  background:#fff;
-  color:#222;
-  border-radius:14px;
-  box-shadow:var(--shadow);
-}
-
-.photo-card img{
-  width:100%;
-  aspect-ratio:4 / 3;
-  object-fit:cover;
-}
-
-.photo-card-body{
-  padding:18px;
-}
-
-.photo-card-body h3{
-  color:var(--red);
-  font-size:21px;
-  line-height:1.3;
-  margin-bottom:7px;
-  font-weight:900;
-}
-
-.photo-card-body p{
-  color:#444;
-  font-size:14px;
-}
-
-/* 案内 */
-
-.info-box{
-  max-width:850px;
-  margin:30px auto 0;
-  padding:21px;
-  background:#fff3bd;
-  border-left:6px solid var(--yellow);
-  color:#333;
-  font-size:14px;
-  font-weight:700;
-  text-align:center;
-}
-
-/* ボタン */
-
-.button-area{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:12px;
-  margin-top:34px;
-}
-
-.button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:50px;
-  padding:11px 22px;
-  border-radius:8px;
-  font-weight:900;
-  border:2px solid transparent;
-  transition:.2s;
-}
-
-.button:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 16px rgba(0,0,0,.22);
-}
-
-.button-red{
-  color:#fff;
-  background:var(--red);
-  border-color:var(--red);
-}
-
-.button-yellow{
-  color:#111;
-  background:var(--yellow);
-  border-color:var(--yellow);
-}
-
-.button-dark{
-  color:#fff;
-  background:#222;
-  border-color:#222;
-}
-
-/* フッター */
-
-.site-footer{
-  padding:38px 0 24px;
-  color:#fff;
-  background:#111;
-  border-top:5px solid var(--red);
-}
-
-.footer-inner{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:24px;
-}
-
-.footer-brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.footer-brand img{
-  width:58px;
-  height:58px;
-  object-fit:cover;
-  border:2px solid var(--yellow);
-  border-radius:10px;
-}
-
-.footer-brand strong{
-  display:block;
-  color:var(--yellow);
-  font-size:24px;
-  line-height:1.1;
-}
-
-.footer-brand small{
-  display:block;
-  color:#ddd;
-  font-size:11px;
-  margin-top:5px;
-}
-
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  font-size:14px;
-  font-weight:800;
-}
-
-.footer-links a:hover{
-  color:var(--yellow);
-}
-
-.copyright{
-  margin-top:30px;
-  padding-top:16px;
-  border-top:1px solid #444;
-  color:#aaa;
-  text-align:center;
-  font-size:12px;
-}
-
-/* トップへ */
-
-.to-top{
-  position:fixed;
-  z-index:900;
-  right:16px;
-  bottom:16px;
-  width:48px;
-  height:48px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  color:#fff;
-  background:var(--red);
-  font-size:22px;
-  font-weight:900;
-  box-shadow:0 5px 18px rgba(0,0,0,.25);
-}
-
-/* スマートフォン */
-
-@media(max-width:780px){
-
-  .header-inner{
-    min-height:66px;
-  }
-
-  .brand img{
-    width:42px;
-    height:42px;
-  }
-
-  .brand-text strong{
-    font-size:18px;
-  }
-
-  .main-nav{
-    display:none;
-    position:absolute;
-    top:66px;
-    left:0;
-    right:0;
-    padding:10px 14px 16px;
-    background:#111;
-    border-bottom:2px solid var(--red);
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .main-nav.open{
-    display:flex;
-  }
-
-  .main-nav a{
-    padding:13px 10px;
-    text-align:center;
-    border-bottom:1px solid #444;
-    border-radius:0;
-  }
-
-  .menu-button{
-    display:block;
-  }
-
-  .page-hero{
-    min-height:360px;
-  }
-
-  .page-hero-image{
-    height:360px;
-  }
-
-  .page-hero::after{
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0,0,0,.2) 0%,
-        rgba(0,0,0,.3) 30%,
-        rgba(0,0,0,.9) 100%
-      );
-  }
-
-  .page-hero-content{
-    left:20px;
-    bottom:32px;
-    top:auto;
-    transform:none;
-  }
-
-  .page-hero h1{
-    font-size:48px;
-  }
-
-  .page-hero p{
-    font-size:16px;
-  }
-
-  .section{
-    padding:50px 0;
-  }
-
-  .voice-card{
-    display:block;
-  }
-
-  .voice-card-image{
-    height:auto;
-    aspect-ratio:16 / 8;
-    min-height:0;
-  }
-
-  .voice-card-body{
-    padding:20px;
-  }
-
-  .voice-card h3{
-    font-size:22px;
-  }
-
-  .voice-card p{
-    font-size:14px;
-  }
-
-  .photo-grid{
-    grid-template-columns:1fr;
-    gap:18px;
-  }
-
-  .button-area{
-    flex-direction:column;
-  }
-
-  .button{
-    width:100%;
-  }
-
-  .footer-inner{
-    flex-direction:column;
-  }
-
-  .footer-links{
-    width:100%;
-  }
-
-  .to-top{
-    right:12px;
-    bottom:12px;
-    width:44px;
-    height:44px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>お客様の声｜ろびんショップDX</title>
+
+  <style>
+    :root {
+      --red: #b51f2a;
+      --dark-red: #7d1018;
+      --yellow: #f4c400;
+      --charcoal: #202124;
+      --cream: #fffaf0;
+      --gray: #666;
+      --line: #eadfca;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--charcoal);
+      background: var(--cream);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      color: #fff;
+      background: rgba(32, 33, 36, 0.97);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    nav a {
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--red);
+    }
+
+    .hero {
+      min-height: 280px;
+      padding: 70px 20px;
+      color: #fff;
+      background:
+        linear-gradient(
+          rgba(32, 33, 36, 0.68),
+          rgba(32, 33, 36, 0.76)
+        ),
+        url("robin-main-banner.jpg") center / cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: 0.08em;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      color: var(--dark-red);
+      font-size: clamp(1.8rem, 5vw, 2.7rem);
+      text-align: center;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      margin: 0 auto 32px;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    .voice-section {
+      margin-bottom: 46px;
+    }
+
+    .voice-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .voice-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(90, 55, 20, 0.08);
+    }
+
+    .voice-image {
+      width: 100%;
+      max-height: 380px;
+      object-fit: cover;
+      background: #f3eee3;
+    }
+
+    .voice-content {
+      padding: 24px;
+    }
+
+    .voice-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .voice-name {
+      color: var(--dark-red);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .voice-date {
+      color: var(--gray);
+      font-size: 0.86rem;
+    }
+
+    .stars {
+      margin: 8px 0 12px;
+      color: #f2b800;
+      font-size: 1.55rem;
+      letter-spacing: 2px;
+    }
+
+    .voice-body {
+      margin: 0;
+      color: #444;
+      white-space: pre-line;
+    }
+
+    .empty {
+      padding: 40px 20px;
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+      color: var(--gray);
+      background: #fff;
+      text-align: center;
+    }
+
+    .post-area {
+      padding: 30px 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(90, 55, 20, 0.08);
+    }
+
+    .post-area h2 {
+      margin: 0 0 10px;
+      color: var(--dark-red);
+      text-align: center;
+    }
+
+    .post-area > p {
+      margin: 0 0 24px;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 800;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d8cdbb;
+      border-radius: 10px;
+      background: #fffdf8;
+      color: var(--charcoal);
+      font: inherit;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 3px solid rgba(244, 196, 0, 0.35);
+      border-color: var(--yellow);
+    }
+
+    .star-select {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .star-button {
+      padding: 0 3px;
+      border: 0;
+      color: #c8c8c8;
+      background: transparent;
+      font-size: 2.2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .star-button.active {
+      color: #f2b800;
+    }
+
+    .file-label {
+      display: block;
+      padding: 18px;
+      border: 2px dashed #d8cdbb;
+      border-radius: 12px;
+      color: var(--dark-red);
+      background: #fffdf8;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    #voice-image {
+      display: none;
+    }
+
+    .selected-file {
+      margin-top: 8px;
+      color: var(--gray);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .preview {
+      display: none;
+      max-height: 300px;
+      margin: 16px auto 0;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    .preview.show {
+      display: block;
+    }
+
+    .submit-button {
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 20px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--red);
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: var(--dark-red);
+    }
+
+    .submit-button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .status {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .status.success {
+      display: block;
+      color: #155b30;
+      background: #e8f7ed;
+      border: 1px solid #9bd0aa;
+    }
+
+    .status.error {
+      display: block;
+      color: var(--dark-red);
+      background: #fff0f0;
+      border: 1px solid #e2a1a1;
+    }
+
+    .page-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 46px;
+    }
+
+    .page-link {
+      padding: 16px 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .page-link:hover {
+      color: #fff;
+      background: var(--red);
+    }
+
+    footer {
+      padding: 34px 20px;
+      color: #fff;
+      background: var(--charcoal);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      main {
+        padding: 42px 16px 64px;
+      }
+
+      .post-area {
+        padding: 24px 18px;
+      }
+
+      .page-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="site-header">
-
-  <div class="header-inner">
-
-    <a
-      class="brand"
-      href="index.html"
-    >
-
-      <img
-        src="ロビンアイコン.jpg"
-        alt="ろびんアイコン"
-      >
-
-      <span class="brand-text">
-        <strong>ろびん</strong>
-        <small>ロビンショップDX</small>
-      </span>
-
-    </a>
-
-    <button
-      class="menu-button"
-      type="button"
-      aria-label="メニューを開く"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-    <nav class="main-nav">
-
-      <a href="index.html">ホーム</a>
-      <a href="menu.html">おすすめメニュー</a>
-      <a href="news.html">お知らせ</a>
-      <a href="access.html">店舗情報</a>
-      <a href="#voice">お客様の声</a>
-
-    </nav>
-
-  </div>
-
-</header>
-
-<main>
-
-  <section class="page-hero">
-
-    <img
-      class="page-hero-image"
-      src="robin-main-banner.jpg"
-      alt="ろびん店舗イメージ"
-    >
-
-    <div class="page-hero-content">
-
-      <p class="page-hero-kicker">
-        VOICE & PHOTO
-      </p>
-
-      <h1>お客様の声</h1>
-
-      <p>
-        ろびんの写真とお客様の声をご紹介します
-      </p>
-
-    </div>
-
-  </section>
-
-  <section
-    id="voice"
-    class="section"
-  >
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <span class="small">CUSTOMER VOICE</span>
-
-        <h2>お客様の声</h2>
-
-      </div>
-
-      <div
-        id="voiceList"
-        class="voice-list"
-      ></div>
-
-      <div class="info-box">
-
-        お客様の声・写真投稿欄は、
-        今後さらに充実させていきます。
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section
-    class="section section-dark"
-  >
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <span class="small">PHOTO GALLERY</span>
-
-        <h2>ろびんの写真</h2>
-
-      </div>
-
-      <div class="photo-grid">
-
-        <article class="photo-card">
-
-          <img
-            src="ロビン・タローメン.jpg"
-            alt="ろびん名物たろーめん"
-            loading="lazy"
-          >
-
-          <div class="photo-card-body">
-
-            <h3>名物たろーめん</h3>
-
-            <p>
-              野菜たっぷりの餡かけ麺。
-              ろびんを代表する一杯です。
-            </p>
-
-          </div>
-
-        </article>
-
-        <article class="photo-card">
-
-          <img
-            src="ロビンストア.jpg"
-            alt="ろびんの店舗"
-            loading="lazy"
-          >
-
-          <div class="photo-card-body">
-
-            <h3>店舗の雰囲気</h3>
-
-            <p>
-              志木の街で親しまれている、
-              昔ながらの町中華です。
-            </p>
-
-          </div>
-
-        </article>
-
-        <article class="photo-card">
-
-          <img
-            src="robin-menu.jpg"
-            alt="ろびんの料理"
-            loading="lazy"
-          >
-
-          <div class="photo-card-body">
-
-            <h3>昔ながらの中華料理</h3>
-
-            <p>
-              ラーメンやチャーハンなど、
-              身近な中華料理を楽しめます。
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
-
-      <div class="button-area">
-
-        <a
-          class="button button-yellow"
-          href="menu.html"
-        >
-          おすすめメニューを見る
-        </a>
-
-        <a
-          class="button button-red"
-          href="tel:0484722175"
-        >
-          店舗へ電話する
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <span class="small">ROBIN SHOP DX</span>
-
-        <h2>ろびんを応援する</h2>
-
-      </div>
-
-      <div
-        style="
-          max-width:760px;
-          margin:0 auto;
-          padding:26px;
-          background:#fff;
-          border-top:7px solid #a71919;
-          border-radius:16px;
-          box-shadow:0 12px 30px rgba(0,0,0,.18);
-          text-align:center;
-        "
-      >
-
-        <p style="font-size:17px;font-weight:800;">
-          ろびんの料理を楽しんだら、
-          ご家族やお友達にもぜひご紹介ください。
-        </p>
-
-        <p
-          style="
-            margin-top:12px;
-            color:#666;
-            font-size:14px;
-          "
-        >
-          志木の身近な町中華を、
-          みんなで応援していくページです。
-        </p>
-
-      </div>
-
-      <div class="button-area">
-
-        <a
-          class="button button-red"
-          href="index.html"
-        >
-          トップページへ戻る
-        </a>
-
-        <a
-          class="button button-yellow"
-          href="access.html"
-        >
-          店舗情報を見る
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
-
-<footer class="site-footer">
-
-  <div class="container">
-
-    <div class="footer-inner">
-
-      <div class="footer-brand">
-
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html">
         <img
+          class="brand-mark"
           src="ロビンアイコン.jpg"
           alt="ろびんアイコン"
         >
+        <span>ろびんショップDX</span>
+      </a>
 
-        <div>
-          <strong>ろびん</strong>
-          <small>ロビンショップDX</small>
-        </div>
-
-      </div>
-
-      <div class="footer-links">
-
+      <nav>
         <a href="index.html">ホーム</a>
-        <a href="menu.html">おすすめメニュー</a>
+        <a href="menu.html">メニュー</a>
         <a href="news.html">お知らせ</a>
         <a href="access.html">店舗情報</a>
-        <a href="tel:0484722175">電話する</a>
+        <a href="voice.html" class="active">お客様の声</a>
+      </nav>
+    </div>
+  </header>
 
+  <section class="hero">
+    <div>
+      <h1>お客様の声</h1>
+      <p>ろびんを訪れた皆さまの写真・星評価・コメントです。</p>
+    </div>
+  </section>
+
+  <main>
+
+    <section class="voice-section">
+      <h2 class="section-title">みんなの写真・口コミ</h2>
+
+      <p class="section-lead">
+        管理者が確認して公開したお客様の写真、星評価、コメントを掲載しています。
+      </p>
+
+      <div id="voice-list" class="voice-list">
+        <div class="empty">
+          公開中の写真・口コミを読み込んでいます。
+        </div>
       </div>
+    </section>
 
-    </div>
+    <section class="post-area" id="post">
+      <h2>写真・口コミを投稿する</h2>
 
-    <div class="copyright">
-      © ロビンショップDX
-    </div>
+      <p>
+        ご来店の感想や料理の写真をお寄せください。<br>
+        投稿内容は管理者確認後に公開されます。
+      </p>
 
-  </div>
+      <form id="voice-form">
 
-</footer>
+        <div class="form-group">
+          <label for="voice-name">お名前</label>
 
-<a
-  class="to-top"
-  href="#top"
-  aria-label="ページ上部へ戻る"
->
-  ↑
-</a>
-
-<script>
-
-/*
-  お客様の声を追加するときは、
-  この配列の中に記事を追加してください。
-
-  例：
-
-  {
-    date:"2026年7月12日",
-    name:"志木市のお客様",
-    title:"たろーめんをいただきました",
-    body:"ここにお客様の声を入力します。",
-    image:"ロビン・タローメン.jpg"
-  }
-
-*/
-
-const voiceData = [
-
-  /*
-  {
-    date:"2026年7月12日",
-    name:"志木市のお客様",
-    title:"たろーめんをいただきました",
-    body:"ここにお客様の声を入力します。",
-    image:"ロビン・タローメン.jpg"
-  }
-  */
-
-];
-
-const voiceList =
-  document.getElementById("voiceList");
-
-function escapeHTML(value){
-
-  return String(value || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-function createVoiceCard(item){
-
-  const image =
-    item.image || "ロビン・タローメン.jpg";
-
-  return `
-    <article class="voice-card">
-
-      <img
-        class="voice-card-image"
-        src="${escapeHTML(image)}"
-        alt="${escapeHTML(item.title || "お客様の声")}"
-        loading="lazy"
-      >
-
-      <div class="voice-card-body">
-
-        <div class="voice-meta">
-
-          <span>
-            ${escapeHTML(item.date || "")}
-          </span>
-
-          <span class="voice-name">
-            ${escapeHTML(item.name || "お客様")}
-          </span>
-
+          <input
+            id="voice-name"
+            type="text"
+            placeholder="例：志木太郎"
+            required
+          >
         </div>
 
-        <h3>
-          ${escapeHTML(item.title || "")}
-        </h3>
+        <div class="form-group">
+          <label>星評価</label>
 
-        <p>
-          ${escapeHTML(item.body || "")}
-        </p>
+          <div
+            id="star-select"
+            class="star-select"
+          >
+            <button
+              class="star-button active"
+              type="button"
+              data-star="1"
+            >★</button>
 
-      </div>
+            <button
+              class="star-button active"
+              type="button"
+              data-star="2"
+            >★</button>
 
-    </article>
-  `;
+            <button
+              class="star-button active"
+              type="button"
+              data-star="3"
+            >★</button>
 
-}
+            <button
+              class="star-button active"
+              type="button"
+              data-star="4"
+            >★</button>
 
-function renderVoice(){
-
-  if(!voiceData.length){
-
-    voiceList.innerHTML = `
-      <div class="empty-voice">
-
-        <div class="empty-voice-icon">
-          🍜
+            <button
+              class="star-button active"
+              type="button"
+              data-star="5"
+            >★</button>
+          </div>
         </div>
 
-        <h3>
-          お客様の声を準備中です
-        </h3>
+        <div class="form-group">
+          <label for="voice-body">コメント</label>
 
-        <p>
-          ろびんをご利用いただいた皆さまの声を、
-          今後掲載していきます。
-        </p>
+          <textarea
+            id="voice-body"
+            placeholder="料理やお店の感想を入力してください。"
+            required
+          ></textarea>
+        </div>
 
-      </div>
-    `;
+        <div class="form-group">
+          <label for="voice-image">写真</label>
 
-    return;
+          <label class="file-label" for="voice-image">
+            📷 カメラロールから写真を選択
+          </label>
 
-  }
+          <input
+            id="voice-image"
+            type="file"
+            accept="image/*"
+          >
 
-  voiceList.innerHTML =
-    voiceData
-      .map(createVoiceCard)
-      .join("");
+          <div id="selected-file" class="selected-file">
+            写真は任意です。
+          </div>
 
-}
+          <img
+            id="preview"
+            class="preview"
+            alt="選択した写真"
+          >
+        </div>
 
-renderVoice();
+        <button
+          id="submit-button"
+          class="submit-button"
+          type="submit"
+        >
+          📷 写真・口コミを投稿する
+        </button>
 
-const menuButton =
-  document.querySelector(".menu-button");
+        <div id="status" class="status"></div>
+      </form>
+    </section>
 
-const mainNav =
-  document.querySelector(".main-nav");
+    <div class="page-links">
+      <a class="page-link" href="index.html">ホーム</a>
+      <a class="page-link" href="menu.html">メニュー</a>
+      <a class="page-link" href="news.html">お知らせ</a>
+      <a class="page-link" href="access.html">店舗情報</a>
+    </div>
 
-menuButton.addEventListener(
-  "click",
-  function(){
+  </main>
 
-    const isOpen =
-      mainNav.classList.toggle("open");
+  <footer>
+    <p>ろびんショップDX</p>
+    <p>埼玉県志木市の町中華・ラーメン店「ろびん」</p>
+  </footer>
 
-    menuButton.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
+  <script>
+    const GAS_URL =
+      "https://script.google.com/macros/s/AKfycbyQYbLdtiWhEr27ZAWJi3D98eVJdXlD-lMr2D6T6RxvfIb_k2kFHDxxfdKE_WTiUCZ1HQ/exec";
 
-    menuButton.textContent =
-      isOpen ? "×" : "☰";
+    const voiceList =
+      document.getElementById("voice-list");
 
-  }
-);
+    const voiceForm =
+      document.getElementById("voice-form");
 
-document
-  .querySelectorAll(".main-nav a")
-  .forEach(function(link){
+    const nameInput =
+      document.getElementById("voice-name");
 
-    link.addEventListener(
-      "click",
-      function(){
+    const bodyInput =
+      document.getElementById("voice-body");
 
-        mainNav.classList.remove("open");
+    const imageInput =
+      document.getElementById("voice-image");
 
-        menuButton.setAttribute(
-          "aria-expanded",
-          "false"
+    const selectedFile =
+      document.getElementById("selected-file");
+
+    const preview =
+      document.getElementById("preview");
+
+    const submitButton =
+      document.getElementById("submit-button");
+
+    const statusBox =
+      document.getElementById("status");
+
+    const starButtons =
+      document.querySelectorAll(".star-button");
+
+    let selectedStars = 5;
+    let selectedImageData = "";
+    let selectedImageName = "";
+    let selectedImageType = "";
+
+
+    function escapeHTML(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+
+    function safeUrl(value) {
+      const url =
+        String(value || "").trim();
+
+      return /^https?:\/\//i.test(url)
+        ? url
+        : "";
+    }
+
+
+    function convertDriveImageUrl(value) {
+      const url =
+        safeUrl(value);
+
+      if (!url) {
+        return "";
+      }
+
+      let fileId = "";
+
+      const fileMatch =
+        url.match(
+          /drive\.google\.com\/file\/d\/([^/]+)/
         );
 
-        menuButton.textContent = "☰";
+      if (fileMatch) {
+        fileId = fileMatch[1];
+      }
 
+      if (!fileId) {
+        const idMatch =
+          url.match(
+            /[?&]id=([^&#]+)/
+          );
+
+        if (idMatch) {
+          fileId = idMatch[1];
+        }
+      }
+
+      if (fileId) {
+        return (
+          "https://lh3.googleusercontent.com/d/" +
+          fileId +
+          "=w1200"
+        );
+      }
+
+      return url;
+    }
+
+
+    function starsHTML(value) {
+      const stars =
+        Math.max(
+          0,
+          Math.min(
+            5,
+            Number(value) || 0
+          )
+        );
+
+      let html = "";
+
+      for (let i = 1; i <= 5; i++) {
+        html += i <= stars ? "★" : "☆";
+      }
+
+      return html;
+    }
+
+
+    function renderVoices(items) {
+      if (
+        !Array.isArray(items) ||
+        items.length === 0
+      ) {
+        voiceList.innerHTML = `
+          <div class="empty">
+            公開中の写真・口コミはまだありません。
+          </div>
+        `;
+
+        return;
+      }
+
+      voiceList.innerHTML =
+        items.map(item => {
+          const imageUrl =
+            convertDriveImageUrl(
+              item.imageUrl ||
+              item.image ||
+              ""
+            );
+
+          const imageHTML =
+            imageUrl
+              ? `
+                <img
+                  class="voice-image"
+                  src="${escapeHTML(imageUrl)}"
+                  alt="お客様の写真"
+                  loading="lazy"
+                >
+              `
+              : "";
+
+          return `
+            <article class="voice-card">
+              ${imageHTML}
+
+              <div class="voice-content">
+                <div class="voice-top">
+                  <div class="voice-name">
+                    ${escapeHTML(item.name)}
+                  </div>
+
+                  <div class="voice-date">
+                    ${escapeHTML(item.date)}
+                  </div>
+                </div>
+
+                <div class="stars">
+                  ${starsHTML(item.stars)}
+                </div>
+
+                <p class="voice-body">
+                  ${escapeHTML(item.body)}
+                </p>
+              </div>
+            </article>
+          `;
+        }).join("");
+    }
+
+
+    async function readJSON(response) {
+      const text =
+        await response.text();
+
+      try {
+        return JSON.parse(text);
+      } catch (error) {
+        throw new Error(
+          "GASから正しい返答を受け取れませんでした。"
+        );
+      }
+    }
+
+
+    async function loadVoices() {
+      try {
+        const response =
+          await fetch(
+            GAS_URL +
+            "?mode=voices&t=" +
+            Date.now(),
+            {
+              method: "GET",
+              cache: "no-store"
+            }
+          );
+
+        const data =
+          await readJSON(response);
+
+        if (!data.ok) {
+          throw new Error(
+            data.error ||
+            "口コミ取得エラー"
+          );
+        }
+
+        renderVoices(
+          data.items || []
+        );
+
+      } catch (error) {
+        voiceList.innerHTML = `
+          <div class="empty">
+            公開中の写真・口コミはまだありません。
+          </div>
+        `;
+      }
+    }
+
+
+    function readFileAsDataURL(file) {
+      return new Promise(
+        (resolve, reject) => {
+          const reader =
+            new FileReader();
+
+          reader.onload =
+            () => resolve(reader.result);
+
+          reader.onerror =
+            () => reject(
+              new Error(
+                "写真を読み込めませんでした。"
+              )
+            );
+
+          reader.readAsDataURL(file);
+        }
+      );
+    }
+
+
+    function loadImage(dataUrl) {
+      return new Promise(
+        (resolve, reject) => {
+          const image =
+            new Image();
+
+          image.onload =
+            () => resolve(image);
+
+          image.onerror =
+            () => reject(
+              new Error(
+                "写真を表示できませんでした。"
+              )
+            );
+
+          image.src =
+            dataUrl;
+        }
+      );
+    }
+
+
+    async function compressImage(file) {
+      const originalData =
+        await readFileAsDataURL(file);
+
+      const image =
+        await loadImage(originalData);
+
+      const maxSize = 1600;
+
+      let width =
+        image.naturalWidth;
+
+      let height =
+        image.naturalHeight;
+
+      if (
+        width > maxSize ||
+        height > maxSize
+      ) {
+        const scale =
+          Math.min(
+            maxSize / width,
+            maxSize / height
+          );
+
+        width =
+          Math.round(width * scale);
+
+        height =
+          Math.round(height * scale);
+      }
+
+      const canvas =
+        document.createElement("canvas");
+
+      canvas.width =
+        width;
+
+      canvas.height =
+        height;
+
+      const context =
+        canvas.getContext("2d");
+
+      context.fillStyle =
+        "#ffffff";
+
+      context.fillRect(
+        0,
+        0,
+        width,
+        height
+      );
+
+      context.drawImage(
+        image,
+        0,
+        0,
+        width,
+        height
+      );
+
+      return canvas.toDataURL(
+        "image/jpeg",
+        0.82
+      );
+    }
+
+
+    function updateStars(value) {
+      selectedStars =
+        Number(value);
+
+      starButtons.forEach(button => {
+        const star =
+          Number(
+            button.dataset.star
+          );
+
+        button.classList.toggle(
+          "active",
+          star <= selectedStars
+        );
+      });
+    }
+
+
+    starButtons.forEach(button => {
+      button.addEventListener(
+        "click",
+        () => {
+          updateStars(
+            button.dataset.star
+          );
+        }
+      );
+    });
+
+
+    imageInput.addEventListener(
+      "change",
+      async () => {
+        const file =
+          imageInput.files[0];
+
+        if (!file) {
+          return;
+        }
+
+        selectedFile.textContent =
+          "写真を準備しています…";
+
+        try {
+          selectedImageData =
+            await compressImage(file);
+
+          selectedImageName =
+            file.name ||
+            "voice-image";
+
+          selectedImageType =
+            "image/jpeg";
+
+          preview.src =
+            selectedImageData;
+
+          preview.classList.add(
+            "show"
+          );
+
+          selectedFile.textContent =
+            "選択中：" + file.name;
+
+        } catch (error) {
+          selectedFile.textContent =
+            "写真を読み込めませんでした。";
+
+          statusBox.textContent =
+            error.message;
+
+          statusBox.className =
+            "status error";
+        }
       }
     );
 
-  });
 
-</script>
+    voiceForm.addEventListener(
+      "submit",
+      async event => {
+        event.preventDefault();
+
+        statusBox.className =
+          "status";
+
+        const name =
+          nameInput.value.trim();
+
+        const body =
+          bodyInput.value.trim();
+
+        if (!name || !body) {
+          statusBox.textContent =
+            "お名前とコメントを入力してください。";
+
+          statusBox.className =
+            "status error";
+
+          return;
+        }
+
+        const payload = {
+          mode: "saveVoice",
+          name: name,
+          stars: selectedStars,
+          body: body,
+          imageData: selectedImageData,
+          imageName: selectedImageName,
+          imageType: selectedImageType
+        };
+
+        submitButton.disabled =
+          true;
+
+        submitButton.textContent =
+          "投稿中です…";
+
+        try {
+          const response =
+            await fetch(
+              GAS_URL +
+              "?mode=saveVoice",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type":
+                    "text/plain;charset=utf-8"
+                },
+                body: JSON.stringify(payload)
+              }
+            );
+
+          const result =
+            await readJSON(response);
+
+          if (!result.ok) {
+            throw new Error(
+              result.error ||
+              "投稿できませんでした。"
+            );
+          }
+
+          statusBox.textContent =
+            "投稿を受け付けました。管理者確認後に公開されます。";
+
+          statusBox.className =
+            "status success";
+
+          voiceForm.reset();
+
+          selectedStars =
+            5;
+
+          updateStars(5);
+
+          selectedImageData =
+            "";
+
+          selectedImageName =
+            "";
+
+          selectedImageType =
+            "";
+
+          selectedFile.textContent =
+            "写真は任意です。";
+
+          preview.classList.remove(
+            "show"
+          );
+
+          preview.removeAttribute(
+            "src"
+          );
+
+        } catch (error) {
+          statusBox.textContent =
+            error.message ||
+            "投稿できませんでした。";
+
+          statusBox.className =
+            "status error";
+
+        } finally {
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            "📷 写真・口コミを投稿する";
+        }
+      }
+    );
+
+
+    updateStars(5);
+    loadVoices();
+  </script>
 
 </body>
 </html>
