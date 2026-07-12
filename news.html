@@ -186,7 +186,6 @@
 
     .news-title {
       margin: 0 0 12px;
-      color: var(--charcoal);
       font-size: 1.45rem;
       line-height: 1.45;
     }
@@ -207,30 +206,19 @@
       font-weight: 700;
     }
 
-    .news-link:hover {
-      background: var(--dark-red);
-    }
-
     .empty,
-    .error {
+    .error,
+    .loading {
       padding: 42px 20px;
-      border: 1px dashed var(--line);
       border-radius: 16px;
-      background: #fff;
       color: var(--gray);
+      background: #fff;
       text-align: center;
     }
 
     .error {
       color: var(--dark-red);
-      border-color: #e4a1a1;
       background: #fff5f5;
-    }
-
-    .loading {
-      padding: 42px 20px;
-      color: var(--gray);
-      text-align: center;
     }
 
     .page-links {
@@ -321,7 +309,7 @@
         <span>ろびんショップDX</span>
       </a>
 
-      <nav aria-label="メインメニュー">
+      <nav>
         <a href="index.html">ホーム</a>
         <a href="menu.html">メニュー</a>
         <a href="news.html" class="active">お知らせ</a>
@@ -385,16 +373,11 @@
 
     function safeUrl(value) {
       const url =
-        String(value || "")
-          .trim();
+        String(value || "").trim();
 
-      if (
-        /^https?:\/\//i.test(url)
-      ) {
-        return url;
-      }
-
-      return "";
+      return /^https?:\/\//i.test(url)
+        ? url
+        : "";
     }
 
 
@@ -406,30 +389,47 @@
         return "";
       }
 
+      let fileId = "";
+
       const fileMatch =
         url.match(
           /drive\.google\.com\/file\/d\/([^/]+)/
         );
 
       if (fileMatch) {
-        return (
-          "https://drive.google.com/uc?export=view&id=" +
-          fileMatch[1]
-        );
+        fileId =
+          fileMatch[1];
       }
 
-      const idMatch =
-        url.match(
-          /[?&]id=([^&]+)/
-        );
+      if (!fileId) {
+        const idMatch =
+          url.match(
+            /[?&]id=([^&#]+)/
+          );
 
-      if (
-        idMatch &&
-        url.includes("drive.google.com")
-      ) {
+        if (idMatch) {
+          fileId =
+            idMatch[1];
+        }
+      }
+
+      if (!fileId) {
+        const googleusercontentMatch =
+          url.match(
+            /googleusercontent\.com\/d\/([^=/?]+)/
+          );
+
+        if (googleusercontentMatch) {
+          fileId =
+            googleusercontentMatch[1];
+        }
+      }
+
+      if (fileId) {
         return (
-          "https://drive.google.com/uc?export=view&id=" +
-          idMatch[1]
+          "https://lh3.googleusercontent.com/d/" +
+          fileId +
+          "=w1200"
         );
       }
 
@@ -467,9 +467,7 @@
         items.map(
           item => {
             const date =
-              escapeHTML(
-                item.date || ""
-              );
+              escapeHTML(item.date);
 
             const title =
               escapeHTML(
@@ -478,20 +476,14 @@
               );
 
             const body =
-              escapeHTML(
-                item.body || ""
-              );
-
-            const rawImage =
-              item.imageUrl ||
-              item.image ||
-              "";
+              escapeHTML(item.body);
 
             const imageUrl =
               convertDriveImageUrl(
-                rawImage
-              ) ||
-              FALLBACK_IMAGE;
+                item.imageUrl ||
+                item.image ||
+                ""
+              );
 
             const linkUrl =
               safeUrl(
@@ -536,15 +528,9 @@
                 ${imageHtml}
 
                 <div class="news-content">
-                  ${
-                    date
-                      ? `
-                        <div class="news-date">
-                          ${date}
-                        </div>
-                      `
-                      : ""
-                  }
+                  <div class="news-date">
+                    ${date}
+                  </div>
 
                   <h3 class="news-title">
                     ${title}
@@ -587,19 +573,13 @@
             }
           );
 
-        if (!response.ok) {
-          throw new Error(
-            "通信エラー"
-          );
-        }
-
         const data =
           await response.json();
 
         if (!data.ok) {
           throw new Error(
             data.error ||
-            "データ取得エラー"
+            "お知らせ取得エラー"
           );
         }
 
@@ -612,8 +592,7 @@
 
         list.innerHTML = `
           <div class="error">
-            お知らせを読み込めませんでした。<br>
-            しばらく時間をおいてから、もう一度お試しください。
+            お知らせを読み込めませんでした。
           </div>
         `;
       }
