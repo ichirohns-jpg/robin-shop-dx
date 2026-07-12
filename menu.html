@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
+<title>おすすめメニュー｜ろびん</title>
+
+<meta
+  name="description"
+  content="志木市の町中華・ラーメン店「ろびん」のおすすめメニュー。名物たろーめんをはじめ、昔ながらの中華料理をご紹介します。"
+>
+
+<meta name="theme-color" content="#151515">
+
+<meta
+  property="og:title"
+  content="おすすめメニュー｜ろびん"
+>
+
+<meta
+  property="og:description"
+  content="ろびんの名物たろーめんと昔ながらの町中華メニュー。"
+>
+
+<meta
+  property="og:image"
+  content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-menu-banner.jpg"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="ロビンアイコン.jpg"
+>
+
+<style>
+
+:root{
+  --black:#111111;
+  --charcoal:#1d1d1d;
+  --dark:#292929;
+  --red:#a71919;
+  --bright-red:#d52b20;
+  --yellow:#f5c400;
+  --gold:#ffdc45;
+  --cream:#fff8e5;
+  --white:#ffffff;
+  --line:#e4ded2;
+  --shadow:0 12px 30px rgba(0,0,0,.18);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f8f4e9;
+  color:#222;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  line-height:1.7;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+/* ヘッダー */
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(17,17,17,.97);
+  border-bottom:3px solid var(--red);
+  box-shadow:0 4px 18px rgba(0,0,0,.22);
+}
+
+.header-inner{
+  width:min(1160px,calc(100% - 24px));
+  min-height:72px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+}
+
+.brand img{
+  width:48px;
+  height:48px;
+  object-fit:cover;
+  border-radius:10px;
+  border:2px solid var(--yellow);
+}
+
+.brand-text{
+  line-height:1.05;
+  font-weight:900;
+}
+
+.brand-text strong{
+  display:block;
+  color:var(--yellow);
+  font-size:20px;
+}
+
+.brand-text small{
+  display:block;
+  color:#fff;
+  font-size:10px;
+  letter-spacing:.12em;
+  margin-top:5px;
+}
+
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.main-nav a{
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
+  padding:10px 13px;
+  border-radius:8px;
+}
+
+.main-nav a:hover{
+  color:#111;
+  background:var(--yellow);
+}
+
+.menu-button{
+  display:none;
+  width:45px;
+  height:42px;
+  border:0;
+  border-radius:8px;
+  background:var(--yellow);
+  color:#111;
+  font-size:24px;
+  font-weight:900;
+}
+
+/* ページタイトル */
+
+.page-hero{
+  position:relative;
+  min-height:390px;
+  overflow:hidden;
+  background:#111;
+}
+
+.page-hero-image{
+  width:100%;
+  height:390px;
+  object-fit:cover;
+}
+
+.page-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.88) 0%,
+      rgba(0,0,0,.55) 42%,
+      rgba(0,0,0,.12) 100%
+    );
+}
+
+.page-hero-content{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:max(22px,calc((100% - 1100px) / 2));
+  transform:translateY(-50%);
+  color:#fff;
+}
+
+.page-hero-kicker{
+  display:inline-block;
+  padding:5px 13px;
+  margin-bottom:14px;
+  color:#111;
+  background:var(--yellow);
+  border-left:6px solid var(--red);
+  font-size:15px;
+  font-weight:900;
+}
+
+.page-hero h1{
+  font-size:clamp(38px,7vw,72px);
+  line-height:1.1;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-shadow:
+    3px 3px 0 var(--red),
+    5px 5px 14px rgba(0,0,0,.55);
+}
+
+.page-hero p{
+  margin-top:15px;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+}
+
+/* 共通 */
+
+.container{
+  width:min(1100px,calc(100% - 28px));
+  margin:0 auto;
+}
+
+.section{
+  padding:64px 0;
+}
+
+.section-dark{
+  background:
+    linear-gradient(
+      135deg,
+      #171717,
+      #2b2020
+    );
+  color:#fff;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:34px;
+}
+
+.section-title .small{
+  display:block;
+  color:var(--red);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.18em;
+  margin-bottom:6px;
+}
+
+.section-dark .section-title .small{
+  color:var(--yellow);
+}
+
+.section-title h2{
+  font-size:clamp(28px,5vw,42px);
+  line-height:1.3;
+  font-weight:900;
+}
+
+.section-title h2::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:5px;
+  margin:14px auto 0;
+  background:var(--red);
+}
+
+.section-dark .section-title h2::after{
+  background:var(--yellow);
+}
+
+.lead{
+  max-width:760px;
+  margin:0 auto 30px;
+  text-align:center;
+  font-size:16px;
+}
+
+/* バナー */
+
+.banner-wrap{
+  overflow:hidden;
+  border:4px solid var(--red);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  margin-bottom:36px;
+}
+
+.banner-wrap img{
+  width:100%;
+  aspect-ratio:1200 / 500;
+  object-fit:cover;
+}
+
+/* 名物たろーめん */
+
+.featured-menu{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+  background:#fff;
+  color:#222;
+  border-radius:18px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  border-top:8px solid var(--yellow);
+  margin-bottom:42px;
+}
+
+.featured-image{
+  overflow:hidden;
+  border-radius:12px;
+  border:4px solid var(--red);
+}
+
+.featured-image img{
+  width:100%;
+  aspect-ratio:4 / 3;
+  object-fit:cover;
+}
+
+.featured-copy h3{
+  color:var(--red);
+  font-size:32px;
+  line-height:1.3;
+  margin-bottom:14px;
+  font-weight:900;
+}
+
+.featured-copy h3 span{
+  display:block;
+  color:#222;
+  font-size:15px;
+  margin-bottom:5px;
+  letter-spacing:.12em;
+}
+
+.featured-copy p{
+  font-size:16px;
+}
+
+.ingredient-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:18px;
+  list-style:none;
+}
+
+.ingredient-list li{
+  padding:5px 10px;
+  border-radius:30px;
+  color:#fff;
+  background:var(--red);
+  font-size:12px;
+  font-weight:800;
+}
+
+/* メニュー一覧 */
+
+.menu-section-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.menu-section-title::before{
+  content:"";
+  display:block;
+  width:8px;
+  height:30px;
+  background:var(--yellow);
+}
+
+.menu-section-title h3{
+  font-size:27px;
+  font-weight:900;
+}
+
+.menu-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px 20px;
+  margin-bottom:42px;
+}
+
+.menu-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-height:70px;
+  padding:15px 17px;
+  background:#fff;
+  color:#222;
+  border-left:6px solid var(--red);
+  border-radius:10px;
+  box-shadow:0 5px 14px rgba(0,0,0,.16);
+}
+
+.menu-item-name{
+  font-size:18px;
+  font-weight:900;
+}
+
+.menu-item-note{
+  display:block;
+  color:#777;
+  font-size:12px;
+  font-weight:600;
+}
+
+.menu-item-mark{
+  flex-shrink:0;
+  color:var(--red);
+  font-size:23px;
+  font-weight:900;
+}
+
+/* 写真カード */
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.photo-card{
+  overflow:hidden;
+  background:#fff;
+  color:#222;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+}
+
+.photo-card img{
+  width:100%;
+  aspect-ratio:4 / 3;
+  object-fit:cover;
+}
+
+.photo-card-body{
+  padding:18px;
+}
+
+.photo-card-body h3{
+  color:var(--red);
+  font-size:21px;
+  line-height:1.3;
+  margin-bottom:7px;
+  font-weight:900;
+}
+
+.photo-card-body p{
+  color:#444;
+  font-size:14px;
+}
+
+/* 注意書き */
+
+.notice{
+  padding:18px 20px;
+  margin-top:28px;
+  color:#333;
+  background:#fff3bd;
+  border-left:6px solid var(--yellow);
+  font-size:14px;
+  font-weight:700;
+  text-align:center;
+}
+
+/* ボタン */
+
+.button-area{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-top:34px;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  padding:11px 22px;
+  border-radius:8px;
+  font-weight:900;
+  border:2px solid transparent;
+  transition:.2s;
+}
+
+.button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 16px rgba(0,0,0,.22);
+}
+
+.button-red{
+  color:#fff;
+  background:var(--red);
+  border-color:var(--red);
+}
+
+.button-yellow{
+  color:#111;
+  background:var(--yellow);
+  border-color:var(--yellow);
+}
+
+.button-dark{
+  color:#fff;
+  background:#222;
+  border-color:#222;
+}
+
+/* フッター */
+
+.site-footer{
+  padding:38px 0 24px;
+  color:#fff;
+  background:#111;
+  border-top:5px solid var(--red);
+}
+
+.footer-inner{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.footer-brand img{
+  width:58px;
+  height:58px;
+  object-fit:cover;
+  border:2px solid var(--yellow);
+  border-radius:10px;
+}
+
+.footer-brand strong{
+  display:block;
+  color:var(--yellow);
+  font-size:24px;
+  line-height:1.1;
+}
+
+.footer-brand small{
+  display:block;
+  color:#ddd;
+  font-size:11px;
+  margin-top:5px;
+}
+
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.footer-links a:hover{
+  color:var(--yellow);
+}
+
+.copyright{
+  margin-top:30px;
+  padding-top:16px;
+  border-top:1px solid #444;
+  color:#aaa;
+  text-align:center;
+  font-size:12px;
+}
+
+/* トップへ */
+
+.to-top{
+  position:fixed;
+  z-index:900;
+  right:16px;
+  bottom:16px;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  background:var(--red);
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+/* スマートフォン */
+
+@media(max-width:780px){
+
+  .header-inner{
+    min-height:66px;
+  }
+
+  .brand img{
+    width:42px;
+    height:42px;
+  }
+
+  .brand-text strong{
+    font-size:18px;
+  }
+
+  .main-nav{
+    display:none;
+    position:absolute;
+    top:66px;
+    left:0;
+    right:0;
+    padding:10px 14px 16px;
+    background:#111;
+    border-bottom:2px solid var(--red);
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .main-nav.open{
+    display:flex;
+  }
+
+  .main-nav a{
+    padding:13px 10px;
+    text-align:center;
+    border-bottom:1px solid #444;
+    border-radius:0;
+  }
+
+  .menu-button{
+    display:block;
+  }
+
+  .page-hero{
+    min-height:390px;
+  }
+
+  .page-hero-image{
+    height:390px;
+    object-position:center;
+  }
+
+  .page-hero::after{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.18) 0%,
+        rgba(0,0,0,.3) 30%,
+        rgba(0,0,0,.9) 100%
+      );
+  }
+
+  .page-hero-content{
+    left:20px;
+    bottom:34px;
+    top:auto;
+    transform:none;
+  }
+
+  .page-hero h1{
+    font-size:48px;
+  }
+
+  .page-hero p{
+    font-size:16px;
+  }
+
+  .section{
+    padding:50px 0;
+  }
+
+  .lead{
+    font-size:15px;
+    text-align:left;
+  }
+
+  .featured-menu{
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:17px;
+  }
+
+  .featured-copy h3{
+    font-size:28px;
+  }
+
+  .featured-copy p{
+    font-size:15px;
+  }
+
+  .menu-list{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-bottom:34px;
+  }
+
+  .menu-item{
+    min-height:64px;
+    padding:13px 14px;
+  }
+
+  .menu-item-name{
+    font-size:17px;
+  }
+
+  .photo-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .button-area{
+    flex-direction:column;
+  }
+
+  .button{
+    width:100%;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+
+  .footer-links{
+    width:100%;
+  }
+
+  .to-top{
+    right:12px;
+    bottom:12px;
+    width:44px;
+    height:44px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <a
+      class="brand"
+      href="index.html"
+    >
+
+      <img
+        src="ロビンアイコン.jpg"
+        alt="ろびんアイコン"
+      >
+
+      <span class="brand-text">
+        <strong>ろびん</strong>
+        <small>ロビンショップDX</small>
+      </span>
+
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <nav class="main-nav">
+
+      <a href="index.html">ホーム</a>
+      <a href="#featured">名物たろーめん</a>
+      <a href="#noodles">麺類</a>
+      <a href="#rice">ご飯・定食</a>
+      <a href="#info">店舗情報</a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<main>
+
+  <section class="page-hero">
+
+    <img
+      class="page-hero-image"
+      src="robin-menu-banner.jpg"
+      alt="ろびんおすすめメニュー"
+    >
+
+    <div class="page-hero-content">
+
+      <p class="page-hero-kicker">
+        RECOMMENDED MENU
+      </p>
+
+      <h1>おすすめメニュー</h1>
+
+      <p>
+        ろびんの名物と、昔ながらの町中華
+      </p>
+
+    </div>
+
+  </section>
+
+  <section
+    id="featured"
+    class="section section-light"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">SPECIAL MENU</span>
+
+        <h2>ろびん名物</h2>
+
+      </div>
+
+      <div class="featured-menu">
+
+        <div class="featured-image">
+
+          <img
+            src="ロビン・タローメン.jpg"
+            alt="ろびん名物たろーめん"
+          >
+
+        </div>
+
+        <div class="featured-copy">
+
+          <h3>
+            <span>ろびんの看板メニュー</span>
+            名物 たろーめん
+          </h3>
+
+          <p>
+            野菜たっぷりの具材に、
+            とろみのある餡を合わせた、
+            ろびんならではの一杯です。
+          </p>
+
+          <p style="margin-top:12px;">
+            キャベツ、にんじん、もやし、きくらげ、
+            たけのこ、青菜、豚肉などが入り、
+            ふわふわの卵白が特徴です。
+          </p>
+
+          <ul class="ingredient-list">
+
+            <li>キャベツ</li>
+            <li>にんじん</li>
+            <li>もやし</li>
+            <li>きくらげ</li>
+            <li>たけのこ</li>
+            <li>青菜</li>
+            <li>豚肉</li>
+            <li>ふわふわ卵白</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="noodles"
+    class="section section-dark"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">NOODLES</span>
+
+        <h2>麺類</h2>
+
+      </div>
+
+      <div class="menu-list">
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">たろーめん</span>
+            <span class="menu-item-note">ろびん名物</span>
+          </div>
+
+          <span class="menu-item-mark">麺</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">ラーメン</span>
+            <span class="menu-item-note">昔ながらの定番</span>
+          </div>
+
+          <span class="menu-item-mark">麺</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">たろーつけめん</span>
+            <span class="menu-item-note">たろーめんの味わい</span>
+          </div>
+
+          <span class="menu-item-mark">麺</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">うまにめん</span>
+            <span class="menu-item-note">具材たっぷり</span>
+          </div>
+
+          <span class="menu-item-mark">麺</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">あんかけ焼そば</span>
+            <span class="menu-item-note">とろみのある餡</span>
+          </div>
+
+          <span class="menu-item-mark">麺</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">チャーシューめん</span>
+            <span class="menu-item-note">チャーシューを楽しむ一杯</span>
+          </div>
+
+          <span class="menu-item-mark">麺</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">ゲキカラめん</span>
+            <span class="menu-item-note">辛いものがお好きな方に</span>
+          </div>
+
+          <span class="menu-item-mark">麺</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="rice"
+    class="section section-light"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">RICE &amp; SET MEAL</span>
+
+        <h2>ご飯・定食</h2>
+
+      </div>
+
+      <div class="menu-list">
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">チャーハン</span>
+            <span class="menu-item-note">町中華の定番</span>
+          </div>
+
+          <span class="menu-item-mark">飯</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">中華丼</span>
+            <span class="menu-item-note">具材たっぷり</span>
+          </div>
+
+          <span class="menu-item-mark">飯</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">日替り定食</span>
+            <span class="menu-item-note">内容は店頭でご確認ください</span>
+          </div>
+
+          <span class="menu-item-mark">定</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">ニラレバ定食</span>
+            <span class="menu-item-note">ご飯がすすむ定食</span>
+          </div>
+
+          <span class="menu-item-mark">定</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">たろーめんセット</span>
+            <span class="menu-item-note">たろーめんをセットで</span>
+          </div>
+
+          <span class="menu-item-mark">定</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="side"
+    class="section section-dark"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">SIDE MENU</span>
+
+        <h2>一品料理</h2>
+
+      </div>
+
+      <div class="menu-list">
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">餃子</span>
+            <span class="menu-item-note">おかずにも、おつまみにも</span>
+          </div>
+
+          <span class="menu-item-mark">餃</span>
+
+        </div>
+
+        <div class="menu-item">
+
+          <div>
+            <span class="menu-item-name">季節のメニュー</span>
+            <span class="menu-item-note">店頭でご確認ください</span>
+          </div>
+
+          <span class="menu-item-mark">旬</span>
+
+        </div>
+
+      </div>
+
+      <div class="photo-grid">
+
+        <article class="photo-card">
+
+          <img
+            src="robin-menu.jpg"
+            alt="ろびんのメニュー"
+            loading="lazy"
+          >
+
+          <div class="photo-card-body">
+
+            <h3>昔ながらの味</h3>
+
+            <p>
+              志木で気軽に楽しめる町中華の味。
+            </p>
+
+          </div>
+
+        </article>
+
+        <article class="photo-card">
+
+          <img
+            src="ロビンストア.jpg"
+            alt="ろびん店舗イメージ"
+            loading="lazy"
+          >
+
+          <div class="photo-card-body">
+
+            <h3>地域の身近なお店</h3>
+
+            <p>
+              仕事帰りや家族との食事にも。
+            </p>
+
+          </div>
+
+        </article>
+
+        <article class="photo-card">
+
+          <img
+            src="ロビンデリバリー.jpg"
+            alt="ろびんの料理イメージ"
+            loading="lazy"
+          >
+
+          <div class="photo-card-body">
+
+            <h3>詳しくは店舗へ</h3>
+
+            <p>
+              メニューや提供状況は、店舗へお問い合わせください。
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <div class="notice">
+
+        メニュー内容・価格・提供状況は変更される場合があります。
+        ご来店前に店舗へご確認ください。
+
+      </div>
+
+      <div class="button-area">
+
+        <a
+          class="button button-yellow"
+          href="tel:0484722175"
+        >
+          電話で確認する
+        </a>
+
+        <a
+          class="button button-red"
+          href="index.html"
+        >
+          トップページへ戻る
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="info"
+    class="section section-light"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">SHOP INFORMATION</span>
+
+        <h2>店舗情報</h2>
+
+      </div>
+
+      <div
+        style="
+          max-width:760px;
+          margin:0 auto;
+          background:#fff;
+          border-top:6px solid #a71919;
+          border-radius:14px;
+          padding:24px;
+          box-shadow:0 12px 30px rgba(0,0,0,.16);
+        "
+      >
+
+        <p style="font-size:18px;font-weight:900;color:#a71919;">
+          ろびん
+        </p>
+
+        <p style="margin-top:10px;">
+          〒353-0004<br>
+          埼玉県志木市本町3-1-49
+        </p>
+
+        <p style="margin-top:10px;">
+          電話：
+          <a
+            href="tel:0484722175"
+            style="color:#a71919;font-weight:900;"
+          >
+            048-472-2175
+          </a>
+        </p>
+
+        <p style="margin-top:10px;">
+          営業時間：11:00〜14:00／17:00〜21:30
+        </p>
+
+        <p style="margin-top:10px;">
+          定休日：木曜日
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          src="ロビンアイコン.jpg"
+          alt="ろびんアイコン"
+        >
+
+        <div>
+          <strong>ろびん</strong>
+          <small>ロビンショップDX</small>
+        </div>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="index.html">ホーム</a>
+        <a href="#featured">たろーめん</a>
+        <a href="#noodles">麺類</a>
+        <a href="#rice">ご飯・定食</a>
+        <a href="tel:0484722175">電話する</a>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © ロビンショップDX
+    </div>
+
+  </div>
+
+</footer>
+
+<a
+  class="to-top"
+  href="#top"
+  aria-label="ページ上部へ戻る"
+>
+  ↑
+</a>
+
+<script>
+
+const menuButton =
+  document.querySelector(".menu-button");
+
+const mainNav =
+  document.querySelector(".main-nav");
+
+menuButton.addEventListener(
+  "click",
+  function(){
+
+    const isOpen =
+      mainNav.classList.toggle("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    menuButton.textContent =
+      isOpen ? "×" : "☰";
+
+  }
+);
+
+document
+  .querySelectorAll(".main-nav a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        mainNav.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.textContent = "☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
