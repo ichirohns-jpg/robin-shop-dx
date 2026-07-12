@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>お知らせ｜ろびんショップDX</title>
 
   <style>
@@ -48,8 +49,8 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(32, 33, 36, 0.97);
       color: #fff;
+      background: rgba(32, 33, 36, 0.97);
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
     }
 
@@ -67,8 +68,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 900;
       font-size: 1.2rem;
+      font-weight: 900;
       white-space: nowrap;
     }
 
@@ -90,7 +91,6 @@
     nav a {
       padding: 6px 10px;
       border-radius: 8px;
-      color: #fff;
       font-size: 0.88rem;
     }
 
@@ -104,7 +104,10 @@
       padding: 70px 20px;
       color: #fff;
       background:
-        linear-gradient(rgba(32, 33, 36, 0.68), rgba(32, 33, 36, 0.76)),
+        linear-gradient(
+          rgba(32, 33, 36, 0.68),
+          rgba(32, 33, 36, 0.76)
+        ),
         url("robin-main-banner.jpg") center / cover;
       display: flex;
       align-items: center;
@@ -337,12 +340,15 @@
 
   <main>
     <h2 class="section-title">ろびんからのお知らせ</h2>
+
     <p class="section-lead">
       営業情報、メニュー情報、地域のお知らせなどを掲載します。
     </p>
 
     <section id="news-list" aria-live="polite">
-      <div class="loading">お知らせを読み込んでいます。</div>
+      <div class="loading">
+        お知らせを読み込んでいます。
+      </div>
     </section>
 
     <div class="page-links">
@@ -361,12 +367,14 @@
 
   <script>
     const GAS_URL =
-      "https://script.google.com/macros/s/AKfycbxHyaWGMgx1Z_pj6aDBkWbWKcYZ8-Om-pxXxHH5C1lOvbJ2CP_uarqbjeiJYEorlv0Stg/exec";
+      "https://script.google.com/macros/s/AKfycbyQYbLdtiWhEr27ZAWJi3D98eVJdXlD-lMr2D6T6RxvfIb_k2kFHDxxfdKE_WTiUCZ1HQ/exec";
 
-    const FALLBACK_IMAGE = "robin-main.jpg";
+    const FALLBACK_IMAGE =
+      "robin-main.jpg";
+
 
     function escapeHTML(value) {
-      return String(value ?? "")
+      return String(value || "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -374,146 +382,231 @@
         .replace(/'/g, "&#039;");
     }
 
+
     function safeUrl(value) {
-      const url = String(value ?? "").trim();
+      const url =
+        String(value || "")
+          .trim();
 
-      if (!url) {
-        return "";
-      }
-
-      if (/^https?:\/\//i.test(url)) {
+      if (
+        /^https?:\/\//i.test(url)
+      ) {
         return url;
       }
 
       return "";
     }
 
+
     function convertDriveImageUrl(value) {
-      const url = safeUrl(value);
+      const url =
+        safeUrl(value);
 
       if (!url) {
         return "";
       }
 
-      const fileMatch = url.match(
-        /drive\.google\.com\/file\/d\/([^/]+)/
-      );
+      const fileMatch =
+        url.match(
+          /drive\.google\.com\/file\/d\/([^/]+)/
+        );
 
       if (fileMatch) {
-        return "https://drive.google.com/uc?export=view&id=" + fileMatch[1];
+        return (
+          "https://drive.google.com/uc?export=view&id=" +
+          fileMatch[1]
+        );
       }
 
-      const idMatch = url.match(/[?&]id=([^&]+)/);
+      const idMatch =
+        url.match(
+          /[?&]id=([^&]+)/
+        );
 
       if (
         idMatch &&
         url.includes("drive.google.com")
       ) {
-        return "https://drive.google.com/uc?export=view&id=" + idMatch[1];
+        return (
+          "https://drive.google.com/uc?export=view&id=" +
+          idMatch[1]
+        );
       }
 
       return url;
     }
 
+
     function isYouTubeUrl(url) {
-      return /youtube\.com|youtu\.be/i.test(url);
+      return /youtube\.com|youtu\.be/i.test(
+        url
+      );
     }
 
-    function renderNews(items) {
-      const list = document.getElementById("news-list");
 
-      if (!Array.isArray(items) || items.length === 0) {
+    function renderNews(items) {
+      const list =
+        document.getElementById(
+          "news-list"
+        );
+
+      if (
+        !Array.isArray(items) ||
+        items.length === 0
+      ) {
         list.innerHTML = `
           <div class="empty">
             現在、新しいお知らせはありません。
           </div>
         `;
+
         return;
       }
 
-      list.innerHTML = items.map((item) => {
-        const date = escapeHTML(item.date || "");
-        const title = escapeHTML(item.title || "ろびんからのお知らせ");
-        const body = escapeHTML(item.body || "");
+      list.innerHTML =
+        items.map(
+          item => {
+            const date =
+              escapeHTML(
+                item.date || ""
+              );
 
-        const rawImage =
-          item.imageUrl ||
-          item.image ||
-          "";
+            const title =
+              escapeHTML(
+                item.title ||
+                "ろびんからのお知らせ"
+              );
 
-        const imageUrl =
-          convertDriveImageUrl(rawImage) ||
-          FALLBACK_IMAGE;
+            const body =
+              escapeHTML(
+                item.body || ""
+              );
 
-        const linkUrl =
-          safeUrl(item.externalLink || item.link || "");
+            const rawImage =
+              item.imageUrl ||
+              item.image ||
+              "";
 
-        const imageHtml = imageUrl
-          ? `
-            <img
-              class="news-image"
-              src="${escapeHTML(imageUrl)}"
-              alt="${title}"
-              loading="lazy"
-              onerror="this.src='${FALLBACK_IMAGE}'"
-            >
-          `
-          : "";
+            const imageUrl =
+              convertDriveImageUrl(
+                rawImage
+              ) ||
+              FALLBACK_IMAGE;
 
-        const linkHtml = linkUrl
-          ? `
-            <a
-              class="news-link"
-              href="${escapeHTML(linkUrl)}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ${isYouTubeUrl(linkUrl) ? "動画を見る" : "詳しく見る"}
-            </a>
-          `
-          : "";
+            const linkUrl =
+              safeUrl(
+                item.externalLink ||
+                item.link ||
+                ""
+              );
 
-        return `
-          <article class="news-card">
-            ${imageHtml}
+            const imageHtml =
+              imageUrl
+                ? `
+                  <img
+                    class="news-image"
+                    src="${escapeHTML(imageUrl)}"
+                    alt="${title}"
+                    loading="lazy"
+                    onerror="this.src='${FALLBACK_IMAGE}'"
+                  >
+                `
+                : "";
 
-            <div class="news-content">
-              ${date ? `<div class="news-date">${date}</div>` : ""}
+            const linkHtml =
+              linkUrl
+                ? `
+                  <a
+                    class="news-link"
+                    href="${escapeHTML(linkUrl)}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    ${
+                      isYouTubeUrl(linkUrl)
+                        ? "動画を見る"
+                        : "詳しく見る"
+                    }
+                  </a>
+                `
+                : "";
 
-              <h3 class="news-title">${title}</h3>
+            return `
+              <article class="news-card">
+                ${imageHtml}
 
-              ${body ? `<p class="news-body">${body}</p>` : ""}
+                <div class="news-content">
+                  ${
+                    date
+                      ? `
+                        <div class="news-date">
+                          ${date}
+                        </div>
+                      `
+                      : ""
+                  }
 
-              ${linkHtml}
-            </div>
-          </article>
-        `;
-      }).join("");
+                  <h3 class="news-title">
+                    ${title}
+                  </h3>
+
+                  ${
+                    body
+                      ? `
+                        <p class="news-body">
+                          ${body}
+                        </p>
+                      `
+                      : ""
+                  }
+
+                  ${linkHtml}
+                </div>
+              </article>
+            `;
+          }
+        ).join("");
     }
 
-    async function loadNews() {
-      const list = document.getElementById("news-list");
 
-      try {
-        const response = await fetch(
-          GAS_URL + "?mode=news&t=" + Date.now(),
-          {
-            method: "GET",
-            cache: "no-store"
-          }
+    async function loadNews() {
+      const list =
+        document.getElementById(
+          "news-list"
         );
 
+      try {
+        const response =
+          await fetch(
+            GAS_URL +
+            "?mode=news&t=" +
+            Date.now(),
+            {
+              method: "GET",
+              cache: "no-store"
+            }
+          );
+
         if (!response.ok) {
-          throw new Error("通信エラー");
+          throw new Error(
+            "通信エラー"
+          );
         }
 
-        const data = await response.json();
+        const data =
+          await response.json();
 
         if (!data.ok) {
-          throw new Error(data.error || "データ取得エラー");
+          throw new Error(
+            data.error ||
+            "データ取得エラー"
+          );
         }
 
-        renderNews(data.items || []);
+        renderNews(
+          data.items || []
+        );
+
       } catch (error) {
         console.error(error);
 
@@ -526,7 +619,11 @@
       }
     }
 
-    document.addEventListener("DOMContentLoaded", loadNews);
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      loadNews
+    );
   </script>
 
 </body>
