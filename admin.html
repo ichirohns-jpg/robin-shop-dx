@@ -16,7 +16,6 @@
       --cream: #fffaf0;
       --gray: #666;
       --line: #eadfca;
-      --green: #237a45;
     }
 
     * {
@@ -65,6 +64,7 @@
     .back-link {
       padding: 8px 14px;
       border-radius: 999px;
+      color: #fff;
       background: var(--red);
       font-size: 0.9rem;
       font-weight: 700;
@@ -126,11 +126,6 @@
       font-size: 16px;
     }
 
-    textarea {
-      min-height: 170px;
-      resize: vertical;
-    }
-
     input:focus,
     textarea:focus,
     select:focus {
@@ -138,10 +133,61 @@
       border-color: var(--yellow);
     }
 
+    textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
     .help {
       margin: 6px 0 0;
       color: var(--gray);
       font-size: 0.85rem;
+    }
+
+    .file-label {
+      display: block;
+      padding: 18px;
+      border: 2px dashed #d8cdbb;
+      border-radius: 12px;
+      background: #fffdf8;
+      color: var(--dark-red);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .file-label:hover {
+      border-color: var(--yellow);
+      background: #fff9dc;
+    }
+
+    #imageFile {
+      display: none;
+    }
+
+    .selected-file {
+      margin-top: 10px;
+      color: var(--gray);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .preview-box {
+      display: none;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .preview-box.show {
+      display: block;
+    }
+
+    .preview-image {
+      width: 100%;
+      max-height: 340px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #f3eee3;
     }
 
     .button-area {
@@ -215,31 +261,6 @@
       font-size: 0.9rem;
     }
 
-    .preview-box {
-      display: none;
-      margin-top: 26px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-    }
-
-    .preview-box.show {
-      display: block;
-    }
-
-    .preview-title {
-      margin: 0 0 12px;
-      color: var(--dark-red);
-      font-size: 1.1rem;
-    }
-
-    .preview-image {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: 12px;
-      background: #f3eee3;
-    }
-
     footer {
       padding: 28px 20px;
       color: #fff;
@@ -290,16 +311,14 @@
     <h1 class="page-title">お知らせを登録</h1>
 
     <p class="lead">
-      店舗からのお知らせを入力して公開できます。
+      カメラロールから写真を選んで投稿できます。
     </p>
 
     <section class="panel">
       <form id="news-form">
 
         <div class="form-group">
-          <label for="date">
-            日付
-          </label>
+          <label for="date">日付</label>
 
           <input
             id="date"
@@ -323,9 +342,7 @@
         </div>
 
         <div class="form-group">
-          <label for="body">
-            本文
-          </label>
+          <label for="body">本文</label>
 
           <textarea
             id="body"
@@ -335,26 +352,38 @@
         </div>
 
         <div class="form-group">
-          <label for="imageUrl">
-            画像URL
+          <label for="imageFile">写真</label>
+
+          <label class="file-label" for="imageFile">
+            📷 カメラロールから写真を選択
           </label>
 
           <input
-            id="imageUrl"
-            name="imageUrl"
-            type="url"
-            placeholder="https://..."
+            id="imageFile"
+            name="imageFile"
+            type="file"
+            accept="image/*"
           >
 
+          <div id="selected-file" class="selected-file">
+            写真は任意です。
+          </div>
+
           <p class="help">
-            GitHub、Google Drive、画像公開URLなどを入力できます。
+            選んだ写真はGoogle Driveへ自動保存されます。
           </p>
+
+          <div id="preview-box" class="preview-box">
+            <img
+              id="preview-image"
+              class="preview-image"
+              alt="選択した写真のプレビュー"
+            >
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="externalLink">
-            外部リンク
-          </label>
+          <label for="externalLink">外部リンク</label>
 
           <input
             id="externalLink"
@@ -369,9 +398,7 @@
         </div>
 
         <div class="form-group">
-          <label for="publish">
-            公開状態
-          </label>
+          <label for="publish">公開状態</label>
 
           <select id="publish" name="publish">
             <option value="公開">公開する</option>
@@ -392,17 +419,7 @@
         <div id="status" class="status"></div>
 
         <div class="notice">
-          入力した内容は「お知らせ」シートに保存されます。
-          公開状態を「公開する」にすると、お知らせページに表示されます。
-        </div>
-
-        <div id="preview-box" class="preview-box">
-          <h2 class="preview-title">画像プレビュー</h2>
-          <img
-            id="preview-image"
-            class="preview-image"
-            alt="画像プレビュー"
-          >
+          入力した内容と写真は、「お知らせ」シートに保存されます。
         </div>
 
       </form>
@@ -430,10 +447,10 @@
     const bodyInput =
       document.getElementById("body");
 
-    const imageInput =
-      document.getElementById("imageUrl");
+    const imageFileInput =
+      document.getElementById("imageFile");
 
-    const linkInput =
+    const externalLinkInput =
       document.getElementById("externalLink");
 
     const publishInput =
@@ -445,64 +462,273 @@
     const statusBox =
       document.getElementById("status");
 
+    const selectedFileBox =
+      document.getElementById("selected-file");
+
     const previewBox =
       document.getElementById("preview-box");
 
     const previewImage =
       document.getElementById("preview-image");
 
+    let selectedImageData =
+      "";
+
+    let selectedImageName =
+      "";
+
+    let selectedImageType =
+      "";
+
     function getToday() {
-      const now = new Date();
+      const now =
+        new Date();
 
       const year =
         now.getFullYear();
 
       const month =
-        String(now.getMonth() + 1)
-          .padStart(2, "0");
+        String(
+          now.getMonth() + 1
+        ).padStart(2, "0");
 
       const day =
-        String(now.getDate())
-          .padStart(2, "0");
+        String(
+          now.getDate()
+        ).padStart(2, "0");
 
-      return year + "-" + month + "-" + day;
+      return (
+        year +
+        "-" +
+        month +
+        "-" +
+        day
+      );
     }
 
-    function showStatus(message, type) {
-      statusBox.textContent = message;
-      statusBox.className = "status " + type;
+    function showStatus(
+      message,
+      type
+    ) {
+      statusBox.textContent =
+        message;
+
+      statusBox.className =
+        "status " + type;
     }
 
     function clearStatus() {
-      statusBox.textContent = "";
-      statusBox.className = "status";
+      statusBox.textContent =
+        "";
+
+      statusBox.className =
+        "status";
     }
 
-    function updatePreview() {
-      const imageUrl =
-        imageInput.value.trim();
+    function readFileAsDataURL(
+      file
+    ) {
+      return new Promise(
+        (resolve, reject) => {
+          const reader =
+            new FileReader();
 
-      if (!imageUrl) {
-        previewBox.classList.remove("show");
-        previewImage.removeAttribute("src");
+          reader.onload =
+            () => resolve(
+              reader.result
+            );
+
+          reader.onerror =
+            () => reject(
+              new Error(
+                "写真を読み込めませんでした。"
+              )
+            );
+
+          reader.readAsDataURL(
+            file
+          );
+        }
+      );
+    }
+
+    function loadImage(
+      dataUrl
+    ) {
+      return new Promise(
+        (resolve, reject) => {
+          const image =
+            new Image();
+
+          image.onload =
+            () => resolve(
+              image
+            );
+
+          image.onerror =
+            () => reject(
+              new Error(
+                "写真を表示できませんでした。"
+              )
+            );
+
+          image.src =
+            dataUrl;
+        }
+      );
+    }
+
+    async function compressImage(
+      file
+    ) {
+      const originalData =
+        await readFileAsDataURL(
+          file
+        );
+
+      const image =
+        await loadImage(
+          originalData
+        );
+
+      const maxSize =
+        1600;
+
+      let width =
+        image.naturalWidth;
+
+      let height =
+        image.naturalHeight;
+
+      if (
+        width > maxSize ||
+        height > maxSize
+      ) {
+        const scale =
+          Math.min(
+            maxSize / width,
+            maxSize / height
+          );
+
+        width =
+          Math.round(
+            width * scale
+          );
+
+        height =
+          Math.round(
+            height * scale
+          );
+      }
+
+      const canvas =
+        document.createElement(
+          "canvas"
+        );
+
+      canvas.width =
+        width;
+
+      canvas.height =
+        height;
+
+      const context =
+        canvas.getContext(
+          "2d"
+        );
+
+      context.fillStyle =
+        "#ffffff";
+
+      context.fillRect(
+        0,
+        0,
+        width,
+        height
+      );
+
+      context.drawImage(
+        image,
+        0,
+        0,
+        width,
+        height
+      );
+
+      return canvas.toDataURL(
+        "image/jpeg",
+        0.82
+      );
+    }
+
+    async function selectImage() {
+      const file =
+        imageFileInput.files[0];
+
+      selectedImageData =
+        "";
+
+      selectedImageName =
+        "";
+
+      selectedImageType =
+        "";
+
+      previewBox.classList.remove(
+        "show"
+      );
+
+      previewImage.removeAttribute(
+        "src"
+      );
+
+      if (!file) {
+        selectedFileBox.textContent =
+          "写真は任意です。";
+
         return;
       }
 
-      previewImage.src = imageUrl;
-      previewBox.classList.add("show");
-    }
+      selectedFileBox.textContent =
+        "写真を準備しています…";
 
-    function readResponse(responseText) {
       try {
-        return JSON.parse(responseText);
+        selectedImageData =
+          await compressImage(
+            file
+          );
+
+        selectedImageName =
+          file.name ||
+          "robin-image";
+
+        selectedImageType =
+          "image/jpeg";
+
+        previewImage.src =
+          selectedImageData;
+
+        previewBox.classList.add(
+          "show"
+        );
+
+        selectedFileBox.textContent =
+          "選択中：" + file.name;
+
       } catch (error) {
-        throw new Error(
-          "GASから正しい返答を受け取れませんでした。"
+        selectedFileBox.textContent =
+          "写真を読み込めませんでした。";
+
+        showStatus(
+          error.message,
+          "error"
         );
       }
     }
 
-    async function saveNews(event) {
+    async function saveNews(
+      event
+    ) {
       event.preventDefault();
 
       clearStatus();
@@ -515,6 +741,7 @@
           "タイトルを入力してください。",
           "error"
         );
+
         return;
       }
 
@@ -522,31 +749,36 @@
         mode: "saveNews",
 
         date:
-          dateInput.value || getToday(),
+          dateInput.value ||
+          getToday(),
 
-        title: title,
+        title:
+          title,
 
         body:
           bodyInput.value.trim(),
 
-        imageUrl:
-          imageInput.value.trim(),
+        imageData:
+          selectedImageData,
 
-        image:
-          imageInput.value.trim(),
+        imageName:
+          selectedImageName,
+
+        imageType:
+          selectedImageType,
 
         externalLink:
-          linkInput.value.trim(),
-
-        link:
-          linkInput.value.trim(),
+          externalLinkInput.value.trim(),
 
         publish:
           publishInput.value
       };
 
-      submitButton.disabled = true;
-      submitButton.textContent = "登録中です…";
+      submitButton.disabled =
+        true;
+
+      submitButton.textContent =
+        "登録中です…";
 
       try {
         const response =
@@ -558,37 +790,77 @@
                 "Content-Type":
                   "text/plain;charset=utf-8"
               },
-              body: JSON.stringify(payload)
+              body: JSON.stringify(
+                payload
+              )
             }
           );
 
         const responseText =
           await response.text();
 
-        const result =
-          readResponse(responseText);
+        let result;
+
+        try {
+          result =
+            JSON.parse(
+              responseText
+            );
+        } catch (error) {
+          throw new Error(
+            "GASから正しい返答を受け取れませんでした。"
+          );
+        }
 
         if (!result.ok) {
           throw new Error(
             result.error ||
-            "お知らせの登録に失敗しました。"
+            "登録に失敗しました。"
           );
         }
 
         showStatus(
-          "お知らせを登録しました。お知らせページで確認できます。",
+          "お知らせを登録しました。",
           "success"
         );
 
-        titleInput.value = "";
-        bodyInput.value = "";
-        imageInput.value = "";
-        linkInput.value = "";
-        publishInput.value = "公開";
-        dateInput.value = getToday();
+        titleInput.value =
+          "";
 
-        previewBox.classList.remove("show");
-        previewImage.removeAttribute("src");
+        bodyInput.value =
+          "";
+
+        externalLinkInput.value =
+          "";
+
+        publishInput.value =
+          "公開";
+
+        dateInput.value =
+          getToday();
+
+        imageFileInput.value =
+          "";
+
+        selectedImageData =
+          "";
+
+        selectedImageName =
+          "";
+
+        selectedImageType =
+          "";
+
+        selectedFileBox.textContent =
+          "写真は任意です。";
+
+        previewBox.classList.remove(
+          "show"
+        );
+
+        previewImage.removeAttribute(
+          "src"
+        );
 
       } catch (error) {
         console.error(error);
@@ -599,16 +871,20 @@
           "error"
         );
       } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = "お知らせを登録する";
+        submitButton.disabled =
+          false;
+
+        submitButton.textContent =
+          "お知らせを登録する";
       }
     }
 
-    dateInput.value = getToday();
+    dateInput.value =
+      getToday();
 
-    imageInput.addEventListener(
-      "input",
-      updatePreview
+    imageFileInput.addEventListener(
+      "change",
+      selectImage
     );
 
     form.addEventListener(
