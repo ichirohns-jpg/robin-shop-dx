@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
+<title>ろびん｜ロビンショップDX</title>
+
+<meta
+  name="description"
+  content="埼玉県志木市の町中華・ラーメン店「ろびん」。名物たろーめんをはじめ、昔ながらの中華料理をお楽しみいただけます。"
+>
+
+<meta name="theme-color" content="#151515">
+
+<meta
+  property="og:title"
+  content="ろびん｜ロビンショップDX"
+>
+
+<meta
+  property="og:description"
+  content="志木市の町中華・ラーメン店「ろびん」。名物たろーめん。"
+>
+
+<meta
+  property="og:image"
+  content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main-banner.jpg"
+>
+
+<meta
+  property="og:url"
+  content="https://ichirohns-jpg.github.io/robin-shop-dx/"
+>
+
+<meta property="og:type" content="website">
+
+<link
+  rel="apple-touch-icon"
+  href="ロビンアイコン.jpg"
+>
+
+<style>
+
+:root{
+  --black:#111111;
+  --charcoal:#1b1b1b;
+  --dark:#242424;
+  --red:#a71919;
+  --bright-red:#d52b20;
+  --yellow:#f5c400;
+  --gold:#ffdc45;
+  --cream:#fff8e5;
+  --white:#ffffff;
+  --gray:#d8d8d8;
+  --shadow:0 12px 35px rgba(0,0,0,.24);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    linear-gradient(
+      180deg,
+      #111111 0%,
+      #242424 35%,
+      #f8f4e9 35%,
+      #f8f4e9 100%
+    );
+  color:#222;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  line-height:1.7;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+.container{
+  width:min(1100px, calc(100% - 28px));
+  margin:0 auto;
+}
+
+/* ヘッダー */
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(17,17,17,.96);
+  border-bottom:2px solid var(--red);
+  box-shadow:0 4px 18px rgba(0,0,0,.2);
+}
+
+.header-inner{
+  width:min(1180px, calc(100% - 24px));
+  min-height:72px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  flex-shrink:0;
+}
+
+.brand img{
+  width:48px;
+  height:48px;
+  object-fit:cover;
+  border-radius:10px;
+  border:2px solid var(--yellow);
+}
+
+.brand-text{
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:.04em;
+}
+
+.brand-text strong{
+  display:block;
+  color:var(--yellow);
+  font-size:20px;
+}
+
+.brand-text small{
+  display:block;
+  color:#fff;
+  font-size:10px;
+  letter-spacing:.12em;
+  margin-top:5px;
+}
+
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.main-nav a{
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  padding:10px 12px;
+  border-radius:8px;
+  transition:.2s;
+}
+
+.main-nav a:hover{
+  color:#111;
+  background:var(--yellow);
+}
+
+.menu-button{
+  display:none;
+  border:0;
+  background:var(--yellow);
+  color:#111;
+  width:45px;
+  height:42px;
+  border-radius:8px;
+  font-size:24px;
+  font-weight:900;
+}
+
+/* ヒーロー */
+
+.hero{
+  position:relative;
+  min-height:510px;
+  overflow:hidden;
+  background:#111;
+}
+
+.hero-image{
+  width:100%;
+  height:510px;
+  object-fit:cover;
+  object-position:center;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.88) 0%,
+      rgba(0,0,0,.54) 38%,
+      rgba(0,0,0,.06) 78%,
+      rgba(0,0,0,.18) 100%
+    );
+}
+
+.hero-content{
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:max(22px, calc((100% - 1100px) / 2));
+  transform:translateY(-50%);
+  color:#fff;
+  width:min(500px, calc(100% - 44px));
+}
+
+.hero-kicker{
+  display:inline-block;
+  padding:5px 13px;
+  margin-bottom:14px;
+  color:#111;
+  background:var(--yellow);
+  border-left:6px solid var(--red);
+  font-weight:900;
+  font-size:15px;
+  letter-spacing:.08em;
+}
+
+.hero h1{
+  font-size:clamp(58px, 10vw, 108px);
+  line-height:.95;
+  font-weight:900;
+  letter-spacing:.05em;
+  color:#fff;
+  text-shadow:
+    4px 4px 0 var(--red),
+    7px 7px 16px rgba(0,0,0,.55);
+}
+
+.hero-subtitle{
+  display:inline-block;
+  margin-top:22px;
+  padding:7px 16px;
+  background:var(--red);
+  color:#fff;
+  font-size:clamp(21px, 3vw, 32px);
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:.08em;
+  box-shadow:5px 5px 0 var(--yellow);
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:30px;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:11px 20px;
+  border-radius:8px;
+  font-weight:900;
+  border:2px solid transparent;
+  transition:.2s;
+}
+
+.button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 16px rgba(0,0,0,.22);
+}
+
+.button-yellow{
+  color:#111;
+  background:var(--yellow);
+  border-color:var(--yellow);
+}
+
+.button-red{
+  color:#fff;
+  background:var(--red);
+  border-color:#fff;
+}
+
+.button-dark{
+  color:#fff;
+  background:#222;
+  border-color:#222;
+}
+
+/* 共通 */
+
+section{
+  scroll-margin-top:80px;
+}
+
+.section{
+  padding:72px 0;
+}
+
+.section-dark{
+  background:
+    linear-gradient(
+      135deg,
+      #151515,
+      #2a2020
+    );
+  color:#fff;
+}
+
+.section-light{
+  background:#f8f4e9;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:36px;
+}
+
+.section-title .small{
+  display:block;
+  color:var(--red);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.18em;
+  margin-bottom:5px;
+}
+
+.section-dark .section-title .small{
+  color:var(--yellow);
+}
+
+.section-title h2{
+  color:#222;
+  font-size:clamp(28px, 5vw, 44px);
+  line-height:1.25;
+  font-weight:900;
+}
+
+.section-dark .section-title h2{
+  color:#fff;
+}
+
+.section-title h2::after{
+  content:"";
+  display:block;
+  width:72px;
+  height:5px;
+  margin:15px auto 0;
+  background:var(--red);
+}
+
+.section-dark .section-title h2::after{
+  background:var(--yellow);
+}
+
+.section-lead{
+  max-width:760px;
+  margin:0 auto 30px;
+  text-align:center;
+  font-size:17px;
+}
+
+/* 店舗紹介 */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.about-image{
+  overflow:hidden;
+  border-radius:16px;
+  border:5px solid var(--red);
+  box-shadow:var(--shadow);
+  background:#222;
+}
+
+.about-image img{
+  width:100%;
+  aspect-ratio:16 / 10;
+  object-fit:cover;
+}
+
+.about-copy{
+  background:#fff;
+  padding:30px;
+  border-left:8px solid var(--yellow);
+  box-shadow:var(--shadow);
+}
+
+.about-copy h3{
+  color:var(--red);
+  font-size:28px;
+  line-height:1.35;
+  margin-bottom:15px;
+  font-weight:900;
+}
+
+.about-copy p{
+  font-size:16px;
+}
+
+/* バナー */
+
+.banner-image{
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  border:4px solid var(--red);
+  box-shadow:var(--shadow);
+  margin-bottom:34px;
+}
+
+.banner-image img{
+  width:100%;
+  aspect-ratio:1200 / 500;
+  object-fit:cover;
+}
+
+/* メニュー */
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px;
+}
+
+.menu-card{
+  overflow:hidden;
+  background:#fff;
+  border-radius:15px;
+  box-shadow:var(--shadow);
+  border-top:7px solid var(--red);
+}
+
+.menu-card-image{
+  width:100%;
+  aspect-ratio:4 / 3;
+  object-fit:cover;
+  background:#222;
+}
+
+.menu-card-body{
+  padding:20px;
+}
+
+.menu-card-body h3{
+  color:var(--red);
+  font-size:22px;
+  line-height:1.3;
+  margin-bottom:9px;
+  font-weight:900;
+}
+
+.menu-card-body p{
+  font-size:14px;
+  color:#444;
+}
+
+/* おすすめメニュー内の補足 */
+
+.menu-note{
+  margin-top:28px;
+  padding:18px 20px;
+  background:#fff4c7;
+  border-left:6px solid var(--yellow);
+  color:#333;
+  font-weight:700;
+  text-align:center;
+}
+
+/* 店舗情報 */
+
+.info-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.info-card{
+  background:#fff;
+  border-radius:15px;
+  padding:26px;
+  box-shadow:var(--shadow);
+  border-top:6px solid var(--red);
+}
+
+.info-card h3{
+  color:var(--red);
+  font-size:24px;
+  margin-bottom:18px;
+  font-weight:900;
+}
+
+.info-list{
+  list-style:none;
+}
+
+.info-list li{
+  display:grid;
+  grid-template-columns:105px 1fr;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #e3ded3;
+  font-size:15px;
+}
+
+.info-list li:last-child{
+  border-bottom:0;
+}
+
+.info-list strong{
+  color:#8e1515;
+  font-weight:900;
+}
+
+.hours{
+  width:100%;
+  border-collapse:collapse;
+  font-size:15px;
+}
+
+.hours th,
+.hours td{
+  padding:10px 6px;
+  border-bottom:1px solid #e3ded3;
+  text-align:left;
+}
+
+.hours th{
+  color:#8e1515;
+  width:95px;
+}
+
+.closed{
+  color:#b11313;
+  font-weight:900;
+}
+
+.contact-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+
+.contact-buttons .button{
+  flex:1 1 180px;
+}
+
+/* 出前・お持ち帰り */
+
+.service-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+
+.service-card{
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.service-card img{
+  width:100%;
+  aspect-ratio:16 / 8;
+  object-fit:cover;
+}
+
+.service-card-body{
+  padding:22px;
+}
+
+.service-card-body h3{
+  color:var(--red);
+  font-size:24px;
+  margin-bottom:8px;
+}
+
+.service-card-body p{
+  font-size:15px;
+}
+
+/* フッター */
+
+.site-footer{
+  background:#111;
+  color:#fff;
+  border-top:5px solid var(--red);
+  padding:38px 0 25px;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  align-items:flex-start;
+}
+
+.footer-brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.footer-brand img{
+  width:58px;
+  height:58px;
+  object-fit:cover;
+  border:2px solid var(--yellow);
+  border-radius:10px;
+}
+
+.footer-brand strong{
+  display:block;
+  color:var(--yellow);
+  font-size:24px;
+  line-height:1.1;
+}
+
+.footer-brand small{
+  display:block;
+  color:#ddd;
+  font-size:11px;
+  margin-top:5px;
+}
+
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  font-size:14px;
+  font-weight:700;
+}
+
+.footer-links a:hover{
+  color:var(--yellow);
+}
+
+.copyright{
+  margin-top:30px;
+  padding-top:16px;
+  border-top:1px solid #444;
+  color:#aaa;
+  text-align:center;
+  font-size:12px;
+}
+
+/* スクロールトップ */
+
+.to-top{
+  position:fixed;
+  z-index:900;
+  right:16px;
+  bottom:16px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--red);
+  color:#fff;
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+/* スマートフォン */
+
+@media(max-width:780px){
+
+  body{
+    background:
+      linear-gradient(
+        180deg,
+        #111111 0%,
+        #242424 28%,
+        #f8f4e9 28%,
+        #f8f4e9 100%
+      );
+  }
+
+  .header-inner{
+    min-height:66px;
+  }
+
+  .brand img{
+    width:42px;
+    height:42px;
+  }
+
+  .brand-text strong{
+    font-size:18px;
+  }
+
+  .main-nav{
+    display:none;
+    position:absolute;
+    top:66px;
+    left:0;
+    right:0;
+    padding:10px 14px 16px;
+    background:#111;
+    border-bottom:2px solid var(--red);
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .main-nav.open{
+    display:flex;
+  }
+
+  .main-nav a{
+    text-align:center;
+    border-bottom:1px solid #444;
+    border-radius:0;
+    padding:13px 10px;
+  }
+
+  .menu-button{
+    display:block;
+  }
+
+  .hero{
+    min-height:580px;
+  }
+
+  .hero-image{
+    height:580px;
+    object-position:58% center;
+  }
+
+  .hero::after{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.2) 0%,
+        rgba(0,0,0,.22) 25%,
+        rgba(0,0,0,.88) 77%,
+        rgba(0,0,0,.94) 100%
+      );
+  }
+
+  .hero-content{
+    top:auto;
+    bottom:42px;
+    left:20px;
+    transform:none;
+    width:calc(100% - 40px);
+  }
+
+  .hero h1{
+    font-size:72px;
+  }
+
+  .hero-subtitle{
+    font-size:23px;
+    margin-top:16px;
+  }
+
+  .hero-buttons{
+    margin-top:24px;
+  }
+
+  .hero-buttons .button{
+    flex:1 1 150px;
+  }
+
+  .section{
+    padding:54px 0;
+  }
+
+  .section-lead{
+    font-size:15px;
+    text-align:left;
+  }
+
+  .about-grid,
+  .info-layout,
+  .service-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .about-copy{
+    padding:23px;
+  }
+
+  .about-copy h3{
+    font-size:24px;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .menu-card-body{
+    padding:18px;
+  }
+
+  .info-card{
+    padding:21px;
+  }
+
+  .info-list li{
+    grid-template-columns:88px 1fr;
+    font-size:14px;
+  }
+
+  .hours{
+    font-size:14px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+
+  .footer-links{
+    width:100%;
+  }
+
+  .to-top{
+    right:12px;
+    bottom:12px;
+    width:44px;
+    height:44px;
+  }
+}
+
+@media(max-width:390px){
+
+  .hero h1{
+    font-size:62px;
+  }
+
+  .hero-subtitle{
+    font-size:20px;
+  }
+
+  .button{
+    padding-left:13px;
+    padding-right:13px;
+    font-size:14px;
+  }
+
+  .info-list li{
+    grid-template-columns:78px 1fr;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <a class="brand" href="#top">
+
+      <img
+        src="ロビンアイコン.jpg"
+        alt="ろびんアイコン"
+      >
+
+      <span class="brand-text">
+        <strong>ろびん</strong>
+        <small>ロビンショップDX</small>
+      </span>
+
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <nav class="main-nav">
+
+      <a href="#about">ろびんについて</a>
+      <a href="#menu">おすすめ</a>
+      <a href="#service">店舗の魅力</a>
+      <a href="#info">店舗情報</a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<main id="top">
+
+  <section class="hero">
+
+    <img
+      class="hero-image"
+      src="robin-main-banner.jpg"
+      alt="志木市の町中華ろびんと名物たろーめん"
+    >
+
+    <div class="hero-content">
+
+      <p class="hero-kicker">
+        志木の昔ながらの町中華
+      </p>
+
+      <h1>ろびん</h1>
+
+      <p class="hero-subtitle">
+        名物 たろーめん
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="button button-yellow"
+          href="#menu"
+        >
+          おすすめメニュー
+        </a>
+
+        <a
+          class="button button-red"
+          href="tel:0484722175"
+        >
+          電話で確認する
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="about"
+    class="section section-light"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+        <span class="small">ABOUT ROBIN</span>
+        <h2>志木で愛される、ろびん</h2>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-image">
+
+          <img
+            src="robin-main.jpg"
+            alt="ろびんの店舗イメージ"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="about-copy">
+
+          <h3>
+            ふらっと立ち寄れる<br>
+            昔ながらの町中華
+          </h3>
+
+          <p>
+            ろびんは、埼玉県志木市にあるラーメン・町中華のお店です。
+            ラーメンやチャーハン、中華丼、餃子など、
+            昔ながらの中華料理を身近に楽しめます。
+          </p>
+
+          <p style="margin-top:14px;">
+            なかでも人気を集めているのが、
+            野菜たっぷりの餡がかかった名物「たろーめん」です。
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="menu"
+    class="section section-dark"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+        <span class="small">RECOMMENDED MENU</span>
+        <h2>ろびんのおすすめ</h2>
+      </div>
+
+      <div class="banner-image">
+
+        <img
+          src="robin-menu-banner.jpg"
+          alt="ろびんおすすめメニューバナー"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="menu-card">
+
+          <img
+            class="menu-card-image"
+            src="ロビン・タローメン.jpg"
+            alt="ろびん名物たろーめん"
+            loading="lazy"
+          >
+
+          <div class="menu-card-body">
+
+            <h3>名物 たろーめん</h3>
+
+            <p>
+              キャベツ、にんじん、もやし、きくらげ、たけのこ、
+              青菜、豚肉などが入った、とろみのある餡かけ麺。
+              ふわふわの卵白も特徴です。
+            </p>
+
+          </div>
+
+        </article>
+
+        <article class="menu-card">
+
+          <img
+            class="menu-card-image"
+            src="robin-menu.jpg"
+            alt="ろびんのおすすめメニュー"
+            loading="lazy"
+          >
+
+          <div class="menu-card-body">
+
+            <h3>昔ながらの中華料理</h3>
+
+            <p>
+              ラーメン、チャーハン、中華丼、
+              あんかけ料理など、町中華らしいメニューを楽しめます。
+            </p>
+
+          </div>
+
+        </article>
+
+        <article class="menu-card">
+
+          <img
+            class="menu-card-image"
+            src="ロビンストア.jpg"
+            alt="ろびんの店内と店舗イメージ"
+            loading="lazy"
+          >
+
+          <div class="menu-card-body">
+
+            <h3>地域の身近なお店</h3>
+
+            <p>
+              志木の街で、気取らずに食事を楽しめる、
+              親しみやすい町中華です。
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <div class="menu-note">
+        メニュー内容・価格は変更される場合があります。
+        詳しくは店舗へお問い合わせください。
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="service"
+    class="section section-light"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+        <span class="small">ROBIN STYLE</span>
+        <h2>ろびんの楽しみ方</h2>
+      </div>
+
+      <div class="service-grid">
+
+        <article class="service-card">
+
+          <img
+            src="ロビンデリバリー.jpg"
+            alt="ろびんの料理を楽しむイメージ"
+            loading="lazy"
+          >
+
+          <div class="service-card-body">
+
+            <h3>出来たての味を楽しむ</h3>
+
+            <p>
+              名物たろーめんをはじめ、
+              ろびん自慢の料理をお店でお楽しみください。
+            </p>
+
+          </div>
+
+        </article>
+
+        <article class="service-card">
+
+          <img
+            src="robin-main.jpg"
+            alt="ろびん店舗イメージ"
+            loading="lazy"
+          >
+
+          <div class="service-card-body">
+
+            <h3>来店前に情報を確認</h3>
+
+            <p>
+              営業時間やアクセスを確認してから、
+              ろびんへお越しください。
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="info"
+    class="section section-light"
+  >
+
+    <div class="container">
+
+      <div class="section-title">
+        <span class="small">SHOP INFORMATION</span>
+        <h2>店舗情報</h2>
+      </div>
+
+      <div class="info-layout">
+
+        <div class="info-card">
+
+          <h3>ろびん</h3>
+
+          <ul class="info-list">
+
+            <li>
+              <strong>住所</strong>
+              <span>
+                〒353-0004<br>
+                埼玉県志木市本町3-1-49
+              </span>
+            </li>
+
+            <li>
+              <strong>電話</strong>
+              <span>
+                <a
+                  href="tel:0484722175"
+                  style="color:#a71919;font-weight:900;"
+                >
+                  048-472-2175
+                </a>
+              </span>
+            </li>
+
+            <li>
+              <strong>アクセス</strong>
+              <span>
+                東武東上線 志木駅東口から徒歩約13分
+              </span>
+            </li>
+
+            <li>
+              <strong>駐車場</strong>
+              <span>
+                あり
+              </span>
+            </li>
+
+          </ul>
+
+          <div class="contact-buttons">
+
+            <a
+              class="button button-red"
+              href="tel:0484722175"
+            >
+              電話する
+            </a>
+
+            <a
+              class="button button-yellow"
+              href="https://www.google.com/maps/search/?api=1&query=埼玉県志木市本町3-1-49"
+              target="_blank"
+              rel="noopener"
+            >
+              地図を見る
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="info-card">
+
+          <h3>営業時間</h3>
+
+          <table class="hours">
+
+            <tr>
+              <th>月・火・水</th>
+              <td>11:00〜14:00<br>17:00〜21:30</td>
+            </tr>
+
+            <tr>
+              <th>木曜日</th>
+              <td class="closed">定休日</td>
+            </tr>
+
+            <tr>
+              <th>金・土・日</th>
+              <td>11:00〜14:00<br>17:00〜21:30</td>
+            </tr>
+
+          </table>
+
+          <p
+            style="
+              margin-top:18px;
+              color:#666;
+              font-size:13px;
+            "
+          >
+            営業時間や定休日は変更される場合があります。
+            ご来店前に電話でご確認ください。
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          src="ロビンアイコン.jpg"
+          alt="ろびんアイコン"
+        >
+
+        <div>
+          <strong>ろびん</strong>
+          <small>ロビンショップDX</small>
+        </div>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="#about">ろびんについて</a>
+        <a href="#menu">おすすめメニュー</a>
+        <a href="#info">店舗情報</a>
+        <a href="tel:0484722175">電話する</a>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © ロビンショップDX
+    </div>
+
+  </div>
+
+</footer>
+
+<a
+  class="to-top"
+  href="#top"
+  aria-label="ページ上部へ戻る"
+>
+  ↑
+</a>
+
+<script>
+
+const menuButton =
+  document.querySelector(".menu-button");
+
+const mainNav =
+  document.querySelector(".main-nav");
+
+menuButton.addEventListener(
+  "click",
+  function(){
+
+    const isOpen =
+      mainNav.classList.toggle("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    menuButton.textContent =
+      isOpen ? "×" : "☰";
+
+  }
+);
+
+document
+  .querySelectorAll(".main-nav a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        mainNav.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.textContent = "☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
