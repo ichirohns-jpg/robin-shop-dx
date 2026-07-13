@@ -2,13 +2,13 @@
   "id": "/robin-shop-dx/",
   "name": "ろびんショップDX",
   "short_name": "ろびんDX",
-  "description": "埼玉県志木市の町中華・ラーメン店「ろびん」の公式DXページ",
+  "description": "志木市の水と緑のまちにある町中華・ラーメン店「ろびん」の公式ページ",
   "start_url": "/robin-shop-dx/",
   "scope": "/robin-shop-dx/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#fffaf0",
-  "theme_color": "#202124",
+  "background_color": "#f0faf8",
+  "theme_color": "#075366",
   "icons": [
     {
       "src": "robin-icon.jpg",
