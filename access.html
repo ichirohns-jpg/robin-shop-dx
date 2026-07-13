@@ -602,17 +602,20 @@ button{
 }
 
 .map-placeholder{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:180px;
+  width:100%;
+  min-height:300px;
   margin-top:22px;
-  border:2px dashed rgba(255,255,255,.55);
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.55);
   border-radius:14px;
-  background:rgba(0,0,0,.2);
-  color:#fff;
-  font-size:18px;
-  font-weight:900;
+  background:#dff2f0;
+}
+
+.map-placeholder iframe{
+  display:block;
+  width:100%;
+  height:300px;
+  border:0;
 }
 
 .map-buttons{
@@ -892,6 +895,14 @@ button{
     flex-basis:62px;
     width:62px;
     height:62px;
+  }
+
+  .map-placeholder{
+    min-height:240px;
+  }
+
+  .map-placeholder iframe{
+    height:240px;
   }
 
   .map-buttons{
@@ -1363,7 +1374,15 @@ button{
         </p>
 
         <div class="map-placeholder">
-          📍 志木市本町3-1-49
+
+          <iframe
+            src="https://www.google.com/maps?q=%E5%9F%BC%E7%8E%89%E7%9C%8C%E5%BF%97%E6%9C%A8%E5%B8%82%E6%9C%AC%E7%94%BA3-1-49&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="ろびんの地図"
+          ></iframe>
+
         </div>
 
         <div class="map-buttons">
@@ -1477,9 +1496,7 @@ button{
     </div>
 
     <div class="copyright">
-
       © ロビンショップDX
-
     </div>
 
   </div>
