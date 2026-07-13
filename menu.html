@@ -2,7 +2,11 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
 
 <title>おすすめメニュー｜ろびん</title>
 
@@ -27,11 +31,25 @@
   href="https://ichirohns-jpg.github.io/robin-shop-dx/robin-icon.jpg"
 >
 
-<meta name="theme-color" content="#075366">
+<meta
+  name="theme-color"
+  content="#c63743"
+>
 
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="ろびんショップDX">
-<meta property="og:title" content="おすすめメニュー｜ろびん">
+<meta
+  property="og:type"
+  content="website"
+>
+
+<meta
+  property="og:site_name"
+  content="ろびんショップDX"
+>
+
+<meta
+  property="og:title"
+  content="おすすめメニュー｜ろびん"
+>
 
 <meta
   property="og:description"
@@ -48,7 +66,10 @@
   content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-menu-banner.jpg"
 >
 
-<meta property="og:image:type" content="image/jpeg">
+<meta
+  property="og:image:type"
+  content="image/jpeg"
+>
 
 <meta
   name="twitter:card"
@@ -73,28 +94,30 @@
 <style>
 
 :root{
-  --water-deep:#075366;
-  --water:#16849a;
-  --water-light:#dff2f0;
-  --water-pale:#f0faf8;
+  --red:#c63743;
+  --red-dark:#9f2935;
+  --yellow:#e7bf5b;
+  --yellow-light:#fff8df;
 
-  --green-deep:#1d513d;
-  --green:#3e8055;
-  --green-light:#e6f1df;
+  --water:#2996a4;
+  --water-light:#eaf7f6;
+  --water-pale:#f5fbfa;
 
-  --leaf:#7fa84e;
-  --gold:#d6a73a;
+  --green:#6d9e62;
+  --green-dark:#356d57;
+  --green-light:#edf6e9;
 
-  --ink:#17343b;
-  --muted:#617477;
-  --cream:#fffdf4;
-  --white:#fff;
-  --line:#cfe1dc;
+  --text:#294944;
+  --muted:#6b7d78;
+  --line:#d5e7e1;
+  --white:#ffffff;
 
-  --shadow:0 12px 30px rgba(19,74,76,.14);
+  --shadow:0 8px 22px rgba(55,112,105,.11);
 }
 
 *{
+  margin:0;
+  padding:0;
   box-sizing:border-box;
 }
 
@@ -103,9 +126,8 @@ html{
 }
 
 body{
-  margin:0;
-  color:var(--ink);
-  background:var(--water-pale);
+  color:var(--text);
+  background:#ffffff;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -113,7 +135,9 @@ body{
     "Yu Gothic",
     "Meiryo",
     sans-serif;
-  line-height:1.8;
+  font-size:17px;
+  line-height:1.75;
+  -webkit-text-size-adjust:100%;
 }
 
 a{
@@ -122,679 +146,641 @@ a{
 }
 
 img{
-  max-width:100%;
   display:block;
+  max-width:100%;
 }
 
 button{
   font:inherit;
 }
 
-section{
-  scroll-margin-top:170px;
-}
-
-/* ヘッダー */
-
-header{
+.site-header{
   position:sticky;
   top:0;
-  z-index:20;
-  color:#fff;
-  background:#075366;
-  border-bottom:4px solid var(--leaf);
-  box-shadow:0 3px 16px rgba(0,0,0,.22);
+  z-index:1000;
+  width:min(100%,760px);
+  margin:0 auto;
+  background:#ffffff;
+  border-bottom:4px solid var(--yellow);
+  box-shadow:0 3px 12px rgba(55,112,105,.10);
 }
 
 .header-inner{
-  max-width:1160px;
-  margin:0 auto;
-  padding:12px 20px;
+  min-height:70px;
+  padding:
+    calc(8px + env(safe-area-inset-top))
+    14px
+    8px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
+  gap:12px;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
-  color:#fff;
-  font-size:1.2rem;
+  color:var(--red-dark);
   font-weight:900;
-  white-space:nowrap;
 }
 
-.brand img{
-  width:42px;
-  height:42px;
-  border-radius:50%;
+.brand-mark{
+  width:50px;
+  height:50px;
   object-fit:cover;
-  background:#fff;
-  border:2px solid var(--gold);
+  border:3px solid var(--yellow);
+  border-radius:50%;
 }
 
-.brand span{
-  letter-spacing:.04em;
+.brand-text{
+  line-height:1.12;
 }
 
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-  gap:7px;
+.brand-text strong{
+  display:block;
+  color:var(--red);
+  font-size:21px;
+  letter-spacing:.05em;
 }
 
-nav a{
-  padding:7px 11px;
-  border-radius:8px;
-  color:#fff;
-  font-size:.86rem;
+.brand-text small{
+  display:block;
+  margin-top:4px;
+  color:var(--green-dark);
+  font-size:10px;
   font-weight:800;
-  white-space:nowrap;
+  letter-spacing:.08em;
 }
 
-nav a:hover,
-nav a.active{
-  background:var(--green);
-}
-
-/* ヒーロー */
-
-.hero{
-  position:relative;
-  min-height:430px;
-  padding:78px 20px 110px;
-  overflow:hidden;
-  color:#fff;
-  background:
-    linear-gradient(
-      rgba(4,54,66,.48),
-      rgba(4,54,66,.86)
-    ),
-    url("robin-menu-banner.jpg") center / cover;
+.menu-button{
+  width:44px;
+  height:42px;
   display:flex;
   align-items:center;
   justify-content:center;
+  color:var(--red-dark);
+  background:var(--yellow-light);
+  border:2px solid var(--yellow);
+  border-radius:12px;
+  font-size:23px;
+  font-weight:900;
+}
+
+.main-nav{
+  position:absolute;
+  top:100%;
+  left:0;
+  right:0;
+  display:none;
+  padding:10px 14px 14px;
+  background:#ffffff;
+  border-bottom:2px solid var(--line);
+}
+
+.main-nav.open{
+  display:grid;
+  gap:6px;
+}
+
+.main-nav a{
+  padding:11px 12px;
+  color:var(--text);
+  background:var(--water-pale);
+  border-radius:10px;
+  font-size:15px;
+  font-weight:900;
   text-align:center;
 }
 
-.hero::before{
-  content:"";
-  position:absolute;
-  left:-8%;
-  right:-8%;
-  bottom:-78px;
-  height:150px;
-  border-radius:50% 50% 0 0;
-  background:var(--water-pale);
-  transform:rotate(-2deg);
+.main-nav a.active{
+  color:#ffffff;
+  background:var(--red);
 }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:55px;
-  height:2px;
-  background:rgba(255,255,255,.4);
-  box-shadow:
-    0 12px 0 rgba(255,255,255,.2),
-    0 24px 0 rgba(255,255,255,.12);
+.page-hero{
+  width:min(100%,760px);
+  margin:0 auto;
+  padding:14px 14px 24px;
+  background:var(--water-light);
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:850px;
+.page-hero-image{
+  width:100%;
+  height:210px;
+  border-radius:20px;
+  background:
+    url("robin-menu-banner.jpg")
+    center
+    / cover
+    no-repeat;
 }
 
-.hero-kicker{
+.page-hero-panel{
+  margin-top:12px;
+  padding:20px 15px;
+  background:#ffffff;
+  border:1px solid var(--line);
+  border-top:6px solid var(--red);
+  border-bottom:6px solid var(--yellow);
+  border-radius:16px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.page-kicker{
   display:inline-block;
-  margin:0 0 16px;
-  padding:6px 17px;
-  border:1px solid rgba(255,255,255,.65);
+  margin-bottom:7px;
+  padding:4px 11px;
+  color:#ffffff;
+  background:var(--red);
   border-radius:999px;
-  color:#fff;
-  background:rgba(7,83,102,.72);
-  font-size:.9rem;
+  font-size:12px;
   font-weight:900;
-  letter-spacing:.13em;
 }
 
-.hero h1{
-  margin:0 0 14px;
-  font-size:clamp(2.4rem,7vw,5rem);
-  letter-spacing:.08em;
-  text-shadow:
-    0 4px 15px rgba(0,0,0,.5),
-    3px 3px 0 rgba(29,81,61,.85);
+.page-hero h1{
+  color:var(--red);
+  font-size:clamp(32px,8vw,48px);
+  line-height:1.2;
+  letter-spacing:.06em;
 }
 
-.hero p{
-  margin:0;
-  font-size:clamp(1rem,2.5vw,1.2rem);
+.page-hero p{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:15px;
   font-weight:700;
 }
 
-/* 共通 */
+.button{
+  min-height:52px;
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  font-weight:900;
+  text-align:center;
+}
+
+.button-red{
+  color:#ffffff;
+  background:var(--red);
+}
+
+.button-water{
+  color:#ffffff;
+  background:var(--water);
+}
+
+.button-yellow{
+  color:var(--text);
+  background:var(--yellow);
+}
 
 main{
-  max-width:1160px;
+  width:min(100%,760px);
   margin:0 auto;
+  background:#ffffff;
 }
 
 section{
-  padding:72px 20px;
+  padding:48px 14px;
+  scroll-margin-top:90px;
 }
 
 .section-eyebrow{
-  margin:0 0 5px;
+  margin-bottom:5px;
   color:var(--water);
-  font-size:.86rem;
+  font-size:13px;
   font-weight:900;
-  letter-spacing:.2em;
+  letter-spacing:.18em;
   text-align:center;
 }
 
 .section-title{
-  margin:0 0 14px;
-  color:var(--green-deep);
-  font-size:clamp(1.9rem,5vw,3rem);
+  margin-bottom:14px;
+  color:var(--green-dark);
+  font-size:clamp(28px,7vw,40px);
+  line-height:1.3;
   text-align:center;
 }
 
 .section-title::after{
   content:"";
   display:block;
-  width:76px;
+  width:70px;
   height:4px;
   margin:13px auto 0;
   border-radius:10px;
   background:
     linear-gradient(
       90deg,
-      var(--water),
-      var(--leaf)
+      var(--red),
+      var(--yellow)
     );
 }
 
 .section-lead{
-  max-width:780px;
-  margin:0 auto 40px;
+  max-width:650px;
+  margin:0 auto 25px;
   color:var(--muted);
+  font-size:16px;
   text-align:center;
 }
-
-/* ボタン */
-
-.button{
-  display:inline-block;
-  min-width:180px;
-  padding:12px 22px;
-  border:2px solid transparent;
-  border-radius:999px;
-  color:#fff;
-  background:var(--green);
-  font-weight:900;
-  text-align:center;
-  box-shadow:0 5px 14px rgba(0,0,0,.12);
-  transition:.2s;
-}
-
-.button:hover{
-  color:#fff;
-  background:var(--green-deep);
-  transform:translateY(-2px);
-}
-
-.button.water{
-  background:var(--water);
-}
-
-.button.yellow{
-  color:#183f43;
-  background:#e5c261;
-}
-
-/* 名物紹介 */
 
 .special{
-  background:
-    linear-gradient(
-      180deg,
-      var(--water-pale),
-      #fff
-    );
+  background:#ffffff;
 }
 
-.feature{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0;
+.feature-card{
   overflow:hidden;
-  border:1px solid #bddbd3;
-  border-radius:24px;
-  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:#ffffff;
   box-shadow:var(--shadow);
 }
 
-.feature-image{
+.feature-card img{
   width:100%;
-  height:100%;
-  min-height:390px;
+  height:270px;
   object-fit:cover;
 }
 
 .feature-content{
-  padding:40px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+  padding:23px 18px;
 }
 
 .feature-label{
-  margin:0 0 8px;
-  color:var(--water);
-  font-size:.9rem;
+  display:inline-block;
+  margin-bottom:7px;
+  padding:4px 10px;
+  color:#ffffff;
+  background:var(--red);
+  border-radius:999px;
+  font-size:12px;
   font-weight:900;
-  letter-spacing:.16em;
 }
 
-.feature h2{
-  margin:0 0 15px;
-  color:var(--green-deep);
-  font-size:2rem;
+.feature-content h2{
+  margin-bottom:12px;
+  color:var(--red-dark);
+  font-size:30px;
+  line-height:1.3;
 }
 
-.feature p{
-  margin:0 0 15px;
-  color:#45605c;
+.feature-content p{
+  color:var(--text);
+  font-size:15px;
+}
+
+.feature-content p + p{
+  margin-top:10px;
 }
 
 .tags{
   display:flex;
   flex-wrap:wrap;
   gap:7px;
+  margin-top:16px;
   padding:0;
-  margin:4px 0 24px;
   list-style:none;
 }
 
 .tags li{
-  padding:5px 11px;
+  padding:5px 10px;
+  color:var(--green-dark);
+  background:var(--green-light);
   border-radius:999px;
-  color:#fff;
-  background:var(--water);
-  font-size:.82rem;
-  font-weight:800;
+  font-size:13px;
+  font-weight:900;
 }
 
-/* 水車の記憶 */
+.feature-content .button{
+  margin-top:19px;
+  width:100%;
+}
 
 .history-strip{
-  padding:34px 20px;
-  color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      var(--water-deep),
-      var(--green-deep)
-    );
+  padding:28px 16px;
+  background:var(--water-light);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
 .history-inner{
-  max-width:900px;
-  margin:0 auto;
   display:flex;
   align-items:center;
-  justify-content:center;
-  gap:20px;
-  text-align:left;
+  gap:13px;
 }
 
 .waterwheel{
   position:relative;
-  flex:0 0 78px;
-  width:78px;
-  height:78px;
-  border:7px solid #b8dfd4;
+  width:58px;
+  height:58px;
+  flex:0 0 58px;
+  border:4px solid var(--water);
   border-radius:50%;
   background:
     repeating-conic-gradient(
       from 0deg,
       transparent 0deg 18deg,
-      #b8dfd4 18deg 23deg,
+      var(--water) 18deg 23deg,
       transparent 23deg 45deg
     );
-  box-shadow:
-    inset 0 0 0 7px rgba(255,255,255,.25),
-    0 4px 12px rgba(0,0,0,.18);
 }
 
 .waterwheel::before{
   content:"";
   position:absolute;
-  left:50%;
   top:50%;
-  width:20px;
-  height:20px;
-  border:5px solid var(--gold);
+  left:50%;
+  width:16px;
+  height:16px;
+  border:4px solid var(--yellow);
   border-radius:50%;
-  background:var(--cream);
+  background:#ffffff;
   transform:translate(-50%,-50%);
 }
 
-.history-inner h3{
-  margin:0 0 5px;
-  color:#e5c261;
-  font-size:1.3rem;
+.history-inner strong{
+  display:block;
+  color:var(--green-dark);
+  font-size:17px;
 }
 
 .history-inner p{
-  margin:0;
-  color:#e0f1ed;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
 }
-
-/* メニュー一覧 */
 
 .noodles{
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(
-      135deg,
-      #e6f1df,
-      #f4fbf5
-    );
-}
-
-.noodles::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.35;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 42px,
-      rgba(22,132,154,.08) 43px 44px
-    );
-  pointer-events:none;
-}
-
-.noodles > *,
-.rice > *,
-.photo > *{
-  position:relative;
-  z-index:1;
+  background:var(--green-light);
 }
 
 .rice{
-  background:#fff;
+  background:#ffffff;
 }
 
 .menu-list{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  max-width:900px;
-  margin:0 auto;
+  gap:13px;
 }
 
 .menu-item{
-  position:relative;
-  min-height:82px;
-  padding:18px 20px 18px 68px;
+  min-height:72px;
+  padding:15px 16px 15px 25px;
   display:flex;
   align-items:center;
   border:1px solid var(--line);
-  border-left:0;
-  border-radius:16px;
-  color:var(--ink);
-  background:#fff;
-  box-shadow:0 7px 18px rgba(19,74,76,.1);
-  font-size:1.1rem;
+  border-left:6px solid var(--red);
+  border-radius:15px;
+  color:var(--text);
+  background:#ffffff;
+  box-shadow:0 5px 14px rgba(55,112,105,.08);
+  font-size:18px;
   font-weight:900;
-  transition:.2s;
 }
 
-.menu-item::before{
-  content:"";
-  position:absolute;
-  left:20px;
-  top:50%;
-  width:34px;
-  height:34px;
-  border:4px solid var(--water);
-  border-radius:50%;
-  background:
-    radial-gradient(
-      circle at center,
-      var(--gold) 0 5px,
-      transparent 6px
-    ),
-    repeating-conic-gradient(
-      from 0deg,
-      var(--water) 0deg 8deg,
-      transparent 8deg 45deg
-    );
-  transform:translateY(-50%);
+.menu-item:nth-child(2n){
+  border-left-color:var(--water);
 }
 
-.menu-item::after{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:7px;
-  border-radius:16px 0 0 16px;
-  background:
-    linear-gradient(
-      180deg,
-      var(--water),
-      var(--leaf)
-    );
-}
-
-.menu-item:hover{
-  background:var(--water-light);
-  transform:translateY(-2px);
-  box-shadow:0 10px 22px rgba(19,74,76,.16);
+.menu-item:nth-child(3n){
+  border-left-color:var(--green);
 }
 
 .menu-item span{
-  margin-left:8px;
+  margin-left:7px;
   color:var(--muted);
-  font-size:.9rem;
+  font-size:14px;
   font-weight:700;
 }
 
-/* 写真 */
-
 .photo{
-  background:var(--water-pale);
+  background:var(--yellow-light);
 }
 
-.cards{
+.photo-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:14px;
 }
 
-.card{
+.photo-card{
   overflow:hidden;
   border:1px solid var(--line);
-  border-top:6px solid var(--leaf);
-  border-radius:18px;
-  background:#fff;
-  box-shadow:0 8px 20px rgba(19,74,76,.1);
+  border-radius:17px;
+  background:#ffffff;
+  box-shadow:var(--shadow);
 }
 
-.card img{
+.photo-card:nth-child(1){
+  border-top:6px solid var(--red);
+}
+
+.photo-card:nth-child(2){
+  border-top:6px solid var(--water);
+}
+
+.photo-card:nth-child(3){
+  border-top:6px solid var(--green);
+}
+
+.photo-card img{
   width:100%;
-  height:220px;
+  height:190px;
   object-fit:cover;
 }
 
-.card-content{
-  padding:18px;
+.photo-card-content{
+  padding:15px 16px;
 }
 
-.card h3{
-  margin:0 0 6px;
-  color:var(--green-deep);
-  font-size:1.25rem;
+.photo-card h3{
+  margin-bottom:4px;
+  color:var(--green-dark);
+  font-size:21px;
 }
 
-.card p{
-  margin:0;
+.photo-card p{
   color:var(--muted);
-  font-size:.95rem;
+  font-size:14px;
 }
 
-.center{
-  margin-top:30px;
+.button-group{
+  margin-top:23px;
+  display:grid;
+  gap:10px;
+}
+
+.site-footer{
+  width:min(100%,760px);
+  margin:0 auto;
+  padding:
+    30px 16px
+    calc(30px + env(safe-area-inset-bottom));
+  color:var(--text);
+  background:var(--green-light);
+  border-top:4px solid var(--green);
   text-align:center;
 }
 
-/* フッター */
-
-footer{
-  padding:40px 20px;
-  color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      var(--water-deep),
-      #123e4c
-    );
-  border-top:5px solid var(--leaf);
-  text-align:center;
+.footer-brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
 }
 
-footer img{
-  width:58px;
-  height:58px;
-  margin:0 auto 12px;
+.footer-brand img{
+  width:55px;
+  height:55px;
   object-fit:cover;
-  border:2px solid var(--gold);
+  border:2px solid var(--yellow);
   border-radius:50%;
 }
 
-footer p{
-  margin:5px 0;
+.footer-brand strong{
+  display:block;
+  color:var(--red-dark);
+  font-size:22px;
+  line-height:1.2;
+}
+
+.footer-brand small{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.footer-links{
+  margin-top:16px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  color:var(--green-dark);
+  font-size:14px;
+  font-weight:800;
 }
 
 .to-top{
   display:inline-block;
   margin-top:15px;
-  color:#e5c261;
+  color:var(--red);
+  font-size:14px;
   font-weight:900;
 }
 
-/* スマートフォン */
+.copyright{
+  margin-top:18px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+}
 
-@media(max-width:820px){
+@media(min-width:700px){
 
-  .header-inner{
-    min-height:68px;
-    padding:9px 12px;
-    flex-direction:row;
-    align-items:center;
+  .menu-button{
+    display:none;
   }
 
-  .brand{
-    gap:8px;
-    font-size:1rem;
+  .main-nav{
+    position:static;
+    display:flex;
+    gap:4px;
+    padding:0;
+    border:0;
+    background:transparent;
   }
 
-  .brand img{
-    width:40px;
-    height:40px;
+  .main-nav a{
+    padding:8px 10px;
+    background:transparent;
+    font-size:13px;
   }
 
-  nav{
-    width:100%;
-    padding:5px 8px 8px;
+  .page-hero-image{
+    height:300px;
+  }
+
+  .feature-card{
     display:grid;
-    grid-template-columns:repeat(5,minmax(0,1fr));
-    gap:3px;
-    justify-content:initial;
+    grid-template-columns:1fr 1fr;
   }
 
-  nav a{
-    min-width:0;
-    padding:10px 3px;
-    border-radius:8px;
-    font-size:12px;
-    text-align:center;
-    white-space:nowrap;
+  .feature-card img{
+    height:100%;
+    min-height:390px;
   }
 
-  .feature{
-    grid-template-columns:1fr;
+  .feature-content{
+    padding:34px;
   }
 
-  .feature-image{
-    min-height:260px;
+  .history-inner{
+    max-width:650px;
+    margin:0 auto;
   }
 
-  .cards{
-    grid-template-columns:1fr;
+  .menu-list{
+    grid-template-columns:1fr 1fr;
   }
 
-  .page-link-grid{
-    grid-template-columns:repeat(2,1fr);
+  .photo-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .photo-card img{
+    height:150px;
+  }
+
+  .button-group{
+    grid-template-columns:1fr 1fr;
   }
 
 }
 
-@media(max-width:600px){
+@media(max-width:699px){
 
-  section{
-    padding:56px 16px;
+  .main-nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
   }
 
-  .hero{
-    min-height:420px;
-    padding:70px 16px 110px;
+  .main-nav.open{
+    display:grid;
+  }
+
+}
+
+@media(max-width:430px){
+
+  .brand-text strong{
+    font-size:18px;
+  }
+
+  .brand-text small{
+    font-size:9px;
+  }
+
+  .page-hero-image{
+    height:180px;
   }
 
   .history-inner{
     align-items:flex-start;
   }
 
-  .waterwheel{
-    flex-basis:62px;
-    width:62px;
-    height:62px;
-  }
-
-  .menu-list{
-    grid-template-columns:1fr;
-    gap:13px;
-  }
-
   .menu-item{
-    min-height:76px;
-    padding:16px 16px 16px 64px;
-    font-size:1.05rem;
-  }
-
-  .feature-content{
-    padding:28px 22px;
-  }
-
-  .button{
-    width:100%;
-  }
-
-  .center .button{
-    margin-bottom:10px;
+    font-size:17px;
   }
 
 }
@@ -802,59 +788,85 @@ footer p{
 </style>
 </head>
 
-<body>
+<body id="top">
 
-<header>
+<header class="site-header">
 
   <div class="header-inner">
 
-    <a class="brand" href="index.html">
+    <a
+      class="brand"
+      href="index.html"
+    >
 
       <img
+        class="brand-mark"
         src="robin-icon.jpg"
         alt="ろびんアイコン"
       >
 
-      <span>
-        ろびんショップDX
+      <span class="brand-text">
+
+        <strong>
+          ろびん
+        </strong>
+
+        <small>
+          ロビンショップDX
+        </small>
+
       </span>
 
     </a>
 
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <nav class="main-nav">
+
+      <a href="index.html">
+        ホーム
+      </a>
+
+      <a
+        class="active"
+        href="menu.html"
+      >
+        メニュー
+      </a>
+
+      <a href="news.html">
+        お知らせ
+      </a>
+
+      <a href="access.html">
+        店舗情報
+      </a>
+
+      <a href="voice.html">
+        お客様の声
+      </a>
+
+    </nav>
+
   </div>
-
-  <nav>
-
-    <a href="index.html">
-      ホーム
-    </a>
-
-    <a class="active" href="menu.html">
-      メニュー
-    </a>
-
-    <a href="news.html">
-      お知らせ
-    </a>
-
-    <a href="access.html">
-      店舗情報
-    </a>
-
-    <a href="voice.html">
-      お客様の声
-    </a>
-
-  </nav>
 
 </header>
 
-<section class="hero">
+<section class="page-hero">
 
-  <div class="hero-content">
+  <div class="page-hero-image"></div>
 
-    <p class="hero-kicker">
-      志木・水と緑のまちの町中華
+  <div class="page-hero-panel">
+
+    <p class="page-kicker">
+      ROBIN MENU
     </p>
 
     <h1>
@@ -871,299 +883,408 @@ footer p{
 
 <main>
 
-  <section class="special">
+<section class="special">
 
-    <p class="section-eyebrow">
-      SPECIAL MENU
-    </p>
+  <p class="section-eyebrow">
+    ROBIN SPECIAL
+  </p>
 
-    <h2 class="section-title">
-      ろびん名物
-    </h2>
+  <h2 class="section-title">
+    ろびん名物
+  </h2>
 
-    <p class="section-lead">
-      野菜たっぷり、とろみのある餡を使った、
-      ろびんならではの味をお楽しみください。
-    </p>
+  <p class="section-lead">
+    野菜たっぷり、とろみのある餡を使った、
+    ろびんならではの味をお楽しみください。
+  </p>
 
-    <div class="feature">
+  <div class="feature-card">
 
-      <img
-        class="feature-image"
-        src="robin-taromen.jpg"
-        alt="ろびん名物たろーめん"
+    <img
+      src="robin-taromen.jpg"
+      alt="ろびん名物たろーめん"
+    >
+
+    <div class="feature-content">
+
+      <p class="feature-label">
+        ろびん自慢の一杯
+      </p>
+
+      <h2>
+        名物 たろーめん
+      </h2>
+
+      <p>
+        野菜たっぷりの具材に、とろみのある餡を合わせた、
+        ろびんならではの一杯です。
+      </p>
+
+      <p>
+        キャベツ、にんじん、もやし、きくらげ、
+        たけのこ、青菜、豚肉、ふわふわ卵白が入っています。
+      </p>
+
+      <ul class="tags">
+
+        <li>キャベツ</li>
+        <li>にんじん</li>
+        <li>もやし</li>
+        <li>きくらげ</li>
+        <li>たけのこ</li>
+        <li>豚肉</li>
+        <li>卵白</li>
+
+      </ul>
+
+      <a
+        class="button button-red"
+        href="tel:0484722175"
       >
-
-      <div class="feature-content">
-
-        <p class="feature-label">
-          ROBIN SPECIAL
-        </p>
-
-        <h2>
-          名物 たろーめん
-        </h2>
-
-        <p>
-          野菜たっぷりの具材に、とろみのある餡を合わせた、
-          ろびんならではの一杯です。
-        </p>
-
-        <p>
-          キャベツ、にんじん、もやし、きくらげ、
-          たけのこ、青菜、豚肉、ふわふわ卵白が入っています。
-        </p>
-
-        <ul class="tags">
-          <li>キャベツ</li>
-          <li>にんじん</li>
-          <li>もやし</li>
-          <li>きくらげ</li>
-          <li>たけのこ</li>
-          <li>豚肉</li>
-          <li>卵白</li>
-        </ul>
-
-        <a class="button water" href="tel:0484722175">
-          電話で確認する
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="history-strip">
-
-    <div class="history-inner">
-
-      <div class="waterwheel" aria-hidden="true"></div>
-
-      <div>
-
-        <h3>
-          水車の記憶が残る志木のまち
-        </h3>
-
-        <p>
-          野火止用水と引又宿の歴史が息づく、
-          水と緑のまちで味を守るろびんです。
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="noodles">
-
-    <p class="section-eyebrow">
-      NOODLES
-    </p>
-
-    <h2 class="section-title">
-      麺類
-    </h2>
-
-    <p class="section-lead">
-      いつもの昼食にも、家族との食事にもおすすめです。
-    </p>
-
-    <div class="menu-list">
-
-      <div class="menu-item">
-        たろーめん
-        <span>｜ろびん名物</span>
-      </div>
-
-      <div class="menu-item">
-        ラーメン
-        <span>｜昔ながらの定番</span>
-      </div>
-
-      <div class="menu-item">
-        たろーつけめん
-      </div>
-
-      <div class="menu-item">
-        うまにめん
-      </div>
-
-      <div class="menu-item">
-        あんかけ焼そば
-      </div>
-
-      <div class="menu-item">
-        チャーシューめん
-      </div>
-
-      <div class="menu-item">
-        ゲキカラめん
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="rice">
-
-    <p class="section-eyebrow">
-      RICE & SET MEAL
-    </p>
-
-    <h2 class="section-title">
-      ご飯・定食
-    </h2>
-
-    <p class="section-lead">
-      麺類と一緒に、町中華のご飯ものもどうぞ。
-    </p>
-
-    <div class="menu-list">
-
-      <div class="menu-item">
-        チャーハン
-      </div>
-
-      <div class="menu-item">
-        中華丼
-      </div>
-
-      <div class="menu-item">
-        日替り定食
-      </div>
-
-      <div class="menu-item">
-        ニラレバ定食
-      </div>
-
-      <div class="menu-item">
-        たろーめんセット
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="photo">
-
-    <p class="section-eyebrow">
-      PHOTO
-    </p>
-
-    <h2 class="section-title">
-      ろびんの料理・店舗
-    </h2>
-
-    <p class="section-lead">
-      昔ながらの味と、地域に親しまれるろびんの雰囲気をご覧ください。
-    </p>
-
-    <div class="cards">
-
-      <article class="card">
-
-        <img
-          src="robin-menu.jpg"
-          alt="ろびんのメニュー"
-        >
-
-        <div class="card-content">
-
-          <h3>
-            昔ながらの味
-          </h3>
-
-          <p>
-            志木で気軽に楽しめる町中華の味。
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="card">
-
-        <img
-          src="robin-store.jpg"
-          alt="ろびん店舗"
-        >
-
-        <div class="card-content">
-
-          <h3>
-            地域の身近なお店
-          </h3>
-
-          <p>
-            水と緑のまち志木で、皆さまをお待ちしています。
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="card">
-
-        <img
-          src="robin-delivery.jpg"
-          alt="ろびん料理"
-        >
-
-        <div class="card-content">
-
-          <h3>
-            お持ち帰り
-          </h3>
-
-          <p>
-            詳しくは店舗へお問い合わせください。
-          </p>
-
-        </div>
-
-      </article>
-
-    </div>
-
-    <div class="center">
-
-      <a class="button yellow" href="tel:0484722175">
         電話で確認する
       </a>
 
-      <a class="button water" href="index.html">
-        トップページへ戻る
-      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="history-strip">
+
+  <div class="history-inner">
+
+    <div
+      class="waterwheel"
+      aria-hidden="true"
+    ></div>
+
+    <div>
+
+      <strong>
+        水車の記憶が残る志木のまち
+      </strong>
+
+      <p>
+        野火止用水と引又宿の歴史が息づく、
+        水と緑のまちで味を守るろびんです。
+      </p>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
+
+<section class="noodles">
+
+  <p class="section-eyebrow">
+    NOODLES
+  </p>
+
+  <h2 class="section-title">
+    麺類
+  </h2>
+
+  <p class="section-lead">
+    いつもの昼食にも、家族との食事にもおすすめです。
+  </p>
+
+  <div class="menu-list">
+
+    <div class="menu-item">
+      たろーめん
+      <span>｜ろびん名物</span>
+    </div>
+
+    <div class="menu-item">
+      ラーメン
+      <span>｜昔ながらの定番</span>
+    </div>
+
+    <div class="menu-item">
+      たろーつけめん
+    </div>
+
+    <div class="menu-item">
+      うまにめん
+    </div>
+
+    <div class="menu-item">
+      あんかけ焼そば
+    </div>
+
+    <div class="menu-item">
+      チャーシューめん
+    </div>
+
+    <div class="menu-item">
+      ゲキカラめん
+    </div>
+
+  </div>
+
+</section>
+
+<section class="rice">
+
+  <p class="section-eyebrow">
+    RICE &amp; SET MEAL
+  </p>
+
+  <h2 class="section-title">
+    ご飯・定食
+  </h2>
+
+  <p class="section-lead">
+    麺類と一緒に、町中華のご飯ものもどうぞ。
+  </p>
+
+  <div class="menu-list">
+
+    <div class="menu-item">
+      チャーハン
+    </div>
+
+    <div class="menu-item">
+      中華丼
+    </div>
+
+    <div class="menu-item">
+      日替り定食
+    </div>
+
+    <div class="menu-item">
+      ニラレバ定食
+    </div>
+
+    <div class="menu-item">
+      たろーめんセット
+    </div>
+
+  </div>
+
+</section>
+
+<section class="photo">
+
+  <p class="section-eyebrow">
+    PHOTO
+  </p>
+
+  <h2 class="section-title">
+    ろびんの料理・店舗
+  </h2>
+
+  <p class="section-lead">
+    昔ながらの味と、地域に親しまれるろびんの雰囲気をご覧ください。
+  </p>
+
+  <div class="photo-grid">
+
+    <article class="photo-card">
+
+      <img
+        src="robin-menu.jpg"
+        alt="ろびんのメニュー"
+      >
+
+      <div class="photo-card-content">
+
+        <h3>
+          昔ながらの味
+        </h3>
+
+        <p>
+          志木で気軽に楽しめる町中華の味。
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="photo-card">
+
+      <img
+        src="robin-store.jpg"
+        alt="ろびん店舗"
+      >
+
+      <div class="photo-card-content">
+
+        <h3>
+          地域の身近なお店
+        </h3>
+
+        <p>
+          水と緑のまち志木で、皆さまをお待ちしています。
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="photo-card">
+
+      <img
+        src="robin-delivery.jpg"
+        alt="ろびん料理"
+      >
+
+      <div class="photo-card-content">
+
+        <h3>
+          お持ち帰り
+        </h3>
+
+        <p>
+          詳しくは店舗へお問い合わせください。
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <div class="button-group">
+
+    <a
+      class="button button-yellow"
+      href="tel:0484722175"
+    >
+      電話で確認する
+    </a>
+
+    <a
+      class="button button-water"
+      href="index.html"
+    >
+      トップページへ戻る
+    </a>
+
+  </div>
+
+</section>
 
 </main>
 
-<footer>
+<footer class="site-footer">
 
-  <img
-    src="robin-icon.jpg"
-    alt="ろびんアイコン"
+  <div class="footer-brand">
+
+    <img
+      src="robin-icon.jpg"
+      alt="ろびんアイコン"
+    >
+
+    <div>
+
+      <strong>
+        ろびん
+      </strong>
+
+      <small>
+        ロビンショップDX
+      </small>
+
+    </div>
+
+  </div>
+
+  <div class="footer-links">
+
+    <a href="index.html">
+      ホーム
+    </a>
+
+    <a href="menu.html">
+      メニュー
+    </a>
+
+    <a href="news.html">
+      お知らせ
+    </a>
+
+    <a href="access.html">
+      店舗情報
+    </a>
+
+    <a href="voice.html">
+      お客様の声
+    </a>
+
+  </div>
+
+  <div class="copyright">
+    © ロビンショップDX
+  </div>
+
+  <a
+    class="to-top"
+    href="#top"
   >
-
-  <p>
-    ろびんショップDX
-  </p>
-
-  <p>
-    志木市の水と緑のまちにある町中華「ろびん」
-  </p>
-
-  <a class="to-top" href="#">
     ページ上部へ戻る
   </a>
 
 </footer>
+
+<script>
+
+const menuButton =
+  document.querySelector(".menu-button");
+
+const mainNav =
+  document.querySelector(".main-nav");
+
+if(menuButton && mainNav){
+
+  menuButton.addEventListener(
+    "click",
+    function(){
+
+      const isOpen =
+        mainNav.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.textContent =
+        isOpen ? "×" : "☰";
+
+    }
+  );
+
+  document
+    .querySelectorAll(".main-nav a")
+    .forEach(
+      function(link){
+
+        link.addEventListener(
+          "click",
+          function(){
+
+            mainNav.classList.remove("open");
+
+            menuButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            menuButton.textContent =
+              "☰";
+
+          }
+        );
+
+      }
+    );
+
+}
+
+</script>
 
 </body>
 </html>
