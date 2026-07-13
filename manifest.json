@@ -7,8 +7,8 @@
   "scope": "/robin-shop-dx/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#f0faf8",
-  "theme_color": "#075366",
+  "background_color": "#ffffff",
+  "theme_color": "#c63743",
   "icons": [
     {
       "src": "robin-icon.jpg",
