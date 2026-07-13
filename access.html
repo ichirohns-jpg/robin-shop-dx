@@ -12,10 +12,26 @@
 
 <meta
   name="description"
-  content="志木市の町中華・ラーメン店「ろびん」の店舗情報、営業時間、アクセス、駐車場をご案内します。"
+  content="志木市の水と緑のまちにある町中華・ラーメン店「ろびん」の店舗情報、営業時間、アクセスをご案内します。"
 >
 
-<meta name="theme-color" content="#151515">
+<meta name="theme-color" content="#075366">
+
+<link
+  rel="icon"
+  type="image/jpeg"
+  href="robin-icon.jpg"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="robin-icon.jpg"
+>
+
+<meta
+  property="og:type"
+  content="website"
+>
 
 <meta
   property="og:title"
@@ -24,7 +40,7 @@
 
 <meta
   property="og:description"
-  content="ろびんの住所、営業時間、電話番号、アクセスをご案内します。"
+  content="志木市の水と緑のまちにある、ろびんの住所、営業時間、電話番号、アクセスをご案内します。"
 >
 
 <meta
@@ -32,24 +48,27 @@
   content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main-banner.jpg"
 >
 
-<link
-  rel="apple-touch-icon"
-  href="robin-icon.jpg"
->
-
 <style>
 
 :root{
-  --black:#111;
-  --charcoal:#1d1d1d;
-  --red:#a71919;
-  --bright-red:#d52b20;
-  --yellow:#f5c400;
-  --cream:#fff8e5;
+  --water-deep:#075366;
+  --water:#16849a;
+  --water-light:#dff2f0;
+  --water-pale:#f0faf8;
+
+  --green-deep:#1d513d;
+  --green:#3e8055;
+  --green-light:#e6f1df;
+
+  --leaf:#7fa84e;
+  --gold:#d6a73a;
+
+  --ink:#17343b;
+  --muted:#617477;
   --white:#fff;
-  --line:#e4ded2;
-  --gray:#666;
-  --shadow:0 12px 30px rgba(0,0,0,.18);
+  --line:#cfe1dc;
+
+  --shadow:0 12px 30px rgba(19,74,76,.14);
 }
 
 *{
@@ -63,8 +82,8 @@ html{
 }
 
 body{
-  background:#f8f4e9;
-  color:#222;
+  color:var(--ink);
+  background:var(--water-pale);
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -72,7 +91,7 @@ body{
     "Yu Gothic",
     "Meiryo",
     sans-serif;
-  line-height:1.7;
+  line-height:1.8;
 }
 
 img{
@@ -96,9 +115,10 @@ button{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(17,17,17,.97);
-  border-bottom:3px solid var(--red);
-  box-shadow:0 4px 18px rgba(0,0,0,.22);
+  color:#fff;
+  background:rgba(7,83,102,.97);
+  border-bottom:4px solid var(--leaf);
+  box-shadow:0 3px 16px rgba(0,0,0,.18);
 }
 
 .header-inner{
@@ -122,8 +142,8 @@ button{
   width:48px;
   height:48px;
   object-fit:cover;
-  border-radius:10px;
-  border:2px solid var(--yellow);
+  border-radius:50%;
+  border:2px solid var(--gold);
 }
 
 .brand-text{
@@ -133,13 +153,14 @@ button{
 
 .brand-text strong{
   display:block;
-  color:var(--yellow);
+  color:#fff;
   font-size:20px;
+  letter-spacing:.08em;
 }
 
 .brand-text small{
   display:block;
-  color:#fff;
+  color:#d9f0eb;
   font-size:10px;
   letter-spacing:.12em;
   margin-top:5px;
@@ -155,13 +176,13 @@ button{
   color:#fff;
   font-size:14px;
   font-weight:900;
-  padding:10px 13px;
+  padding:9px 12px;
   border-radius:8px;
 }
 
-.main-nav a:hover{
-  color:#111;
-  background:var(--yellow);
+.main-nav a:hover,
+.main-nav a.active{
+  background:var(--green);
 }
 
 .menu-button{
@@ -170,8 +191,8 @@ button{
   height:42px;
   border:0;
   border-radius:8px;
-  background:var(--yellow);
-  color:#111;
+  background:#e5c261;
+  color:var(--ink);
   font-size:24px;
   font-weight:900;
 }
@@ -180,14 +201,14 @@ button{
 
 .page-hero{
   position:relative;
-  min-height:370px;
+  min-height:400px;
   overflow:hidden;
-  background:#111;
+  background:#064554;
 }
 
 .page-hero-image{
   width:100%;
-  height:370px;
+  height:400px;
   object-fit:cover;
 }
 
@@ -198,15 +219,28 @@ button{
   background:
     linear-gradient(
       90deg,
-      rgba(0,0,0,.88) 0%,
-      rgba(0,0,0,.54) 43%,
-      rgba(0,0,0,.12) 100%
+      rgba(4,54,66,.9) 0%,
+      rgba(4,54,66,.63) 46%,
+      rgba(4,54,66,.2) 100%
     );
+}
+
+.page-hero::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:-8%;
+  right:-8%;
+  bottom:-88px;
+  height:145px;
+  border-radius:50% 50% 0 0;
+  background:var(--water-pale);
+  transform:rotate(-2deg);
 }
 
 .page-hero-content{
   position:absolute;
-  z-index:2;
+  z-index:3;
   top:50%;
   left:max(22px,calc((100% - 1100px) / 2));
   transform:translateY(-50%);
@@ -215,22 +249,23 @@ button{
 
 .page-hero-kicker{
   display:inline-block;
-  padding:5px 13px;
-  margin-bottom:14px;
-  color:#111;
-  background:var(--yellow);
-  border-left:6px solid var(--red);
+  padding:6px 14px;
+  margin-bottom:15px;
+  color:var(--ink);
+  background:#e5c261;
+  border-left:6px solid var(--leaf);
   font-size:15px;
   font-weight:900;
+  letter-spacing:.08em;
 }
 
 .page-hero h1{
   font-size:clamp(38px,7vw,72px);
   line-height:1.1;
   font-weight:900;
-  letter-spacing:.04em;
+  letter-spacing:.06em;
   text-shadow:
-    3px 3px 0 var(--red),
+    3px 3px 0 var(--green-deep),
     5px 5px 14px rgba(0,0,0,.55);
 }
 
@@ -248,7 +283,7 @@ button{
 }
 
 .section{
-  padding:64px 0;
+  padding:68px 0;
 }
 
 .section-title{
@@ -258,7 +293,7 @@ button{
 
 .section-title .small{
   display:block;
-  color:var(--red);
+  color:var(--water);
   font-size:13px;
   font-weight:900;
   letter-spacing:.18em;
@@ -266,6 +301,7 @@ button{
 }
 
 .section-title h2{
+  color:var(--green-deep);
   font-size:clamp(28px,5vw,42px);
   line-height:1.3;
   font-weight:900;
@@ -274,13 +310,28 @@ button{
 .section-title h2::after{
   content:"";
   display:block;
-  width:70px;
-  height:5px;
+  width:76px;
+  height:4px;
   margin:14px auto 0;
-  background:var(--red);
+  border-radius:10px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--water),
+      var(--leaf)
+    );
 }
 
 /* 店舗カード */
+
+.shop-section{
+  background:
+    linear-gradient(
+      180deg,
+      var(--water-pale),
+      #fff
+    );
+}
 
 .shop-layout{
   display:grid;
@@ -290,11 +341,25 @@ button{
 }
 
 .shop-image{
+  position:relative;
   overflow:hidden;
-  border:5px solid var(--red);
-  border-radius:16px;
+  border:7px solid #fff;
+  border-radius:22px;
   box-shadow:var(--shadow);
   background:#222;
+}
+
+.shop-image::after{
+  content:"志木市本町の町中華";
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  padding:6px 13px;
+  border-radius:999px;
+  color:#fff;
+  background:rgba(7,83,102,.9);
+  font-size:13px;
+  font-weight:900;
 }
 
 .shop-image img{
@@ -305,15 +370,15 @@ button{
 }
 
 .shop-card{
-  padding:28px;
+  padding:30px;
   background:#fff;
-  border-top:8px solid var(--yellow);
-  border-radius:16px;
+  border-top:8px solid var(--leaf);
+  border-radius:18px;
   box-shadow:var(--shadow);
 }
 
 .shop-card h2{
-  color:var(--red);
+  color:var(--green-deep);
   font-size:32px;
   line-height:1.3;
   margin-bottom:18px;
@@ -321,22 +386,92 @@ button{
 }
 
 .shop-card p{
+  color:#45605c;
   font-size:16px;
 }
 
 .shop-card strong{
-  color:var(--red);
+  color:var(--water-deep);
+}
+
+/* 水車の記憶 */
+
+.history-section{
+  padding:38px 20px;
+  color:#fff;
+  background:
+    linear-gradient(
+      135deg,
+      var(--water-deep),
+      var(--green-deep)
+    );
+}
+
+.history-inner{
+  max-width:850px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+}
+
+.waterwheel{
+  position:relative;
+  flex:0 0 78px;
+  width:78px;
+  height:78px;
+  border:7px solid #b8dfd4;
+  border-radius:50%;
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 18deg,
+      #b8dfd4 18deg 23deg,
+      transparent 23deg 45deg
+    );
+  box-shadow:
+    inset 0 0 0 7px rgba(255,255,255,.25),
+    0 4px 12px rgba(0,0,0,.18);
+}
+
+.waterwheel::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:20px;
+  height:20px;
+  border:5px solid var(--gold);
+  border-radius:50%;
+  background:#fffdf4;
+  transform:translate(-50%,-50%);
+}
+
+.history-inner h2{
+  margin:0 0 5px;
+  color:#e5c261;
+  font-size:1.35rem;
+}
+
+.history-inner p{
+  margin:0;
+  color:#e0f1ed;
 }
 
 /* 情報一覧 */
 
+.info-section{
+  background:#e6f1df;
+}
+
 .info-card{
   max-width:900px;
   margin:0 auto;
-  padding:26px;
+  padding:28px;
   background:#fff;
-  border-radius:16px;
-  border-top:7px solid var(--red);
+  border:1px solid #c5dbbd;
+  border-radius:18px;
   box-shadow:var(--shadow);
 }
 
@@ -358,26 +493,29 @@ button{
 }
 
 .info-list strong{
-  color:var(--red);
+  color:var(--green-deep);
   font-weight:900;
 }
 
-.phone-link{
-  color:var(--red);
-  font-size:19px;
-  font-weight:900;
+.info-list span{
+  color:#45605c;
 }
 
 /* 営業時間 */
 
+.hours-section{
+  background:#fff;
+}
+
 .hours-wrap{
   max-width:900px;
   margin:0 auto;
-  padding:26px;
+  padding:28px;
   background:#fff;
-  border-radius:16px;
+  border:1px solid var(--line);
+  border-top:8px solid var(--water);
+  border-radius:18px;
   box-shadow:var(--shadow);
-  border-top:7px solid var(--yellow);
 }
 
 .hours-table{
@@ -395,8 +533,12 @@ button{
 
 .hours-table th{
   width:180px;
-  color:var(--red);
+  color:var(--green-deep);
   font-weight:900;
+}
+
+.hours-table td{
+  color:#45605c;
 }
 
 .hours-table tr:last-child th,
@@ -405,35 +547,57 @@ button{
 }
 
 .closed{
-  color:var(--red);
+  color:var(--water-deep)!important;
   font-weight:900;
+}
+
+.notice{
+  max-width:900px;
+  margin:28px auto 0;
+  padding:18px 20px;
+  color:#45605c;
+  background:#fff8d7;
+  border-left:6px solid var(--gold);
+  font-size:14px;
+  font-weight:700;
+  text-align:center;
 }
 
 /* 地図案内 */
 
-.map-card{
-  max-width:900px;
-  margin:0 auto;
-  padding:28px;
+.map-section{
   background:
     linear-gradient(
       135deg,
-      #211919,
-      #3a2525
+      #dff2f0,
+      #e6f1df
     );
+}
+
+.map-card{
+  max-width:900px;
+  margin:0 auto;
+  padding:30px;
   color:#fff;
-  border-radius:16px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--water-deep),
+      var(--green-deep)
+    );
+  border-radius:20px;
   box-shadow:var(--shadow);
   text-align:center;
 }
 
 .map-card h2{
-  color:var(--yellow);
+  color:#e5c261;
   font-size:28px;
   margin-bottom:12px;
 }
 
 .map-card p{
+  color:#e0f1ed;
   font-size:16px;
 }
 
@@ -443,9 +607,10 @@ button{
   justify-content:center;
   min-height:180px;
   margin-top:22px;
-  border:2px dashed rgba(255,255,255,.5);
-  border-radius:12px;
-  background:rgba(0,0,0,.22);
+  border:2px dashed rgba(255,255,255,.55);
+  border-radius:14px;
+  background:rgba(0,0,0,.2);
+  color:#fff;
   font-size:18px;
   font-weight:900;
 }
@@ -460,62 +625,66 @@ button{
 
 /* ボタン */
 
+.button-area{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+}
+
 .button{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   min-height:50px;
   padding:11px 22px;
-  border-radius:8px;
-  font-weight:900;
   border:2px solid transparent;
+  border-radius:999px;
+  font-weight:900;
   transition:.2s;
 }
 
 .button:hover{
   transform:translateY(-2px);
-  box-shadow:0 8px 16px rgba(0,0,0,.22);
+  box-shadow:0 8px 16px rgba(0,0,0,.18);
 }
 
 .button-red{
   color:#fff;
-  background:var(--red);
-  border-color:var(--red);
+  background:var(--green);
+  border-color:var(--green);
 }
 
 .button-yellow{
-  color:#111;
-  background:var(--yellow);
-  border-color:var(--yellow);
+  color:var(--ink);
+  background:#e5c261;
+  border-color:#e5c261;
 }
 
 .button-white{
-  color:#222;
+  color:var(--ink);
   background:#fff;
   border-color:#fff;
 }
 
-/* 注意書き */
-
-.notice{
-  max-width:900px;
-  margin:30px auto 0;
-  padding:18px 20px;
-  color:#333;
-  background:#fff3bd;
-  border-left:6px solid var(--yellow);
-  font-size:14px;
-  font-weight:700;
-  text-align:center;
+.button-dark{
+  color:#fff;
+  background:var(--water);
+  border-color:var(--water);
 }
 
 /* フッター */
 
 .site-footer{
-  padding:38px 0 24px;
+  padding:40px 0 26px;
   color:#fff;
-  background:#111;
-  border-top:5px solid var(--red);
+  background:
+    linear-gradient(
+      135deg,
+      var(--water-deep),
+      #123e4c
+    );
+  border-top:5px solid var(--leaf);
 }
 
 .footer-inner{
@@ -532,23 +701,23 @@ button{
 }
 
 .footer-brand img{
-  width:58px;
-  height:58px;
+  width:60px;
+  height:60px;
   object-fit:cover;
-  border:2px solid var(--yellow);
-  border-radius:10px;
+  border:2px solid var(--gold);
+  border-radius:50%;
 }
 
 .footer-brand strong{
   display:block;
-  color:var(--yellow);
+  color:#fff;
   font-size:24px;
   line-height:1.1;
 }
 
 .footer-brand small{
   display:block;
-  color:#ddd;
+  color:#d8eeea;
   font-size:11px;
   margin-top:5px;
 }
@@ -557,24 +726,23 @@ button{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
+  color:#e0f1ed;
   font-size:14px;
   font-weight:800;
 }
 
 .footer-links a:hover{
-  color:var(--yellow);
+  color:#e5c261;
 }
 
 .copyright{
   margin-top:30px;
   padding-top:16px;
-  border-top:1px solid #444;
-  color:#aaa;
+  border-top:1px solid rgba(255,255,255,.25);
+  color:#b9d7d3;
   text-align:center;
   font-size:12px;
 }
-
-/* トップへ */
 
 .to-top{
   position:fixed;
@@ -588,7 +756,8 @@ button{
   justify-content:center;
   border-radius:50%;
   color:#fff;
-  background:var(--red);
+  background:var(--water-deep);
+  border:2px solid #b8dfd4;
   font-size:22px;
   font-weight:900;
   box-shadow:0 5px 18px rgba(0,0,0,.25);
@@ -618,8 +787,8 @@ button{
     left:0;
     right:0;
     padding:10px 14px 16px;
-    background:#111;
-    border-bottom:2px solid var(--red);
+    background:var(--water-deep);
+    border-bottom:2px solid var(--leaf);
     flex-direction:column;
     align-items:stretch;
   }
@@ -631,7 +800,7 @@ button{
   .main-nav a{
     padding:13px 10px;
     text-align:center;
-    border-bottom:1px solid #444;
+    border-bottom:1px solid rgba(255,255,255,.2);
     border-radius:0;
   }
 
@@ -640,26 +809,27 @@ button{
   }
 
   .page-hero{
-    min-height:360px;
+    min-height:380px;
   }
 
   .page-hero-image{
-    height:360px;
+    height:380px;
   }
 
   .page-hero::after{
     background:
       linear-gradient(
         180deg,
-        rgba(0,0,0,.2) 0%,
-        rgba(0,0,0,.3) 30%,
-        rgba(0,0,0,.9) 100%
+        rgba(4,54,66,.2) 0%,
+        rgba(4,54,66,.45) 35%,
+        rgba(4,54,66,.92) 100%
       );
   }
 
   .page-hero-content{
     left:20px;
-    bottom:32px;
+    right:20px;
+    bottom:48px;
     top:auto;
     transform:none;
   }
@@ -673,7 +843,7 @@ button{
   }
 
   .section{
-    padding:50px 0;
+    padding:52px 0;
   }
 
   .shop-layout{
@@ -687,7 +857,7 @@ button{
   }
 
   .shop-card{
-    padding:22px;
+    padding:23px;
   }
 
   .shop-card h2{
@@ -714,11 +884,29 @@ button{
     width:105px;
   }
 
+  .history-inner{
+    align-items:flex-start;
+  }
+
+  .waterwheel{
+    flex-basis:62px;
+    width:62px;
+    height:62px;
+  }
+
   .map-buttons{
     flex-direction:column;
   }
 
   .map-buttons .button{
+    width:100%;
+  }
+
+  .button-area{
+    flex-direction:column;
+  }
+
+  .button-area .button{
     width:100%;
   }
 
@@ -742,7 +930,7 @@ button{
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="site-header">
 
@@ -759,8 +947,13 @@ button{
       >
 
       <span class="brand-text">
+
         <strong>ろびん</strong>
-        <small>ロビンショップDX</small>
+
+        <small>
+          ロビンショップDX
+        </small>
+
       </span>
 
     </a>
@@ -776,11 +969,25 @@ button{
 
     <nav class="main-nav">
 
-      <a href="index.html">ホーム</a>
-      <a href="menu.html">おすすめメニュー</a>
-      <a href="news.html">お知らせ</a>
-      <a href="#shop-info">店舗情報</a>
-      <a href="#access">アクセス</a>
+      <a href="index.html">
+        ホーム
+      </a>
+
+      <a href="menu.html">
+        おすすめメニュー
+      </a>
+
+      <a href="news.html">
+        お知らせ
+      </a>
+
+      <a class="active" href="#shop-info">
+        店舗情報
+      </a>
+
+      <a href="#access">
+        アクセス
+      </a>
 
     </nav>
 
@@ -804,10 +1011,12 @@ button{
         SHOP INFORMATION
       </p>
 
-      <h1>店舗情報</h1>
+      <h1>
+        店舗情報
+      </h1>
 
       <p>
-        ろびんへのアクセスをご案内します
+        水と緑のまち志木にある、ろびんへのアクセスをご案内します
       </p>
 
     </div>
@@ -816,16 +1025,20 @@ button{
 
   <section
     id="shop-info"
-    class="section"
+    class="section shop-section"
   >
 
     <div class="container">
 
       <div class="section-title">
 
-        <span class="small">ABOUT SHOP</span>
+        <span class="small">
+          ABOUT SHOP
+        </span>
 
-        <h2>ろびんについて</h2>
+        <h2>
+          ろびんについて
+        </h2>
 
       </div>
 
@@ -842,7 +1055,9 @@ button{
 
         <div class="shop-card">
 
-          <h2>ろびん</h2>
+          <h2>
+            ろびん
+          </h2>
 
           <p>
             埼玉県志木市にある、
@@ -850,9 +1065,19 @@ button{
           </p>
 
           <p style="margin-top:14px;">
+
             名物のたろーめんをはじめ、
             ラーメン、チャーハン、中華丼、餃子など、
             身近な中華料理を楽しめます。
+
+          </p>
+
+          <p style="margin-top:14px;">
+
+            野火止用水や引又宿の歴史が息づく、
+            水と緑のまち志木で、
+            地域の皆さまをお待ちしています。
+
           </p>
 
           <div
@@ -888,19 +1113,49 @@ button{
 
   </section>
 
+  <section class="history-section">
+
+    <div class="history-inner">
+
+      <div
+        class="waterwheel"
+        aria-hidden="true"
+      ></div>
+
+      <div>
+
+        <h2>
+          水車の記憶が残る志木のまち
+        </h2>
+
+        <p>
+          お店のそばには、昔、水車がありました。
+          野火止用水と引又宿の歴史を感じながら、
+          ろびんの味をお楽しみください。
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
   <section
     id="access"
-    class="section"
-    style="background:#fff1bd;"
+    class="section info-section"
   >
 
     <div class="container">
 
       <div class="section-title">
 
-        <span class="small">ACCESS</span>
+        <span class="small">
+          ACCESS
+        </span>
 
-        <h2>店舗情報</h2>
+        <h2>
+          店舗情報
+        </h2>
 
       </div>
 
@@ -909,12 +1164,20 @@ button{
         <ul class="info-list">
 
           <li>
-            <strong>店名</strong>
-            <span>ろびん</span>
+            <strong>
+              店名
+            </strong>
+
+            <span>
+              ろびん
+            </span>
           </li>
 
           <li>
-            <strong>住所</strong>
+            <strong>
+              住所
+            </strong>
+
             <span>
               〒353-0004<br>
               埼玉県志木市本町3-1-49
@@ -922,11 +1185,14 @@ button{
           </li>
 
           <li>
-            <strong>電話</strong>
+            <strong>
+              電話
+            </strong>
+
             <span>
               <a
-                class="phone-link"
                 href="tel:0484722175"
+                style="color:#075366;font-weight:900;"
               >
                 048-472-2175
               </a>
@@ -934,21 +1200,30 @@ button{
           </li>
 
           <li>
-            <strong>アクセス</strong>
+            <strong>
+              アクセス
+            </strong>
+
             <span>
               東武東上線 志木駅東口から徒歩約13分
             </span>
           </li>
 
           <li>
-            <strong>駐車場</strong>
+            <strong>
+              駐車場
+            </strong>
+
             <span>
               あり
             </span>
           </li>
 
           <li>
-            <strong>定休日</strong>
+            <strong>
+              定休日
+            </strong>
+
             <span>
               木曜日
             </span>
@@ -962,17 +1237,19 @@ button{
 
   </section>
 
-  <section
-    class="section"
-  >
+  <section class="section hours-section">
 
     <div class="container">
 
       <div class="section-title">
 
-        <span class="small">BUSINESS HOURS</span>
+        <span class="small">
+          BUSINESS HOURS
+        </span>
 
-        <h2>営業時間</h2>
+        <h2>
+          営業時間
+        </h2>
 
       </div>
 
@@ -981,38 +1258,79 @@ button{
         <table class="hours-table">
 
           <tr>
-            <th>月曜日</th>
-            <td>11:00〜14:00<br>17:00〜21:30</td>
+            <th>
+              月曜日
+            </th>
+
+            <td>
+              11:00〜14:00<br>
+              17:00〜21:30
+            </td>
           </tr>
 
           <tr>
-            <th>火曜日</th>
-            <td>11:00〜14:00<br>17:00〜21:30</td>
+            <th>
+              火曜日
+            </th>
+
+            <td>
+              11:00〜14:00<br>
+              17:00〜21:30
+            </td>
           </tr>
 
           <tr>
-            <th>水曜日</th>
-            <td>11:00〜14:00<br>17:00〜21:30</td>
+            <th>
+              水曜日
+            </th>
+
+            <td>
+              11:00〜14:00<br>
+              17:00〜21:30
+            </td>
           </tr>
 
           <tr>
-            <th>木曜日</th>
-            <td class="closed">定休日</td>
+            <th>
+              木曜日
+            </th>
+
+            <td class="closed">
+              定休日
+            </td>
           </tr>
 
           <tr>
-            <th>金曜日</th>
-            <td>11:00〜14:00<br>17:00〜21:30</td>
+            <th>
+              金曜日
+            </th>
+
+            <td>
+              11:00〜14:00<br>
+              17:00〜21:30
+            </td>
           </tr>
 
           <tr>
-            <th>土曜日</th>
-            <td>11:00〜14:00<br>17:00〜21:30</td>
+            <th>
+              土曜日
+            </th>
+
+            <td>
+              11:00〜14:00<br>
+              17:00〜21:30
+            </td>
           </tr>
 
           <tr>
-            <th>日曜日</th>
-            <td>11:00〜14:00<br>17:00〜21:30</td>
+            <th>
+              日曜日
+            </th>
+
+            <td>
+              11:00〜14:00<br>
+              17:00〜21:30
+            </td>
           </tr>
 
         </table>
@@ -1030,16 +1348,15 @@ button{
 
   </section>
 
-  <section
-    class="section"
-    style="background:#211919;"
-  >
+  <section class="section map-section">
 
     <div class="container">
 
       <div class="map-card">
 
-        <h2>ろびんへの行き方</h2>
+        <h2>
+          ろびんへの行き方
+        </h2>
 
         <p>
           志木駅東口から、ろびんまでの道順を確認できます。
@@ -1124,25 +1441,45 @@ button{
         >
 
         <div>
-          <strong>ろびん</strong>
-          <small>ロビンショップDX</small>
+
+          <strong>
+            ろびん
+          </strong>
+
+          <small>
+            ロビンショップDX
+          </small>
+
         </div>
 
       </div>
 
       <div class="footer-links">
 
-        <a href="index.html">ホーム</a>
-        <a href="menu.html">おすすめメニュー</a>
-        <a href="news.html">お知らせ</a>
-        <a href="tel:0484722175">電話する</a>
+        <a href="index.html">
+          ホーム
+        </a>
+
+        <a href="menu.html">
+          おすすめメニュー
+        </a>
+
+        <a href="news.html">
+          お知らせ
+        </a>
+
+        <a href="tel:0484722175">
+          電話する
+        </a>
 
       </div>
 
     </div>
 
     <div class="copyright">
+
       © ロビンショップDX
+
     </div>
 
   </div>
@@ -1185,25 +1522,28 @@ menuButton.addEventListener(
 
 document
   .querySelectorAll(".main-nav a")
-  .forEach(function(link){
+  .forEach(
+    function(link){
 
-    link.addEventListener(
-      "click",
-      function(){
+      link.addEventListener(
+        "click",
+        function(){
 
-        mainNav.classList.remove("open");
+          mainNav.classList.remove("open");
 
-        menuButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
-        menuButton.textContent = "☰";
+          menuButton.textContent =
+            "☰";
 
-      }
-    );
+        }
+      );
 
-  });
+    }
+  );
 
 </script>
 
