@@ -15,6 +15,7 @@
       --text: #242124;
       --green: #188543;
       --gray: #777;
+      --yellow: #e7bf5b;
     }
 
     * {
@@ -52,6 +53,24 @@
       color: #ddd;
       font-size: 14px;
       font-weight: 700;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      color: var(--dark);
+      background: var(--yellow);
+      font-size: 16px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .18);
+    }
+
+    .back-button:hover {
+      background: #fff;
+      color: var(--red);
     }
 
     main {
@@ -292,6 +311,10 @@
   <header>
     <h1>ろびんショップDX 管理画面</h1>
     <p>お知らせとお客様の声を管理します</p>
+
+    <a class="back-button" href="index.html">
+      ← DXに戻る
+    </a>
   </header>
 
   <main>
