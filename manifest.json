@@ -11,7 +11,7 @@
   "theme_color": "#202124",
   "icons": [
     {
-      "src": "ロビンアイコン.jpg",
+      "src": "robin-icon.jpg",
       "sizes": "1024x1024",
       "type": "image/jpeg",
       "purpose": "any maskable"
