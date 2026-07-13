@@ -17,21 +17,10 @@
 
 <meta name="theme-color" content="#075366">
 
-<link
-  rel="icon"
-  type="image/jpeg"
-  href="robin-icon.jpg"
->
+<link rel="icon" type="image/jpeg" href="robin-icon.jpg">
+<link rel="apple-touch-icon" href="robin-icon.jpg">
 
-<link
-  rel="apple-touch-icon"
-  href="robin-icon.jpg"
->
-
-<meta
-  property="og:type"
-  content="website"
->
+<meta property="og:type" content="website">
 
 <meta
   property="og:title"
@@ -91,7 +80,7 @@ body{
     "Yu Gothic",
     "Meiryo",
     sans-serif;
-  line-height:1.8;
+  line-height:1.7;
 }
 
 img{
@@ -116,9 +105,9 @@ button{
   top:0;
   z-index:1000;
   color:#fff;
-  background:rgba(7,83,102,.97);
+  background:#075366;
   border-bottom:4px solid var(--leaf);
-  box-shadow:0 3px 16px rgba(0,0,0,.18);
+  box-shadow:0 3px 16px rgba(0,0,0,.2);
 }
 
 .header-inner{
@@ -201,14 +190,14 @@ button{
 
 .page-hero{
   position:relative;
-  min-height:400px;
+  min-height:315px;
   overflow:hidden;
   background:#064554;
 }
 
 .page-hero-image{
   width:100%;
-  height:400px;
+  height:315px;
   object-fit:cover;
 }
 
@@ -219,8 +208,8 @@ button{
   background:
     linear-gradient(
       90deg,
-      rgba(4,54,66,.9) 0%,
-      rgba(4,54,66,.63) 46%,
+      rgba(4,54,66,.92) 0%,
+      rgba(4,54,66,.62) 48%,
       rgba(4,54,66,.2) 100%
     );
 }
@@ -260,7 +249,7 @@ button{
 }
 
 .page-hero h1{
-  font-size:clamp(38px,7vw,72px);
+  font-size:clamp(38px,7vw,66px);
   line-height:1.1;
   font-weight:900;
   letter-spacing:.06em;
@@ -283,12 +272,12 @@ button{
 }
 
 .section{
-  padding:68px 0;
+  padding:62px 0;
 }
 
 .section-title{
   text-align:center;
-  margin-bottom:34px;
+  margin-bottom:30px;
 }
 
 .section-title .small{
@@ -314,23 +303,13 @@ button{
   height:4px;
   margin:14px auto 0;
   border-radius:10px;
-  background:
-    linear-gradient(
-      90deg,
-      var(--water),
-      var(--leaf)
-    );
+  background:linear-gradient(90deg,var(--water),var(--leaf));
 }
 
 /* 店舗カード */
 
 .shop-section{
-  background:
-    linear-gradient(
-      180deg,
-      var(--water-pale),
-      #fff
-    );
+  background:linear-gradient(180deg,var(--water-pale),#fff);
 }
 
 .shop-layout{
@@ -399,12 +378,7 @@ button{
 .history-section{
   padding:38px 20px;
   color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      var(--water-deep),
-      var(--green-deep)
-    );
+  background:linear-gradient(135deg,var(--water-deep),var(--green-deep));
 }
 
 .history-inner{
@@ -459,7 +433,7 @@ button{
   color:#e0f1ed;
 }
 
-/* 情報一覧 */
+/* 店舗情報 */
 
 .info-section{
   background:#e6f1df;
@@ -504,17 +478,22 @@ button{
 /* 営業時間 */
 
 .hours-section{
-  background:#fff;
+  background:
+    linear-gradient(
+      180deg,
+      #f5fbf8 0%,
+      #e6f1df 100%
+    );
 }
 
 .hours-wrap{
   max-width:900px;
   margin:0 auto;
-  padding:28px;
+  padding:14px 24px;
   background:#fff;
-  border:1px solid var(--line);
+  border:2px solid var(--line);
   border-top:8px solid var(--water);
-  border-radius:18px;
+  border-radius:22px;
   box-shadow:var(--shadow);
 }
 
@@ -524,40 +503,88 @@ button{
   font-size:16px;
 }
 
+.hours-table tbody{
+  display:block;
+  width:100%;
+}
+
+.hours-table tr{
+  display:grid;
+  grid-template-columns:34% 66%;
+  align-items:center;
+  min-height:78px;
+  border-bottom:1px solid var(--line);
+}
+
+.hours-table tr:last-child{
+  border-bottom:0;
+}
+
 .hours-table th,
 .hours-table td{
-  padding:14px 10px;
-  border-bottom:1px solid var(--line);
+  padding:13px 12px;
   text-align:left;
 }
 
 .hours-table th{
-  width:180px;
+  position:relative;
+  padding-left:42px;
   color:var(--green-deep);
   font-weight:900;
 }
 
+.hours-table th::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:50%;
+  width:22px;
+  height:22px;
+  border:3px solid var(--water);
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle at center,
+      var(--gold) 0 4px,
+      transparent 5px
+    ),
+    repeating-conic-gradient(
+      from 0deg,
+      var(--water) 0deg 10deg,
+      transparent 10deg 45deg
+    );
+  transform:translateY(-50%);
+}
+
 .hours-table td{
   color:#45605c;
+  line-height:1.55;
 }
 
-.hours-table tr:last-child th,
-.hours-table tr:last-child td{
-  border-bottom:0;
-}
-
-.closed{
+.hours-table .closed{
   color:var(--water-deep)!important;
   font-weight:900;
 }
 
+.hours-table .closed::before{
+  content:"";
+  display:inline-block;
+  width:8px;
+  height:8px;
+  margin-right:8px;
+  border-radius:50%;
+  background:var(--gold);
+  vertical-align:middle;
+}
+
 .notice{
   max-width:900px;
-  margin:28px auto 0;
+  margin:24px auto 0;
   padding:18px 20px;
   color:#45605c;
   background:#fff8d7;
   border-left:6px solid var(--gold);
+  border-radius:0 12px 12px 0;
   font-size:14px;
   font-weight:700;
   text-align:center;
@@ -566,12 +593,7 @@ button{
 /* 地図案内 */
 
 .map-section{
-  background:
-    linear-gradient(
-      135deg,
-      #dff2f0,
-      #e6f1df
-    );
+  background:linear-gradient(135deg,#dff2f0,#e6f1df);
 }
 
 .map-card{
@@ -579,12 +601,7 @@ button{
   margin:0 auto;
   padding:30px;
   color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      var(--water-deep),
-      var(--green-deep)
-    );
+  background:linear-gradient(135deg,var(--water-deep),var(--green-deep));
   border-radius:20px;
   box-shadow:var(--shadow);
   text-align:center;
@@ -681,12 +698,7 @@ button{
 .site-footer{
   padding:40px 0 26px;
   color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      var(--water-deep),
-      #123e4c
-    );
+  background:linear-gradient(135deg,var(--water-deep),#123e4c);
   border-top:5px solid var(--leaf);
 }
 
@@ -786,11 +798,11 @@ button{
   .main-nav{
     display:none;
     position:absolute;
-    top:66px;
+    top:100%;
     left:0;
     right:0;
     padding:10px 14px 16px;
-    background:var(--water-deep);
+    background:#075366;
     border-bottom:2px solid var(--leaf);
     flex-direction:column;
     align-items:stretch;
@@ -812,19 +824,19 @@ button{
   }
 
   .page-hero{
-    min-height:380px;
+    min-height:270px;
   }
 
   .page-hero-image{
-    height:380px;
+    height:270px;
   }
 
   .page-hero::after{
     background:
       linear-gradient(
         180deg,
-        rgba(4,54,66,.2) 0%,
-        rgba(4,54,66,.45) 35%,
+        rgba(4,54,66,.22) 0%,
+        rgba(4,54,66,.48) 35%,
         rgba(4,54,66,.92) 100%
       );
   }
@@ -832,21 +844,28 @@ button{
   .page-hero-content{
     left:20px;
     right:20px;
-    bottom:48px;
+    bottom:43px;
     top:auto;
     transform:none;
   }
 
+  .page-hero-kicker{
+    padding:5px 10px;
+    margin-bottom:10px;
+    font-size:12px;
+  }
+
   .page-hero h1{
-    font-size:48px;
+    font-size:42px;
   }
 
   .page-hero p{
-    font-size:16px;
+    margin-top:10px;
+    font-size:15px;
   }
 
   .section{
-    padding:52px 0;
+    padding:50px 0;
   }
 
   .shop-layout{
@@ -870,7 +889,7 @@ button{
   .info-card,
   .hours-wrap,
   .map-card{
-    padding:21px;
+    padding:18px;
   }
 
   .info-list li{
@@ -879,12 +898,39 @@ button{
     font-size:14px;
   }
 
+  .hours-wrap{
+    padding:8px 13px;
+    border-top-width:7px;
+    border-radius:18px;
+  }
+
   .hours-table{
     font-size:14px;
   }
 
+  .hours-table tr{
+    grid-template-columns:39% 61%;
+    min-height:70px;
+  }
+
+  .hours-table th,
+  .hours-table td{
+    padding:11px 5px;
+  }
+
   .hours-table th{
-    width:105px;
+    padding-left:32px;
+  }
+
+  .hours-table th::before{
+    left:1px;
+    width:19px;
+    height:19px;
+    border-width:2px;
+  }
+
+  .hours-table td{
+    line-height:1.45;
   }
 
   .history-inner{
@@ -947,10 +993,7 @@ button{
 
   <div class="header-inner">
 
-    <a
-      class="brand"
-      href="index.html"
-    >
+    <a class="brand" href="index.html">
 
       <img
         src="robin-icon.jpg"
@@ -958,13 +1001,8 @@ button{
       >
 
       <span class="brand-text">
-
         <strong>ろびん</strong>
-
-        <small>
-          ロビンショップDX
-        </small>
-
+        <small>ロビンショップDX</small>
       </span>
 
     </a>
@@ -1175,20 +1213,12 @@ button{
         <ul class="info-list">
 
           <li>
-            <strong>
-              店名
-            </strong>
-
-            <span>
-              ろびん
-            </span>
+            <strong>店名</strong>
+            <span>ろびん</span>
           </li>
 
           <li>
-            <strong>
-              住所
-            </strong>
-
+            <strong>住所</strong>
             <span>
               〒353-0004<br>
               埼玉県志木市本町3-1-49
@@ -1196,10 +1226,7 @@ button{
           </li>
 
           <li>
-            <strong>
-              電話
-            </strong>
-
+            <strong>電話</strong>
             <span>
               <a
                 href="tel:0484722175"
@@ -1211,33 +1238,20 @@ button{
           </li>
 
           <li>
-            <strong>
-              アクセス
-            </strong>
-
+            <strong>アクセス</strong>
             <span>
               東武東上線 志木駅東口から徒歩約13分
             </span>
           </li>
 
           <li>
-            <strong>
-              駐車場
-            </strong>
-
-            <span>
-              あり
-            </span>
+            <strong>駐車場</strong>
+            <span>あり</span>
           </li>
 
           <li>
-            <strong>
-              定休日
-            </strong>
-
-            <span>
-              木曜日
-            </span>
+            <strong>定休日</strong>
+            <span>木曜日</span>
           </li>
 
         </ul>
@@ -1268,81 +1282,64 @@ button{
 
         <table class="hours-table">
 
-          <tr>
-            <th>
-              月曜日
-            </th>
+          <tbody>
 
-            <td>
-              11:00〜14:00<br>
-              17:00〜21:30
-            </td>
-          </tr>
+            <tr>
+              <th>月曜日</th>
+              <td>
+                11:00〜14:00<br>
+                17:00〜21:30
+              </td>
+            </tr>
 
-          <tr>
-            <th>
-              火曜日
-            </th>
+            <tr>
+              <th>火曜日</th>
+              <td>
+                11:00〜14:00<br>
+                17:00〜21:30
+              </td>
+            </tr>
 
-            <td>
-              11:00〜14:00<br>
-              17:00〜21:30
-            </td>
-          </tr>
+            <tr>
+              <th>水曜日</th>
+              <td>
+                11:00〜14:00<br>
+                17:00〜21:30
+              </td>
+            </tr>
 
-          <tr>
-            <th>
-              水曜日
-            </th>
+            <tr>
+              <th>木曜日</th>
+              <td class="closed">
+                定休日
+              </td>
+            </tr>
 
-            <td>
-              11:00〜14:00<br>
-              17:00〜21:30
-            </td>
-          </tr>
+            <tr>
+              <th>金曜日</th>
+              <td>
+                11:00〜14:00<br>
+                17:00〜21:30
+              </td>
+            </tr>
 
-          <tr>
-            <th>
-              木曜日
-            </th>
+            <tr>
+              <th>土曜日</th>
+              <td>
+                11:00〜14:00<br>
+                17:00〜21:30
+              </td>
+            </tr>
 
-            <td class="closed">
-              定休日
-            </td>
-          </tr>
+            <tr>
+              <th>日曜日</th>
+              <td>
+                11:00〜14:00<br>
+                17:00〜21:30
+              </td>
+            </tr>
 
-          <tr>
-            <th>
-              金曜日
-            </th>
-
-            <td>
-              11:00〜14:00<br>
-              17:00〜21:30
-            </td>
-          </tr>
-
-          <tr>
-            <th>
-              土曜日
-            </th>
-
-            <td>
-              11:00〜14:00<br>
-              17:00〜21:30
-            </td>
-          </tr>
-
-          <tr>
-            <th>
-              日曜日
-            </th>
-
-            <td>
-              11:00〜14:00<br>
-              17:00〜21:30
-            </td>
-          </tr>
+          </tbody>
 
         </table>
 
