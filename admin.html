@@ -213,6 +213,57 @@
       background: var(--green-dark);
     }
 
+    .card-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .status-editor {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .status-editor label {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .status-editor select {
+      padding: 10px 12px;
+      font-size: 15px;
+    }
+
+    .status-button,
+    .danger-button {
+      width: 100%;
+      margin-top: 0;
+      color: #ffffff;
+      font-size: 16px;
+    }
+
+    .status-button {
+      background: var(--water);
+    }
+
+    .status-button:hover {
+      background: var(--green-dark);
+    }
+
+    .danger-button {
+      background: var(--red-dark);
+    }
+
+    .danger-button:hover {
+      background: #7e202a;
+    }
+
     .message {
       display: none;
       margin-top: 16px;
@@ -361,6 +412,14 @@
 
       .photo-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .status-editor {
+        grid-template-columns: 1fr;
+      }
+
+      .status-editor label {
+        white-space: normal;
       }
 
       header h1 {
@@ -513,6 +572,10 @@
       <h2>
         登録済みのお知らせ
       </h2>
+
+      <p class="section-description">
+        公開・非公開の変更、記事の削除は各記事の操作欄から行えます。
+      </p>
 
       <button
         id="newsRefresh"
@@ -820,19 +883,30 @@
       item
     ){
 
-      return String(
+      const raw =
         getValue(
           item,
           [
+            "publish",
             "status",
             "publicStatus",
-            "public",
+            "isPublished",
             "公開状態",
             "公開"
           ]
-        ) ||
-        "非公開"
-      );
+        );
+
+      if(
+        raw === true ||
+        String(raw).trim().toLowerCase() === "true" ||
+        String(raw).trim() === "公開"
+      ){
+
+        return "公開";
+
+      }
+
+      return "非公開";
 
     }
 
@@ -1278,38 +1352,124 @@
             }
 
             if(
-              status !== "公開" &&
               rowNumber > 0
             ){
 
-              const button =
+              const actionBox =
+                document.createElement(
+                  "div"
+                );
+
+              actionBox.className =
+                "card-actions";
+
+              const editor =
+                document.createElement(
+                  "div"
+                );
+
+              editor.className =
+                "status-editor";
+
+              const editorLabel =
+                document.createElement(
+                  "label"
+                );
+
+              editorLabel.textContent =
+                "公開状態";
+
+              const statusSelect =
+                document.createElement(
+                  "select"
+                );
+
+              statusSelect.innerHTML =
+                `
+                  <option value="公開">公開</option>
+                  <option value="非公開">非公開</option>
+                `;
+
+              statusSelect.value =
+                status === "公開"
+                  ? "公開"
+                  : "非公開";
+
+              editor.appendChild(
+                editorLabel
+              );
+
+              editor.appendChild(
+                statusSelect
+              );
+
+              actionBox.appendChild(
+                editor
+              );
+
+              const statusButton =
                 document.createElement(
                   "button"
                 );
 
-              button.className =
-                "success-button";
+              statusButton.className =
+                "status-button";
 
-              button.type =
+              statusButton.type =
                 "button";
 
-              button.textContent =
-                "この記事を公開する";
+              statusButton.textContent =
+                "公開状態を保存する";
 
-              button.addEventListener(
+              statusButton.addEventListener(
                 "click",
                 () => {
 
-                  publishNews(
+                  saveNewsStatus(
                     rowNumber,
-                    button
+                    statusSelect.value,
+                    statusButton
                   );
 
                 }
               );
 
+              actionBox.appendChild(
+                statusButton
+              );
+
+              const deleteButton =
+                document.createElement(
+                  "button"
+                );
+
+              deleteButton.className =
+                "danger-button";
+
+              deleteButton.type =
+                "button";
+
+              deleteButton.textContent =
+                "この記事を削除する";
+
+              deleteButton.addEventListener(
+                "click",
+                () => {
+
+                  deleteNews(
+                    rowNumber,
+                    deleteButton
+                  );
+
+                }
+              );
+
+              actionBox.appendChild(
+                deleteButton
+              );
+
               card.appendChild(
-                button
+                actionBox
               );
 
             }
@@ -1343,26 +1503,17 @@
     }
 
 
-    async function publishNews(
+    async function saveNewsStatus(
       rowNumber,
+      status,
       button
     ){
-
-      if(
-        !confirm(
-          "このお知らせを公開しますか？"
-        )
-      ){
-
-        return;
-
-      }
 
       button.disabled =
         true;
 
       button.textContent =
-        "公開中です…";
+        "保存中です…";
 
       try{
 
@@ -1371,9 +1522,11 @@
             {
               mode:"publishNews",
               rowNumber,
-              status:"公開",
-              publicStatus:"公開",
-              "公開":"公開"
+              publish:status,
+              isPublished:status === "公開",
+              status,
+              publicStatus:status,
+              "公開":status
             }
           );
 
@@ -1384,13 +1537,15 @@
 
           throw new Error(
             result.error ||
-            "公開に失敗しました。"
+            "公開状態の保存に失敗しました。"
           );
 
         }
 
         alert(
-          "お知らせを公開しました。"
+          status === "公開"
+            ? "この記事を公開しました。"
+            : "この記事を非公開にしました。"
         );
 
         loadNews();
@@ -1404,14 +1559,88 @@
         );
 
         alert(
-          "公開に失敗しました。"
+          "公開状態の保存に失敗しました。"
         );
 
         button.disabled =
           false;
 
         button.textContent =
-          "この記事を公開する";
+          "公開状態を保存する";
+
+      }
+
+    }
+
+
+    async function deleteNews(
+      rowNumber,
+      button
+    ){
+
+      if(
+        !confirm(
+          "この記事を削除しますか？\n削除した記事は元に戻せません。"
+        )
+      ){
+
+        return;
+
+      }
+
+      button.disabled =
+        true;
+
+      button.textContent =
+        "削除中です…";
+
+      try{
+
+        const result =
+          await postJson(
+            {
+              mode:"deleteNews",
+              rowNumber,
+              row:rowNumber,
+              action:"delete"
+            }
+          );
+
+        if(
+          result.ok === false ||
+          result.error
+        ){
+
+          throw new Error(
+            result.error ||
+            "記事の削除に失敗しました。"
+          );
+
+        }
+
+        alert(
+          "記事を削除しました。"
+        );
+
+        loadNews();
+
+      }catch(
+        error
+      ){
+
+        console.error(
+          error
+        );
+
+        alert(
+          "記事の削除に失敗しました。"
+        );
+
+        button.disabled =
+          false;
+
+        button.textContent =
+          "この記事を削除する";
 
       }
 
@@ -1796,85 +2025,87 @@
                 body,
                 imageUrl,
                 externalLink,
+                publish:publicStatus,
+                isPublished:publicStatus === "公開",
                 publicStatus,
                 status:publicStatus,
                 "公開":publicStatus
               }
             );
 
-          if(
-            result.ok === false ||
-            result.error
-          ){
-
-            throw new Error(
-              result.error ||
-              "保存に失敗しました。"
-            );
-
-          }
-
-          showMessage(
-            newsMessage,
-            "お知らせを保存しました。",
-            "success"
-          );
-
-          newsForm.reset();
-
-          loadNews();
-
-        }catch(
-          error
+        if(
+          result.ok === false ||
+          result.error
         ){
 
-          console.error(
-            error
+          throw new Error(
+            result.error ||
+            "保存に失敗しました。"
           );
-
-          showMessage(
-            newsMessage,
-            "保存に失敗しました。",
-            "error"
-          );
-
-        }finally{
-
-          newsSubmit.disabled =
-            false;
-
-          newsSubmit.textContent =
-            "お知らせを保存する";
 
         }
 
+        showMessage(
+          newsMessage,
+          "お知らせを保存しました。",
+          "success"
+        );
+
+        newsForm.reset();
+
+        loadNews();
+
+      }catch(
+        error
+      ){
+
+        console.error(
+          error
+        );
+
+        showMessage(
+          newsMessage,
+          "保存に失敗しました。",
+          "error"
+        );
+
+      }finally{
+
+        newsSubmit.disabled =
+          false;
+
+        newsSubmit.textContent =
+          "お知らせを保存する";
+
       }
+
+    }
+  );
+
+
+  document
+    .getElementById(
+      "newsRefresh"
+    )
+    .addEventListener(
+      "click",
+      loadNews
     );
 
 
-    document
-      .getElementById(
-        "newsRefresh"
-      )
-      .addEventListener(
-        "click",
-        loadNews
-      );
+  document
+    .getElementById(
+      "voiceRefresh"
+    )
+    .addEventListener(
+      "click",
+      loadVoices
+    );
 
 
-    document
-      .getElementById(
-        "voiceRefresh"
-      )
-      .addEventListener(
-        "click",
-        loadVoices
-      );
+  loadNews();
 
-
-    loadNews();
-
-    loadVoices();
+  loadVoices();
 
   </script>
 
