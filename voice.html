@@ -3,514 +3,819 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>みんなの写真・口コミ｜ろびんショップDX</title>
 
-  <link rel="icon" href="./robin-icon.jpg">
-  <link rel="apple-touch-icon" href="./robin-icon.jpg">
+  <meta
+    name="description"
+    content="志木市の水と緑のまちにある町中華「ろびん」の写真・口コミ投稿ページです。"
+  >
+
+  <link
+    rel="icon"
+    href="./robin-icon.jpg"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="./robin-icon.jpg"
+  >
+
+  <meta name="theme-color" content="#075366">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="みんなの写真・口コミ｜ろびんショップDX">
-  <meta property="og:description" content="ろびんで食事をした皆さまの写真・星評価・口コミをご紹介します。">
-  <meta property="og:url" content="https://ichirohns-jpg.github.io/robin-shop-dx/voice.html">
-  <meta property="og:image" content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main-banner.jpg">
+
+  <meta
+    property="og:title"
+    content="みんなの写真・口コミ｜ろびんショップDX"
+  >
+
+  <meta
+    property="og:description"
+    content="ろびんで食事をした皆さまの写真・星評価・口コミをご紹介します。"
+  >
+
+  <meta
+    property="og:url"
+    content="https://ichirohns-jpg.github.io/robin-shop-dx/voice.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main-banner.jpg"
+  >
+
   <meta property="og:image:type" content="image/jpeg">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="みんなの写真・口コミ｜ろびんショップDX">
-  <meta name="twitter:description" content="ろびんで食事をした皆さまの写真・星評価・口コミをご紹介します。">
-  <meta name="twitter:image" content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main-banner.jpg">
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="みんなの写真・口コミ｜ろびんショップDX"
+  >
+
+  <meta
+    name="twitter:description"
+    content="ろびんで食事をした皆さまの写真・星評価・口コミをご紹介します。"
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main-banner.jpg"
+  >
 
   <style>
-    :root {
-      --red: #9b0d1b;
-      --dark-red: #770914;
-      --cream: #fffaf0;
-      --beige: #f0e8d7;
-      --line: #e5d9c4;
-      --text: #242124;
-      --muted: #666;
+
+    :root{
+      --water-deep:#075366;
+      --water:#16849a;
+      --water-light:#dff2f0;
+      --water-pale:#f0faf8;
+
+      --green-deep:#1d513d;
+      --green:#3e8055;
+      --green-light:#e6f1df;
+
+      --leaf:#7fa84e;
+      --gold:#d6a73a;
+
+      --ink:#17343b;
+      --muted:#617477;
+      --white:#fff;
+      --line:#cfe1dc;
+
+      --shadow:0 12px 30px rgba(19,74,76,.14);
     }
 
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
     }
 
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--text);
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--water-pale);
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Hiragino Kaku Gothic ProN",
         "Yu Gothic",
-        Meiryo,
+        "Meiryo",
         sans-serif;
+      line-height:1.8;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    header {
-      background: #272629;
-      color: #fff;
-      padding: 18px 14px 16px;
+    button,
+    input,
+    textarea{
+      font:inherit;
     }
 
-    .header-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    /* ヘッダー */
+
+    header{
+      color:#fff;
+      background:
+        linear-gradient(
+          135deg,
+          var(--water-deep),
+          var(--green-deep)
+        );
+      border-bottom:4px solid var(--leaf);
+      padding:18px 14px 16px;
+      box-shadow:0 3px 16px rgba(0,0,0,.18);
     }
 
-    .logo {
-      width: 62px;
-      height: 62px;
-      object-fit: cover;
-      border-radius: 50%;
-      background: #fff;
-      border: 3px solid #fff;
+    .header-inner{
+      max-width:1080px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      gap:14px;
     }
 
-    .site-title {
-      font-size: clamp(23px, 5vw, 38px);
-      font-weight: 900;
-      letter-spacing: .03em;
-      white-space: nowrap;
+    .logo{
+      width:62px;
+      height:62px;
+      object-fit:cover;
+      border-radius:50%;
+      background:#fff;
+      border:3px solid var(--gold);
     }
 
-    nav {
-      max-width: 1080px;
-      margin: 16px auto 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
+    .site-title{
+      color:#fff;
+      font-size:clamp(23px,5vw,38px);
+      font-weight:900;
+      letter-spacing:.03em;
+      white-space:nowrap;
     }
 
-    nav a {
-      min-width: 110px;
-      padding: 13px 16px;
-      border-radius: 999px;
-      background: #201d20;
-      color: #fff;
-      text-align: center;
-      font-weight: 800;
-      font-size: 15px;
+    nav{
+      max-width:1080px;
+      margin:16px auto 0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:center;
     }
 
-    nav a.active {
-      background: var(--red);
+    nav a{
+      min-width:110px;
+      padding:13px 16px;
+      border-radius:999px;
+      color:#fff;
+      background:rgba(0,0,0,.2);
+      text-align:center;
+      font-weight:800;
+      font-size:15px;
     }
 
-    main {
-      width: min(100% - 28px, 1080px);
-      margin: 0 auto;
-      padding: 34px 0 70px;
+    nav a:hover,
+    nav a.active{
+      background:var(--green);
     }
 
-    .hero {
-      text-align: center;
-      padding: 18px 8px 28px;
+    /* ページタイトル */
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:58px 12px 112px;
+      color:#fff;
+      background:
+        linear-gradient(
+          rgba(4,54,66,.72),
+          rgba(4,54,66,.88)
+        ),
+        url("robin-main-banner.jpg") center / cover;
+      text-align:center;
     }
 
-    .hero h1 {
-      margin: 0;
-      color: var(--red);
-      font-size: clamp(30px, 7vw, 62px);
-      font-weight: 900;
-      letter-spacing: .02em;
+    .hero::before{
+      content:"";
+      position:absolute;
+      left:-8%;
+      right:-8%;
+      bottom:-78px;
+      height:150px;
+      border-radius:50% 50% 0 0;
+      background:var(--water-pale);
+      transform:rotate(-2deg);
     }
 
-    .hero p {
-      margin: 18px 0 0;
-      color: #555;
-      font-size: clamp(16px, 3.5vw, 22px);
-      font-weight: 700;
-      line-height: 1.8;
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:55px;
+      height:2px;
+      background:rgba(255,255,255,.4);
+      box-shadow:
+        0 12px 0 rgba(255,255,255,.2),
+        0 24px 0 rgba(255,255,255,.12);
     }
 
-    .section-card {
-      background: #fff;
-      border: 2px solid var(--line);
-      border-radius: 30px;
-      padding: clamp(22px, 5vw, 48px);
-      margin-top: 24px;
-      box-shadow: 0 8px 24px rgba(87, 60, 24, .06);
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:860px;
+      margin:0 auto;
     }
 
-    .section-title {
-      margin: 0 0 18px;
-      color: var(--red);
-      font-size: clamp(25px, 5vw, 42px);
-      font-weight: 900;
+    .hero-kicker{
+      display:inline-block;
+      margin:0 0 15px;
+      padding:6px 17px;
+      border:1px solid rgba(255,255,255,.65);
+      border-radius:999px;
+      background:rgba(7,83,102,.55);
+      color:#fff;
+      font-size:.9rem;
+      font-weight:900;
+      letter-spacing:.13em;
     }
 
-    .section-description {
-      color: #555;
-      font-size: 17px;
-      line-height: 1.9;
-      font-weight: 700;
+    .hero h1{
+      margin:0;
+      color:#fff;
+      font-size:clamp(30px,7vw,62px);
+      font-weight:900;
+      letter-spacing:.04em;
+      text-shadow:
+        0 4px 15px rgba(0,0,0,.5),
+        3px 3px 0 rgba(29,81,61,.85);
     }
+
+    .hero p{
+      margin:18px 0 0;
+      color:#e0f1ed;
+      font-size:clamp(16px,3.5vw,22px);
+      font-weight:700;
+      line-height:1.8;
+    }
+
+    /* 共通カード */
+
+    main{
+      width:min(100% - 28px,1080px);
+      margin:0 auto;
+      padding:34px 0 70px;
+    }
+
+    .section-card{
+      margin-top:24px;
+      padding:clamp(22px,5vw,48px);
+      border:2px solid var(--line);
+      border-top:7px solid var(--water);
+      border-radius:26px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    .section-title{
+      margin:0 0 18px;
+      color:var(--green-deep);
+      font-size:clamp(25px,5vw,42px);
+      font-weight:900;
+    }
+
+    .section-title::after{
+      content:"";
+      display:block;
+      width:76px;
+      height:4px;
+      margin:13px 0 0;
+      border-radius:10px;
+      background:
+        linear-gradient(
+          90deg,
+          var(--water),
+          var(--leaf)
+        );
+    }
+
+    .section-description{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.9;
+      font-weight:700;
+    }
+
+    /* 投稿ボタン */
 
     .top-post-button,
-    .submit-button {
-      display: block;
-      width: 100%;
-      border: 0;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #c91d31, #8c0917);
-      color: #fff;
-      padding: 18px 20px;
-      font-size: 20px;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 8px 18px rgba(155, 13, 27, .2);
+    .submit-button{
+      display:block;
+      width:100%;
+      border:0;
+      border-radius:999px;
+      color:#fff;
+      background:
+        linear-gradient(
+          135deg,
+          var(--water),
+          var(--green)
+        );
+      padding:18px 20px;
+      font-size:20px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(19,74,76,.2);
+      transition:.2s;
     }
 
-    .top-post-button {
-      max-width: 520px;
-      margin: 24px auto 0;
+    .top-post-button{
+      max-width:520px;
+      margin:24px auto 0;
     }
 
-    button:disabled {
-      opacity: .55;
-      cursor: wait;
+    .top-post-button:hover,
+    .submit-button:hover{
+      background:
+        linear-gradient(
+          135deg,
+          var(--green),
+          var(--green-deep)
+        );
+      transform:translateY(-2px);
     }
 
-    .empty {
-      margin-top: 24px;
-      padding: 28px 20px;
-      border-radius: 20px;
-      background: var(--beige);
-      color: #6d665e;
-      text-align: center;
-      font-size: 17px;
-      font-weight: 800;
-      line-height: 1.8;
+    button:disabled{
+      opacity:.55;
+      cursor:wait;
+      transform:none;
     }
 
-    .loading {
-      text-align: center;
-      padding: 30px 10px;
-      color: var(--muted);
-      font-weight: 700;
+    /* 口コミ一覧 */
+
+    .empty{
+      margin-top:24px;
+      padding:28px 20px;
+      border-radius:20px;
+      color:var(--muted);
+      background:var(--green-light);
+      text-align:center;
+      font-size:17px;
+      font-weight:800;
+      line-height:1.8;
     }
 
-    .voice-list {
-      display: grid;
-      gap: 22px;
-      margin-top: 24px;
+    .loading{
+      padding:30px 10px;
+      color:var(--muted);
+      text-align:center;
+      font-weight:700;
     }
 
-    .voice-card {
-      background: #fffaf5;
-      border: 2px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
+    .voice-list{
+      display:grid;
+      gap:22px;
+      margin-top:24px;
     }
 
-    .voice-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+    .voice-card{
+      padding:22px;
+      border:2px solid var(--line);
+      border-radius:22px;
+      background:
+        linear-gradient(
+          135deg,
+          #fff,
+          var(--water-pale)
+        );
     }
 
-    .voice-name {
-      font-size: 21px;
-      font-weight: 900;
+    .voice-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
     }
 
-    .voice-date {
-      color: #777;
-      font-size: 14px;
-      font-weight: 700;
+    .voice-name{
+      color:var(--green-deep);
+      font-size:21px;
+      font-weight:900;
     }
 
-    .stars {
-      color: #f4b400;
-      font-size: 27px;
-      letter-spacing: 2px;
-      line-height: 1.2;
-      margin-top: 8px;
+    .voice-date{
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
     }
 
-    .voice-body {
-      margin: 16px 0 0;
-      white-space: pre-wrap;
-      font-size: 17px;
-      line-height: 1.9;
-      font-weight: 600;
+    .stars{
+      margin-top:8px;
+      color:#d59c15;
+      font-size:27px;
+      letter-spacing:2px;
+      line-height:1.2;
     }
 
-    .voice-images {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 10px;
-      margin-top: 18px;
+    .voice-body{
+      margin:16px 0 0;
+      color:#45605c;
+      white-space:pre-wrap;
+      font-size:17px;
+      line-height:1.9;
+      font-weight:600;
     }
 
-    .voice-images img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #eee;
+    .voice-images{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+      gap:10px;
+      margin-top:18px;
     }
 
-    .form-card {
-      scroll-margin-top: 20px;
+    .voice-images img{
+      width:100%;
+      aspect-ratio:1 / 1;
+      object-fit:cover;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:var(--water-light);
     }
 
-    .form-row {
-      margin-top: 20px;
+    /* 投稿フォーム */
+
+    .form-card{
+      scroll-margin-top:20px;
+      border-top-color:var(--green);
+      background:
+        linear-gradient(
+          180deg,
+          #fff,
+          var(--water-pale)
+        );
     }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 900;
-      font-size: 16px;
+    .form-row{
+      margin-top:20px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:8px;
+      color:var(--green-deep);
+      font-weight:900;
+      font-size:16px;
     }
 
     input[type="text"],
-    textarea {
-      width: 100%;
-      border: 2px solid var(--line);
-      border-radius: 14px;
-      background: #fffdf9;
-      color: var(--text);
-      padding: 15px;
-      font: inherit;
-      font-size: 16px;
-      outline: none;
+    textarea{
+      width:100%;
+      border:2px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      color:var(--ink);
+      padding:15px;
+      font-size:16px;
+      outline:none;
     }
 
     input[type="text"]:focus,
-    textarea:focus {
-      border-color: var(--red);
+    textarea:focus{
+      border-color:var(--water);
+      box-shadow:0 0 0 3px rgba(22,132,154,.12);
     }
 
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-      line-height: 1.7;
+    textarea{
+      min-height:150px;
+      resize:vertical;
+      line-height:1.7;
     }
 
-    .star-select {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+    .star-select{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
     }
 
-    .star-button {
-      border: 2px solid #e3d7c4;
-      border-radius: 12px;
-      background: #fff;
-      color: #c4b8a6;
-      font-size: 32px;
-      line-height: 1;
-      padding: 8px 10px;
-      cursor: pointer;
+    .star-button{
+      border:2px solid #cfe1dc;
+      border-radius:12px;
+      background:#fff;
+      color:#b7c7c4;
+      font-size:32px;
+      line-height:1;
+      padding:8px 10px;
+      cursor:pointer;
     }
 
-    .star-button.selected {
-      color: #f4b400;
-      border-color: #f4b400;
-      background: #fff9df;
+    .star-button.selected{
+      color:#d59c15;
+      border-color:#d59c15;
+      background:#fff8d7;
     }
 
-    .file-box {
-      border: 2px dashed #cbbca5;
-      border-radius: 16px;
-      padding: 18px;
-      background: #fffdf9;
+    .file-box{
+      border:2px dashed #9fc4ba;
+      border-radius:16px;
+      padding:18px;
+      background:#fff;
     }
 
-    input[type="file"] {
-      display: block;
-      width: 100%;
-      font-size: 15px;
+    input[type="file"]{
+      display:block;
+      width:100%;
+      font-size:15px;
     }
 
-    .file-note {
-      margin: 10px 0 0;
-      color: #777;
-      font-size: 14px;
-      line-height: 1.6;
-      font-weight: 700;
+    .file-note{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      font-weight:700;
     }
 
-    .preview-list {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-      margin-top: 14px;
+    .preview-list{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:8px;
+      margin-top:14px;
     }
 
-    .preview-list img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid var(--line);
+    .preview-list img{
+      width:100%;
+      aspect-ratio:1 / 1;
+      object-fit:cover;
+      border:1px solid var(--line);
+      border-radius:10px;
     }
 
-    .privacy-note {
-      margin-top: 22px;
-      padding: 16px;
-      border-left: 6px solid #e0aa00;
-      background: #fff8d7;
-      color: #665400;
-      font-size: 14px;
-      line-height: 1.8;
-      font-weight: 700;
+    .privacy-note{
+      margin-top:22px;
+      padding:16px;
+      border-left:6px solid var(--gold);
+      color:#5f6045;
+      background:#fff8d7;
+      font-size:14px;
+      line-height:1.8;
+      font-weight:700;
     }
 
-    .message {
-      display: none;
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 14px;
-      text-align: center;
-      font-weight: 800;
-      line-height: 1.7;
+    .message{
+      display:none;
+      margin-top:18px;
+      padding:16px;
+      border-radius:14px;
+      text-align:center;
+      font-weight:800;
+      line-height:1.7;
     }
 
-    .message.success {
-      display: block;
-      background: #e5f7e8;
-      color: #176526;
+    .message.success{
+      display:block;
+      color:#176526;
+      background:#e5f7e8;
     }
 
-    .message.error {
-      display: block;
-      background: #ffe6e6;
-      color: #8b1111;
+    .message.error{
+      display:block;
+      color:#8b1111;
+      background:#ffe6e6;
     }
 
-    footer {
-      padding: 30px 14px 50px;
-      text-align: center;
-      color: #777;
-      font-size: 13px;
-      font-weight: 700;
+    /* フッター */
+
+    footer{
+      padding:34px 14px 50px;
+      border-top:5px solid var(--leaf);
+      color:#d8eeea;
+      background:
+        linear-gradient(
+          135deg,
+          var(--water-deep),
+          #123e4c
+        );
+      text-align:center;
+      font-size:13px;
+      font-weight:700;
     }
 
-    @media (max-width: 640px) {
-      header {
-        padding-top: 14px;
+    footer p{
+      margin:5px 0;
+    }
+
+    /* スマートフォン */
+
+    @media(max-width:640px){
+
+      header{
+        padding-top:14px;
       }
 
-      .header-inner {
-        gap: 10px;
+      .header-inner{
+        gap:10px;
       }
 
-      .logo {
-        width: 50px;
-        height: 50px;
+      .logo{
+        width:50px;
+        height:50px;
       }
 
-      .site-title {
-        font-size: 23px;
+      .site-title{
+        font-size:23px;
       }
 
-      nav {
-        justify-content: stretch;
+      nav{
+        justify-content:stretch;
       }
 
-      nav a {
-        flex: 1 1 calc(50% - 8px);
-        min-width: 0;
-        font-size: 14px;
-        padding: 12px 8px;
+      nav a{
+        flex:1 1 calc(50% - 8px);
+        min-width:0;
+        padding:12px 8px;
+        font-size:14px;
       }
 
-      main {
-        width: min(100% - 18px, 1080px);
-        padding-top: 22px;
+      .hero{
+        padding:48px 12px 105px;
       }
 
-      .section-card {
-        border-radius: 22px;
-        padding: 21px 16px;
+      main{
+        width:min(100% - 18px,1080px);
+        padding-top:22px;
       }
 
-      .preview-list {
-        grid-template-columns: repeat(3, 1fr);
+      .section-card{
+        border-radius:22px;
+        padding:21px 16px;
       }
 
-      .star-button {
-        font-size: 27px;
+      .section-title{
+        font-size:29px;
       }
+
+      .voice-card{
+        padding:18px;
+      }
+
+      .preview-list{
+        grid-template-columns:repeat(3,1fr);
+      }
+
+      .star-button{
+        font-size:27px;
+      }
+
+      .top-post-button,
+      .submit-button{
+        font-size:18px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
+
   <header>
+
     <div class="header-inner">
+
       <img
         class="logo"
         src="./robin-icon.jpg"
         alt="ろびん"
         onerror="this.style.display='none'"
       >
-      <div class="site-title">ろびんショップDX</div>
+
+      <div class="site-title">
+        ろびんショップDX
+      </div>
+
     </div>
 
     <nav>
-      <a href="./index.html">ホーム</a>
-      <a href="./menu.html">メニュー</a>
-      <a href="./news.html">お知らせ</a>
-      <a href="./access.html">店舗情報</a>
-      <a class="active" href="./voice.html">お客様の声</a>
+
+      <a href="./index.html">
+        ホーム
+      </a>
+
+      <a href="./menu.html">
+        メニュー
+      </a>
+
+      <a href="./news.html">
+        お知らせ
+      </a>
+
+      <a href="./access.html">
+        店舗情報
+      </a>
+
+      <a class="active" href="./voice.html">
+        お客様の声
+      </a>
+
     </nav>
+
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>⭐ みんなの写真・口コミ</h1>
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <p class="hero-kicker">
+        WATER・GREEN・ROBIN
+      </p>
+
+      <h1>
+        みんなの写真・口コミ
+      </h1>
+
       <p>
         ろびんで食事をした皆さまの<br>
         写真・星評価・口コミをご紹介します。
       </p>
 
-      <button class="top-post-button" type="button" onclick="scrollToPost()">
+      <button
+        class="top-post-button"
+        type="button"
+        onclick="scrollToPost()"
+      >
         📷 写真・口コミを投稿する
       </button>
-    </section>
+
+    </div>
+
+  </section>
+
+  <main>
 
     <section class="section-card">
-      <h2 class="section-title">公開中の写真・口コミ</h2>
+
+      <h2 class="section-title">
+        公開中の写真・口コミ
+      </h2>
+
       <p class="section-description">
         管理者が確認して公開したお客様の写真、星評価、コメントを掲載しています。
       </p>
 
-      <div id="loading" class="loading">読み込み中です。</div>
-      <div id="empty" class="empty" style="display:none;">
+      <div
+        id="loading"
+        class="loading"
+      >
+        読み込み中です。
+      </div>
+
+      <div
+        id="empty"
+        class="empty"
+        style="display:none;"
+      >
         公開中の写真・口コミはまだありません。
       </div>
-      <div id="voiceList" class="voice-list"></div>
+
+      <div
+        id="voiceList"
+        class="voice-list"
+      ></div>
+
     </section>
 
-    <section id="postForm" class="section-card form-card">
-      <h2 class="section-title">📷 写真・口コミを投稿する</h2>
+    <section
+      id="postForm"
+      class="section-card form-card"
+    >
+
+      <h2 class="section-title">
+        📷 写真・口コミを投稿する
+      </h2>
+
       <p class="section-description">
         お名前、星評価、コメント、写真を入力してください。<br>
         投稿内容は確認後に公開されます。
       </p>
 
       <form id="voiceForm">
+
         <div class="form-row">
-          <label for="name">お名前・ニックネーム</label>
+
+          <label for="name">
+            お名前・ニックネーム
+          </label>
+
           <input
             id="name"
             name="name"
@@ -518,445 +823,1052 @@
             maxlength="40"
             placeholder="例：ろびんファン"
           >
+
         </div>
 
         <div class="form-row">
-          <label>星評価</label>
-          <div id="starSelect" class="star-select">
-            <button class="star-button" type="button" data-star="1">★</button>
-            <button class="star-button" type="button" data-star="2">★</button>
-            <button class="star-button" type="button" data-star="3">★</button>
-            <button class="star-button" type="button" data-star="4">★</button>
-            <button class="star-button" type="button" data-star="5">★</button>
+
+          <label>
+            星評価
+          </label>
+
+          <div
+            id="starSelect"
+            class="star-select"
+          >
+
+            <button
+              class="star-button"
+              type="button"
+              data-star="1"
+            >
+              ★
+            </button>
+
+            <button
+              class="star-button"
+              type="button"
+              data-star="2"
+            >
+              ★
+            </button>
+
+            <button
+              class="star-button"
+              type="button"
+              data-star="3"
+            >
+              ★
+            </button>
+
+            <button
+              class="star-button"
+              type="button"
+              data-star="4"
+            >
+              ★
+            </button>
+
+            <button
+              class="star-button"
+              type="button"
+              data-star="5"
+            >
+              ★
+            </button>
+
           </div>
-          <input id="stars" type="hidden" value="0">
+
+          <input
+            id="stars"
+            type="hidden"
+            value="0"
+          >
+
         </div>
 
         <div class="form-row">
-          <label for="body">口コミ・コメント</label>
+
+          <label for="body">
+            口コミ・コメント
+          </label>
+
           <textarea
             id="body"
             maxlength="1000"
             placeholder="料理の感想やお店の思い出などをご記入ください。"
           ></textarea>
+
         </div>
 
         <div class="form-row">
-          <label for="photos">写真（最大5枚）</label>
+
+          <label for="photos">
+            写真（最大5枚）
+          </label>
+
           <div class="file-box">
+
             <input
               id="photos"
               type="file"
               accept="image/*"
               multiple
             >
+
             <p class="file-note">
               スマートフォンのカメラロールから、最大5枚選択できます。<br>
               写真は自動で小さくして送信します。
             </p>
-            <div id="previewList" class="preview-list"></div>
+
+            <div
+              id="previewList"
+              class="preview-list"
+            ></div>
+
           </div>
+
         </div>
 
         <div class="privacy-note">
           投稿内容はすぐには公開されません。管理者が確認した後、公開ページに表示されます。
         </div>
 
-        <button id="submitButton" class="submit-button" type="submit">
+        <button
+          id="submitButton"
+          class="submit-button"
+          type="submit"
+        >
           この内容で投稿する
         </button>
 
-        <div id="message" class="message"></div>
+        <div
+          id="message"
+          class="message"
+        ></div>
+
       </form>
+
     </section>
+
   </main>
 
   <footer>
-    © ろびんショップDX
+
+    <p>
+      ろびんショップDX
+    </p>
+
+    <p>
+      志木市の水と緑のまちにある町中華「ろびん」
+    </p>
+
   </footer>
 
   <script>
+
     const GAS_URL =
       "https://script.google.com/macros/s/AKfycbyQYbLdtiWhEr27ZAWJi3D98eVJdXlD-lMr2D6T6RxvfIb_k2kFHDxxfdKE_WTiUCZ1HQ/exec";
 
     let selectedStars = 0;
     let selectedImages = [];
 
-    const loading = document.getElementById("loading");
-    const empty = document.getElementById("empty");
-    const voiceList = document.getElementById("voiceList");
-    const voiceForm = document.getElementById("voiceForm");
-    const photosInput = document.getElementById("photos");
-    const previewList = document.getElementById("previewList");
-    const submitButton = document.getElementById("submitButton");
-    const message = document.getElementById("message");
+    const loading =
+      document.getElementById(
+        "loading"
+      );
 
-    function scrollToPost() {
-      document.getElementById("postForm").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
+    const empty =
+      document.getElementById(
+        "empty"
+      );
 
-    document.querySelectorAll(".star-button").forEach(button => {
-      button.addEventListener("click", () => {
-        selectedStars = Number(button.dataset.star);
-        document.getElementById("stars").value = selectedStars;
+    const voiceList =
+      document.getElementById(
+        "voiceList"
+      );
 
-        document.querySelectorAll(".star-button").forEach(item => {
-          item.classList.toggle(
-            "selected",
-            Number(item.dataset.star) <= selectedStars
-          );
+    const voiceForm =
+      document.getElementById(
+        "voiceForm"
+      );
+
+    const photosInput =
+      document.getElementById(
+        "photos"
+      );
+
+    const previewList =
+      document.getElementById(
+        "previewList"
+      );
+
+    const submitButton =
+      document.getElementById(
+        "submitButton"
+      );
+
+    const message =
+      document.getElementById(
+        "message"
+      );
+
+
+    function scrollToPost(){
+
+      document
+        .getElementById("postForm")
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"start"
         });
-      });
-    });
 
-    photosInput.addEventListener("change", async event => {
-      const files = Array.from(event.target.files || []);
+    }
 
-      if (files.length > 5) {
-        alert("写真は最大5枚までです。最初の5枚を使用します。");
-      }
 
-      const limitedFiles = files.slice(0, 5);
-      selectedImages = [];
-      previewList.innerHTML = "";
+    document
+      .querySelectorAll(".star-button")
+      .forEach(
+        button => {
 
-      for (const file of limitedFiles) {
-        try {
-          const dataUrl = await compressImage(file);
+          button.addEventListener(
+            "click",
+            () => {
 
-          selectedImages.push({
-            dataUrl,
-            name: file.name,
-            type: "image/jpeg"
-          });
+              selectedStars =
+                Number(
+                  button.dataset.star
+                );
 
-          const image = document.createElement("img");
-          image.src = dataUrl;
-          image.alt = "選択した写真";
-          previewList.appendChild(image);
-        } catch (error) {
-          console.error(error);
+              document
+                .getElementById("stars")
+                .value =
+                  selectedStars;
+
+              document
+                .querySelectorAll(".star-button")
+                .forEach(
+                  item => {
+
+                    item.classList.toggle(
+                      "selected",
+                      Number(
+                        item.dataset.star
+                      ) <= selectedStars
+                    );
+
+                  }
+                );
+
+            }
+          );
+
         }
+      );
+
+
+    photosInput.addEventListener(
+      "change",
+      async event => {
+
+        const files =
+          Array.from(
+            event.target.files || []
+          );
+
+        if(files.length > 5){
+
+          alert(
+            "写真は最大5枚までです。最初の5枚を使用します。"
+          );
+
+        }
+
+        const limitedFiles =
+          files.slice(0,5);
+
+        selectedImages = [];
+
+        previewList.innerHTML = "";
+
+        for(
+          const file
+          of limitedFiles
+        ){
+
+          try{
+
+            const dataUrl =
+              await compressImage(
+                file
+              );
+
+            selectedImages.push({
+              dataUrl,
+              name:file.name,
+              type:"image/jpeg"
+            });
+
+            const image =
+              document.createElement(
+                "img"
+              );
+
+            image.src =
+              dataUrl;
+
+            image.alt =
+              "選択した写真";
+
+            previewList.appendChild(
+              image
+            );
+
+          }catch(error){
+
+            console.error(error);
+
+          }
+
+        }
+
       }
-    });
+    );
 
-    function compressImage(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
 
-        reader.onload = event => {
-          const image = new Image();
+    function compressImage(file){
 
-          image.onload = () => {
-            const maxSize = 600;
-            const scale = Math.min(
-              1,
-              maxSize / Math.max(image.width, image.height)
-            );
+      return new Promise(
+        (resolve,reject) => {
 
-            const canvas = document.createElement("canvas");
-            canvas.width = Math.max(1, Math.round(image.width * scale));
-            canvas.height = Math.max(1, Math.round(image.height * scale));
+          const reader =
+            new FileReader();
 
-            const context = canvas.getContext("2d");
-            context.fillStyle = "#ffffff";
-            context.fillRect(0, 0, canvas.width, canvas.height);
-            context.drawImage(
-              image,
-              0,
-              0,
-              canvas.width,
-              canvas.height
-            );
+          reader.onload =
+            event => {
 
-            resolve(canvas.toDataURL("image/jpeg", 0.5));
-          };
+              const image =
+                new Image();
 
-          image.onerror = reject;
-          image.src = event.target.result;
-        };
+              image.onload =
+                () => {
 
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
+                  const maxSize =
+                    600;
+
+                  const scale =
+                    Math.min(
+                      1,
+                      maxSize /
+                      Math.max(
+                        image.width,
+                        image.height
+                      )
+                    );
+
+                  const canvas =
+                    document.createElement(
+                      "canvas"
+                    );
+
+                  canvas.width =
+                    Math.max(
+                      1,
+                      Math.round(
+                        image.width *
+                        scale
+                      )
+                    );
+
+                  canvas.height =
+                    Math.max(
+                      1,
+                      Math.round(
+                        image.height *
+                        scale
+                      )
+                    );
+
+                  const context =
+                    canvas.getContext(
+                      "2d"
+                    );
+
+                  context.fillStyle =
+                    "#ffffff";
+
+                  context.fillRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                  );
+
+                  context.drawImage(
+                    image,
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                  );
+
+                  resolve(
+                    canvas.toDataURL(
+                      "image/jpeg",
+                      0.5
+                    )
+                  );
+
+                };
+
+              image.onerror =
+                reject;
+
+              image.src =
+                event.target.result;
+
+            };
+
+          reader.onerror =
+            reject;
+
+          reader.readAsDataURL(
+            file
+          );
+
+        }
+      );
+
     }
 
-    function showMessage(text, type) {
-      message.textContent = text;
-      message.className = "message " + type;
+
+    function showMessage(
+      text,
+      type
+    ){
+
+      message.textContent =
+        text;
+
+      message.className =
+        "message " +
+        type;
+
     }
 
-    function clearMessage() {
-      message.textContent = "";
-      message.className = "message";
+
+    function clearMessage(){
+
+      message.textContent =
+        "";
+
+      message.className =
+        "message";
+
     }
 
-    function convertImageUrl(url) {
-      if (!url) return "";
 
-      const value = String(url).trim();
+    function convertImageUrl(url){
 
-      if (
-        value.includes("lh3.googleusercontent.com") ||
-        value.includes("googleusercontent.com")
-      ) {
+      if(!url){
+
+        return "";
+
+      }
+
+      const value =
+        String(url).trim();
+
+      if(
+        value.includes(
+          "lh3.googleusercontent.com"
+        ) ||
+        value.includes(
+          "googleusercontent.com"
+        )
+      ){
+
         return value;
+
       }
 
       const patterns = [
+
         /\/d\/([a-zA-Z0-9_-]+)/,
+
         /[?&]id=([a-zA-Z0-9_-]+)/,
+
         /file\/d\/([a-zA-Z0-9_-]+)/
+
       ];
 
-      for (const pattern of patterns) {
-        const match = value.match(pattern);
+      for(
+        const pattern
+        of patterns
+      ){
 
-        if (match && match[1]) {
-          return "https://lh3.googleusercontent.com/d/" + match[1] + "=w1200";
+        const match =
+          value.match(
+            pattern
+          );
+
+        if(
+          match &&
+          match[1]
+        ){
+
+          return(
+            "https://lh3.googleusercontent.com/d/" +
+            match[1] +
+            "=w1200"
+          );
+
         }
+
       }
 
       return value;
+
     }
 
-    function normalizeItems(json) {
-      if (Array.isArray(json)) {
+
+    function normalizeItems(json){
+
+      if(
+        Array.isArray(json)
+      ){
+
         return json;
+
       }
 
-      if (Array.isArray(json.items)) {
+      if(
+        Array.isArray(json.items)
+      ){
+
         return json.items;
+
       }
 
-      if (Array.isArray(json.voices)) {
+      if(
+        Array.isArray(json.voices)
+      ){
+
         return json.voices;
+
       }
 
-      if (Array.isArray(json.data)) {
+      if(
+        Array.isArray(json.data)
+      ){
+
         return json.data;
+
       }
 
       return [];
+
     }
 
-    function getValue(item, keys) {
-      for (const key of keys) {
-        if (
+
+    function getValue(
+      item,
+      keys
+    ){
+
+      for(
+        const key
+        of keys
+      ){
+
+        if(
           item &&
           item[key] !== undefined &&
           item[key] !== null &&
           item[key] !== ""
-        ) {
+        ){
+
           return item[key];
+
         }
+
       }
 
       return "";
+
     }
 
-    function getImages(item) {
+
+    function getImages(item){
+
       let images = [];
 
-      if (Array.isArray(item.images)) {
-        images = item.images;
-      } else if (Array.isArray(item.imageUrls)) {
-        images = item.imageUrls;
-      } else {
+      if(
+        Array.isArray(item.images)
+      ){
+
+        images =
+          item.images;
+
+      }else if(
+        Array.isArray(item.imageUrls)
+      ){
+
+        images =
+          item.imageUrls;
+
+      }else{
+
         images = [
+
           item.image1,
           item.image2,
           item.image3,
           item.image4,
           item.image5,
+
           item["画像1URL"],
           item["画像2URL"],
           item["画像3URL"],
           item["画像4URL"],
           item["画像5URL"]
+
         ];
+
       }
 
       return images
         .filter(Boolean)
         .map(convertImageUrl)
         .filter(Boolean);
+
     }
 
-    function renderStars(value) {
-      const count = Math.max(
-        0,
-        Math.min(5, Number(value) || 0)
+
+    function renderStars(value){
+
+      const count =
+        Math.max(
+          0,
+          Math.min(
+            5,
+            Number(value) || 0
+          )
+        );
+
+      return(
+        "★".repeat(count) +
+        "☆".repeat(5 - count)
       );
 
-      return "★".repeat(count) + "☆".repeat(5 - count);
     }
 
-    function renderVoices(items) {
-      loading.style.display = "none";
-      voiceList.innerHTML = "";
 
-      if (!items.length) {
-        empty.style.display = "block";
+    function renderVoices(items){
+
+      loading.style.display =
+        "none";
+
+      voiceList.innerHTML =
+        "";
+
+      if(!items.length){
+
+        empty.style.display =
+          "block";
+
         return;
+
       }
 
-      empty.style.display = "none";
+      empty.style.display =
+        "none";
 
-      items.forEach(item => {
-        const card = document.createElement("article");
-        card.className = "voice-card";
+      items.forEach(
+        item => {
 
-        const head = document.createElement("div");
-        head.className = "voice-head";
+          const card =
+            document.createElement(
+              "article"
+            );
 
-        const name = document.createElement("div");
-        name.className = "voice-name";
-        name.textContent =
-          getValue(item, ["name", "お名前", "名前"]) || "匿名";
+          card.className =
+            "voice-card";
 
-        const date = document.createElement("div");
-        date.className = "voice-date";
-        date.textContent =
-          getValue(item, ["date", "日付", "投稿日"]) || "";
+          const head =
+            document.createElement(
+              "div"
+            );
 
-        head.appendChild(name);
-        head.appendChild(date);
+          head.className =
+            "voice-head";
 
-        const stars = document.createElement("div");
-        stars.className = "stars";
-        stars.textContent = renderStars(
-          getValue(item, ["stars", "星", "星評価"])
-        );
+          const name =
+            document.createElement(
+              "div"
+            );
 
-        const body = document.createElement("p");
-        body.className = "voice-body";
-        body.textContent =
-          getValue(item, ["body", "本文", "コメント"]) || "";
+          name.className =
+            "voice-name";
 
-        card.appendChild(head);
-        card.appendChild(stars);
-        card.appendChild(body);
+          name.textContent =
+            getValue(
+              item,
+              [
+                "name",
+                "お名前",
+                "名前"
+              ]
+            ) ||
+            "匿名";
 
-        const images = getImages(item);
+          const date =
+            document.createElement(
+              "div"
+            );
 
-        if (images.length) {
-          const imageBox = document.createElement("div");
-          imageBox.className = "voice-images";
+          date.className =
+            "voice-date";
 
-          images.forEach(url => {
-            const image = document.createElement("img");
-            image.src = url;
-            image.alt = "お客様の投稿写真";
-            image.loading = "lazy";
-            image.onerror = () => {
-              image.style.display = "none";
-            };
-            imageBox.appendChild(image);
-          });
+          date.textContent =
+            getValue(
+              item,
+              [
+                "date",
+                "日付",
+                "投稿日"
+              ]
+            ) ||
+            "";
 
-          card.appendChild(imageBox);
+          head.appendChild(
+            name
+          );
+
+          head.appendChild(
+            date
+          );
+
+          const stars =
+            document.createElement(
+              "div"
+            );
+
+          stars.className =
+            "stars";
+
+          stars.textContent =
+            renderStars(
+              getValue(
+                item,
+                [
+                  "stars",
+                  "星",
+                  "星評価"
+                ]
+              )
+            );
+
+          const body =
+            document.createElement(
+              "p"
+            );
+
+          body.className =
+            "voice-body";
+
+          body.textContent =
+            getValue(
+              item,
+              [
+                "body",
+                "本文",
+                "コメント"
+              ]
+            ) ||
+            "";
+
+          card.appendChild(
+            head
+          );
+
+          card.appendChild(
+            stars
+          );
+
+          card.appendChild(
+            body
+          );
+
+          const images =
+            getImages(
+              item
+            );
+
+          if(images.length){
+
+            const imageBox =
+              document.createElement(
+                "div"
+              );
+
+            imageBox.className =
+              "voice-images";
+
+            images.forEach(
+              url => {
+
+                const image =
+                  document.createElement(
+                    "img"
+                  );
+
+                image.src =
+                  url;
+
+                image.alt =
+                  "お客様の投稿写真";
+
+                image.loading =
+                  "lazy";
+
+                image.onerror =
+                  () => {
+
+                    image.style.display =
+                      "none";
+
+                  };
+
+                imageBox.appendChild(
+                  image
+                );
+
+              }
+            );
+
+            card.appendChild(
+              imageBox
+            );
+
+          }
+
+          voiceList.appendChild(
+            card
+          );
+
         }
+      );
 
-        voiceList.appendChild(card);
-      });
     }
 
-    async function loadVoices() {
-      try {
-        const response = await fetch(
-          GAS_URL + "?mode=voices&v=" + Date.now(),
-          {
-            cache: "no-store"
-          }
+
+    async function loadVoices(){
+
+      try{
+
+        const response =
+          await fetch(
+            GAS_URL +
+            "?mode=voices&v=" +
+            Date.now(),
+            {
+              cache:"no-store"
+            }
+          );
+
+        const json =
+          await response.json();
+
+        renderVoices(
+          normalizeItems(
+            json
+          )
         );
 
-        const json = await response.json();
-        renderVoices(normalizeItems(json));
-      } catch (error) {
+      }catch(error){
+
         console.error(error);
-        loading.style.display = "none";
-        empty.style.display = "block";
+
+        loading.style.display =
+          "none";
+
+        empty.style.display =
+          "block";
+
         empty.textContent =
           "口コミの読み込みに失敗しました。ページを更新してください。";
+
       }
+
     }
 
-    voiceForm.addEventListener("submit", async event => {
-      event.preventDefault();
-      clearMessage();
 
-      const name =
-        document.getElementById("name").value.trim() || "匿名";
-      const body =
-        document.getElementById("body").value.trim();
+    voiceForm.addEventListener(
+      "submit",
+      async event => {
 
-      if (selectedStars < 1 || selectedStars > 5) {
-        showMessage("星評価を選択してください。", "error");
-        return;
-      }
+        event.preventDefault();
 
-      if (!body) {
-        showMessage("口コミ・コメントを入力してください。", "error");
-        return;
-      }
+        clearMessage();
 
-      submitButton.disabled = true;
-      submitButton.textContent = "送信中です…";
+        const name =
+          document
+            .getElementById("name")
+            .value
+            .trim() ||
+          "匿名";
 
-      const payload = {
-        mode: "saveVoice",
-        name,
-        stars: selectedStars,
-        body,
-        imageDataList: selectedImages.map(item => item.dataUrl),
-        imageNames: selectedImages.map(item => item.name),
-        imageTypes: selectedImages.map(item => item.type)
-      };
+        const body =
+          document
+            .getElementById("body")
+            .value
+            .trim();
 
-      try {
-        const response = await fetch(GAS_URL, {
-          method: "POST",
-          body: JSON.stringify(payload)
-        });
+        if(
+          selectedStars < 1 ||
+          selectedStars > 5
+        ){
 
-        const result = await response.json();
+          showMessage(
+            "星評価を選択してください。",
+            "error"
+          );
 
-        if (result.ok === false || result.error) {
-          throw new Error(result.error || "投稿に失敗しました。");
+          return;
+
         }
 
-        showMessage(
-          "投稿ありがとうございました。管理者が確認した後に公開されます。",
-          "success"
-        );
+        if(!body){
 
-        voiceForm.reset();
-        selectedStars = 0;
-        selectedImages = [];
-        previewList.innerHTML = "";
+          showMessage(
+            "口コミ・コメントを入力してください。",
+            "error"
+          );
 
-        document.querySelectorAll(".star-button").forEach(item => {
-          item.classList.remove("selected");
-        });
+          return;
 
-        document.getElementById("stars").value = "0";
-      } catch (error) {
-        console.error(error);
-        showMessage(
-          "投稿に失敗しました。時間を置いてもう一度お試しください。",
-          "error"
-        );
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = "この内容で投稿する";
+        }
+
+        submitButton.disabled =
+          true;
+
+        submitButton.textContent =
+          "送信中です…";
+
+        const payload = {
+
+          mode:"saveVoice",
+
+          name,
+
+          stars:selectedStars,
+
+          body,
+
+          imageDataList:
+            selectedImages.map(
+              item => item.dataUrl
+            ),
+
+          imageNames:
+            selectedImages.map(
+              item => item.name
+            ),
+
+          imageTypes:
+            selectedImages.map(
+              item => item.type
+            )
+
+        };
+
+        try{
+
+          const response =
+            await fetch(
+              GAS_URL,
+              {
+                method:"POST",
+                body:JSON.stringify(
+                  payload
+                )
+              }
+            );
+
+          const result =
+            await response.json();
+
+          if(
+            result.ok === false ||
+            result.error
+          ){
+
+            throw new Error(
+              result.error ||
+              "投稿に失敗しました。"
+            );
+
+          }
+
+          showMessage(
+            "投稿ありがとうございました。管理者が確認した後に公開されます。",
+            "success"
+          );
+
+          voiceForm.reset();
+
+          selectedStars =
+            0;
+
+          selectedImages =
+            [];
+
+          previewList.innerHTML =
+            "";
+
+          document
+            .querySelectorAll(".star-button")
+            .forEach(
+              item => {
+
+                item.classList.remove(
+                  "selected"
+                );
+
+              }
+            );
+
+          document
+            .getElementById("stars")
+            .value =
+              "0";
+
+        }catch(error){
+
+          console.error(error);
+
+          showMessage(
+            "投稿に失敗しました。時間を置いてもう一度お試しください。",
+            "error"
+          );
+
+        }finally{
+
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            "この内容で投稿する";
+
+        }
+
       }
-    });
+    );
 
     loadVoices();
+
   </script>
+
 </body>
 </html>
