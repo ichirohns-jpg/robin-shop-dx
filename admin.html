@@ -3,19 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>管理画面｜ろびんショップDX</title>
 
   <style>
+
     :root {
-      --red: #970d1b;
-      --dark: #272629;
-      --cream: #fffaf0;
-      --beige: #f0e8d7;
-      --line: #e3d6c0;
-      --text: #242124;
-      --green: #188543;
-      --gray: #777;
+      --red: #c63743;
+      --red-dark: #9f2935;
       --yellow: #e7bf5b;
+      --yellow-light: #fff8df;
+      --water: #2996a4;
+      --water-light: #eaf7f6;
+      --water-pale: #f5fbfa;
+      --green: #6d9e62;
+      --green-dark: #356d57;
+      --green-light: #edf6e9;
+      --line: #d5e7e1;
+      --text: #294944;
+      --muted: #6b7d78;
+      --white: #ffffff;
+      --shadow: 0 8px 22px rgba(55,112,105,.11);
     }
 
     * {
@@ -24,7 +32,7 @@
 
     body {
       margin: 0;
-      background: var(--cream);
+      background: var(--water-light);
       color: var(--text);
       font-family:
         -apple-system,
@@ -33,24 +41,32 @@
         "Yu Gothic",
         Meiryo,
         sans-serif;
+      line-height: 1.75;
     }
 
     header {
-      background: var(--dark);
-      color: #fff;
-      padding: 22px 16px;
+      padding:
+        calc(28px + env(safe-area-inset-top))
+        16px
+        28px;
+      color: var(--text);
+      background: #ffffff;
+      border-bottom: 5px solid var(--yellow);
       text-align: center;
+      box-shadow: 0 4px 16px rgba(55,112,105,.10);
     }
 
     header h1 {
       margin: 0;
+      color: var(--red);
       font-size: clamp(25px, 6vw, 42px);
+      line-height: 1.3;
       font-weight: 900;
     }
 
     header p {
       margin: 8px 0 0;
-      color: #ddd;
+      color: var(--muted);
       font-size: 14px;
       font-weight: 700;
     }
@@ -60,17 +76,17 @@
       margin-top: 18px;
       padding: 12px 24px;
       border-radius: 999px;
-      color: var(--dark);
+      color: var(--text);
       background: var(--yellow);
       font-size: 16px;
       font-weight: 900;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, .18);
+      box-shadow: 0 4px 10px rgba(55,112,105,.14);
     }
 
     .back-button:hover {
-      background: #fff;
-      color: var(--red);
+      color: #ffffff;
+      background: var(--red);
     }
 
     main {
@@ -80,23 +96,33 @@
     }
 
     .section {
-      background: #fff;
-      border: 2px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
       margin-bottom: 24px;
-      box-shadow: 0 6px 18px rgba(80, 50, 20, .06);
+      padding: 22px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--red);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .section:nth-child(2) {
+      border-top-color: var(--water);
+    }
+
+    .section:nth-child(3) {
+      border-top-color: var(--green);
     }
 
     .section h2 {
       margin: 0 0 18px;
-      color: var(--red);
+      color: var(--green-dark);
       font-size: clamp(23px, 5vw, 34px);
+      line-height: 1.35;
       font-weight: 900;
     }
 
     .section-description {
-      color: #555;
+      color: var(--muted);
       font-weight: 700;
       line-height: 1.7;
     }
@@ -108,6 +134,7 @@
     label {
       display: block;
       margin-bottom: 7px;
+      color: var(--green-dark);
       font-weight: 900;
     }
 
@@ -117,11 +144,19 @@
       width: 100%;
       border: 2px solid var(--line);
       border-radius: 12px;
-      background: #fffdf8;
+      background: #ffffff;
       padding: 13px;
       color: var(--text);
       font: inherit;
       font-size: 16px;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--water);
+      box-shadow: 0 0 0 3px rgba(41,150,164,.12);
     }
 
     textarea {
@@ -147,23 +182,35 @@
     .primary-button {
       width: 100%;
       margin-top: 22px;
+      color: #ffffff;
       background: var(--red);
-      color: #fff;
       font-size: 18px;
+    }
+
+    .primary-button:hover {
+      background: var(--red-dark);
     }
 
     .refresh-button {
-      background: var(--dark);
-      color: #fff;
       margin-bottom: 18px;
+      color: #ffffff;
+      background: var(--water);
+    }
+
+    .refresh-button:hover {
+      background: var(--green-dark);
     }
 
     .success-button {
-      background: var(--green);
-      color: #fff;
       width: 100%;
       margin-top: 18px;
+      color: #ffffff;
+      background: var(--green);
       font-size: 18px;
+    }
+
+    .success-button:hover {
+      background: var(--green-dark);
     }
 
     .message {
@@ -178,14 +225,14 @@
 
     .message.success {
       display: block;
-      background: #e4f7e8;
       color: #176527;
+      background: #e5f7e8;
     }
 
     .message.error {
       display: block;
-      background: #ffe4e4;
       color: #8d1111;
+      background: #ffe4e4;
     }
 
     .list {
@@ -194,25 +241,36 @@
     }
 
     .card {
-      border: 2px solid var(--line);
-      border-radius: 18px;
-      background: #fffaf5;
       padding: 18px;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--water);
+      border-radius: 17px;
+      background: #ffffff;
+    }
+
+    .card:nth-child(2n) {
+      border-left-color: var(--green);
+    }
+
+    .card:nth-child(3n) {
+      border-left-color: var(--red);
     }
 
     .card h3 {
       margin: 10px 0;
+      color: var(--green-dark);
       font-size: 21px;
     }
 
     .card p {
       white-space: pre-wrap;
+      color: var(--text);
       line-height: 1.7;
       font-weight: 600;
     }
 
     .meta {
-      color: var(--gray);
+      color: var(--muted);
       font-size: 14px;
       font-weight: 800;
     }
@@ -221,32 +279,32 @@
       display: inline-block;
       border-radius: 999px;
       padding: 6px 12px;
-      background: #eee;
-      color: #555;
+      background: #eeeeee;
+      color: #555555;
       font-size: 13px;
       font-weight: 900;
     }
 
     .status.public {
-      background: #dff4e4;
-      color: #187634;
+      color: #176527;
+      background: #e5f7e8;
     }
 
     .status.private {
-      background: #ffe1e1;
       color: #8d1111;
+      background: #ffe4e4;
     }
 
     .status.pending {
-      background: #fff1bd;
       color: #715500;
+      background: var(--yellow-light);
     }
 
     .stars {
-      color: #f2ad00;
+      margin-top: 8px;
+      color: #d59c15;
       font-size: 26px;
       letter-spacing: 2px;
-      margin-top: 8px;
     }
 
     .photo-grid {
@@ -262,14 +320,14 @@
       object-fit: cover;
       border-radius: 10px;
       border: 1px solid var(--line);
-      background: #eee;
+      background: var(--water-light);
     }
 
     .empty {
       padding: 22px;
       border-radius: 14px;
-      background: var(--beige);
-      color: #6b6459;
+      color: var(--muted);
+      background: var(--green-light);
       text-align: center;
       font-weight: 800;
       line-height: 1.7;
@@ -277,7 +335,7 @@
 
     .loading {
       padding: 20px;
-      color: var(--gray);
+      color: var(--muted);
       text-align: center;
       font-weight: 700;
     }
@@ -291,647 +349,1534 @@
     }
 
     @media (max-width: 640px) {
+
       main {
         width: min(100% - 14px, 1050px);
       }
 
       .section {
-        padding: 17px 14px;
+        padding: 18px 14px;
         border-radius: 19px;
       }
 
       .photo-grid {
         grid-template-columns: repeat(3, 1fr);
       }
+
+      header h1 {
+        font-size: 27px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>ろびんショップDX 管理画面</h1>
-    <p>お知らせとお客様の声を管理します</p>
 
-    <a class="back-button" href="index.html">
+  <header>
+
+    <h1>
+      ろびんショップDX 管理画面
+    </h1>
+
+    <p>
+      お知らせとお客様の声を管理します
+    </p>
+
+    <a
+      class="back-button"
+      href="index.html"
+    >
       ← DXに戻る
     </a>
+
   </header>
 
   <main>
+
     <section class="section">
-      <h2>お知らせを登録する</h2>
+
+      <h2>
+        お知らせを登録する
+      </h2>
 
       <form id="newsForm">
+
         <div class="form-row">
-          <label for="newsDate">日付</label>
-          <input id="newsDate" type="date">
+
+          <label for="newsDate">
+            日付
+          </label>
+
+          <input
+            id="newsDate"
+            type="date"
+          >
+
         </div>
 
         <div class="form-row">
-          <label for="newsTitle">タイトル</label>
-          <input id="newsTitle" type="text" placeholder="お知らせのタイトル">
+
+          <label for="newsTitle">
+            タイトル
+          </label>
+
+          <input
+            id="newsTitle"
+            type="text"
+            placeholder="お知らせのタイトル"
+          >
+
         </div>
 
         <div class="form-row">
-          <label for="newsBody">本文</label>
-          <textarea id="newsBody" placeholder="お知らせ本文"></textarea>
+
+          <label for="newsBody">
+            本文
+          </label>
+
+          <textarea
+            id="newsBody"
+            placeholder="お知らせ本文"
+          ></textarea>
+
         </div>
 
         <div class="form-row">
-          <label for="newsImageUrl">画像URL</label>
-          <input id="newsImageUrl" type="url" placeholder="必要な場合だけ入力">
+
+          <label for="newsImageUrl">
+            画像URL
+          </label>
+
+          <input
+            id="newsImageUrl"
+            type="url"
+            placeholder="必要な場合だけ入力"
+          >
+
         </div>
 
         <div class="form-row">
-          <label for="newsExternalLink">外部リンク・YouTube URL</label>
-          <input id="newsExternalLink" type="url" placeholder="必要な場合だけ入力">
+
+          <label for="newsExternalLink">
+            外部リンク・YouTube URL
+          </label>
+
+          <input
+            id="newsExternalLink"
+            type="url"
+            placeholder="必要な場合だけ入力"
+          >
+
         </div>
 
         <div class="form-row">
-          <label for="newsStatus">公開状態</label>
+
+          <label for="newsStatus">
+            公開状態
+          </label>
+
           <select id="newsStatus">
-            <option value="非公開">非公開</option>
-            <option value="公開">公開</option>
+
+            <option value="非公開">
+              非公開
+            </option>
+
+            <option value="公開">
+              公開
+            </option>
+
           </select>
+
         </div>
 
-        <button id="newsSubmit" class="primary-button" type="submit">
+        <button
+          id="newsSubmit"
+          class="primary-button"
+          type="submit"
+        >
           お知らせを保存する
         </button>
 
-        <div id="newsMessage" class="message"></div>
+        <div
+          id="newsMessage"
+          class="message"
+        ></div>
+
       </form>
+
     </section>
 
     <section class="section">
-      <h2>登録済みのお知らせ</h2>
 
-      <button id="newsRefresh" class="refresh-button" type="button">
+      <h2>
+        登録済みのお知らせ
+      </h2>
+
+      <button
+        id="newsRefresh"
+        class="refresh-button"
+        type="button"
+      >
         お知らせを更新
       </button>
 
-      <div id="newsLoading" class="loading">読み込み中です。</div>
-      <div id="newsEmpty" class="empty" style="display:none;">
+      <div
+        id="newsLoading"
+        class="loading"
+      >
+        読み込み中です。
+      </div>
+
+      <div
+        id="newsEmpty"
+        class="empty"
+        style="display:none;"
+      >
         お知らせはまだありません。
       </div>
-      <div id="newsList" class="list"></div>
+
+      <div
+        id="newsList"
+        class="list"
+      ></div>
+
     </section>
 
     <section class="section">
-      <h2>お客様の声を確認する</h2>
+
+      <h2>
+        お客様の声を確認する
+      </h2>
 
       <p class="section-description">
         投稿された写真、星評価、コメントを確認してから公開してください。
       </p>
 
-      <button id="voiceRefresh" class="refresh-button" type="button">
+      <button
+        id="voiceRefresh"
+        class="refresh-button"
+        type="button"
+      >
         お客様の声を更新
       </button>
 
-      <div id="voiceLoading" class="loading">読み込み中です。</div>
-      <div id="voiceEmpty" class="empty" style="display:none;">
+      <div
+        id="voiceLoading"
+        class="loading"
+      >
+        読み込み中です。
+      </div>
+
+      <div
+        id="voiceEmpty"
+        class="empty"
+        style="display:none;"
+      >
         確認待ちのお客様の声はありません。
       </div>
-      <div id="voiceList" class="list"></div>
+
+      <div
+        id="voiceList"
+        class="list"
+      ></div>
+
     </section>
+
   </main>
 
   <script>
+
     const GAS_URL =
       "https://script.google.com/macros/s/AKfycbyQYbLdtiWhEr27ZAWJi3D98eVJdXlD-lMr2D6T6RxvfIb_k2kFHDxxfdKE_WTiUCZ1HQ/exec";
 
-    const newsForm = document.getElementById("newsForm");
-    const newsSubmit = document.getElementById("newsSubmit");
-    const newsMessage = document.getElementById("newsMessage");
-
-    const newsLoading = document.getElementById("newsLoading");
-    const newsEmpty = document.getElementById("newsEmpty");
-    const newsList = document.getElementById("newsList");
-
-    const voiceLoading = document.getElementById("voiceLoading");
-    const voiceEmpty = document.getElementById("voiceEmpty");
-    const voiceList = document.getElementById("voiceList");
-
-    function showMessage(element, text, type) {
-      element.textContent = text;
-      element.className = "message " + type;
-    }
-
-    function clearMessage(element) {
-      element.textContent = "";
-      element.className = "message";
-    }
-
-    async function getJson(mode) {
-      const response = await fetch(
-        GAS_URL + "?mode=" + encodeURIComponent(mode) + "&v=" + Date.now(),
-        {
-          cache: "no-store"
-        }
+    const newsForm =
+      document.getElementById(
+        "newsForm"
       );
 
-      return await response.json();
+    const newsSubmit =
+      document.getElementById(
+        "newsSubmit"
+      );
+
+    const newsMessage =
+      document.getElementById(
+        "newsMessage"
+      );
+
+    const newsLoading =
+      document.getElementById(
+        "newsLoading"
+      );
+
+    const newsEmpty =
+      document.getElementById(
+        "newsEmpty"
+      );
+
+    const newsList =
+      document.getElementById(
+        "newsList"
+      );
+
+    const voiceLoading =
+      document.getElementById(
+        "voiceLoading"
+      );
+
+    const voiceEmpty =
+      document.getElementById(
+        "voiceEmpty"
+      );
+
+    const voiceList =
+      document.getElementById(
+        "voiceList"
+      );
+
+
+    function showMessage(
+      element,
+      text,
+      type
+    ){
+
+      element.textContent =
+        text;
+
+      element.className =
+        "message " +
+        type;
+
     }
 
-    async function postJson(payload) {
-      const response = await fetch(GAS_URL, {
-        method: "POST",
-        body: JSON.stringify(payload)
-      });
 
-      return await response.json();
+    function clearMessage(
+      element
+    ){
+
+      element.textContent =
+        "";
+
+      element.className =
+        "message";
+
     }
 
-    function normalizeItems(json) {
-      if (Array.isArray(json)) {
+
+    async function getJson(
+      mode
+    ){
+
+      const response =
+        await fetch(
+          GAS_URL +
+          "?mode=" +
+          encodeURIComponent(
+            mode
+          ) +
+          "&v=" +
+          Date.now(),
+          {
+            cache:"no-store"
+          }
+        );
+
+      return await response.json();
+
+    }
+
+
+    async function postJson(
+      payload
+    ){
+
+      const response =
+        await fetch(
+          GAS_URL,
+          {
+            method:"POST",
+            body:JSON.stringify(
+              payload
+            )
+          }
+        );
+
+      return await response.json();
+
+    }
+
+
+    function normalizeItems(
+      json
+    ){
+
+      if(
+        Array.isArray(
+          json
+        )
+      ){
+
         return json;
+
       }
 
-      if (Array.isArray(json.items)) {
+      if(
+        Array.isArray(
+          json.items
+        )
+      ){
+
         return json.items;
+
       }
 
-      if (Array.isArray(json.news)) {
+      if(
+        Array.isArray(
+          json.news
+        )
+      ){
+
         return json.news;
+
       }
 
-      if (Array.isArray(json.voices)) {
+      if(
+        Array.isArray(
+          json.voices
+        )
+      ){
+
         return json.voices;
+
       }
 
-      if (Array.isArray(json.data)) {
+      if(
+        Array.isArray(
+          json.data
+        )
+      ){
+
         return json.data;
+
       }
 
       return [];
+
     }
 
-    function getValue(item, keys) {
-      for (const key of keys) {
-        if (
+
+    function getValue(
+      item,
+      keys
+    ){
+
+      for(
+        const key
+        of keys
+      ){
+
+        if(
           item &&
           item[key] !== undefined &&
           item[key] !== null &&
           item[key] !== ""
-        ) {
+        ){
+
           return item[key];
+
         }
+
       }
 
       return "";
+
     }
 
-    function getRowNumber(item) {
+
+    function getRowNumber(
+      item
+    ){
+
       return Number(
-        getValue(item, [
-          "rowNumber",
-          "row",
-          "row_number",
-          "行番号",
-          "_row"
-        ])
+        getValue(
+          item,
+          [
+            "rowNumber",
+            "row",
+            "row_number",
+            "行番号",
+            "_row"
+          ]
+        )
       );
+
     }
 
-    function getStatus(item) {
+
+    function getStatus(
+      item
+    ){
+
       return String(
-        getValue(item, [
-          "status",
-          "publicStatus",
-          "public",
-          "公開状態",
-          "公開"
-        ]) || "非公開"
+        getValue(
+          item,
+          [
+            "status",
+            "publicStatus",
+            "public",
+            "公開状態",
+            "公開"
+          ]
+        ) ||
+        "非公開"
       );
+
     }
 
-    function convertImageUrl(url) {
-      if (!url) return "";
 
-      const value = String(url).trim();
+    function convertImageUrl(
+      url
+    ){
 
-      if (value.includes("googleusercontent.com")) {
+      if(!url){
+
+        return "";
+
+      }
+
+      const value =
+        String(
+          url
+        ).trim();
+
+      if(
+        value.includes(
+          "googleusercontent.com"
+        )
+      ){
+
         return value;
+
       }
 
       const patterns = [
+
         /\/d\/([a-zA-Z0-9_-]+)/,
+
         /[?&]id=([a-zA-Z0-9_-]+)/,
+
         /file\/d\/([a-zA-Z0-9_-]+)/
+
       ];
 
-      for (const pattern of patterns) {
-        const match = value.match(pattern);
+      for(
+        const pattern
+        of patterns
+      ){
 
-        if (match && match[1]) {
-          return "https://lh3.googleusercontent.com/d/" + match[1] + "=w1200";
+        const match =
+          value.match(
+            pattern
+          );
+
+        if(
+          match &&
+          match[1]
+        ){
+
+          return(
+            "https://lh3.googleusercontent.com/d/" +
+            match[1] +
+            "=w1200"
+          );
+
         }
+
       }
 
       return value;
+
     }
 
-    function getImages(item) {
+
+    function getImages(
+      item
+    ){
+
       let images = [];
 
-      if (Array.isArray(item.images)) {
-        images = item.images;
-      } else if (Array.isArray(item.imageUrls)) {
-        images = item.imageUrls;
-      } else {
+      if(
+        Array.isArray(
+          item.images
+        )
+      ){
+
+        images =
+          item.images;
+
+      }else if(
+        Array.isArray(
+          item.imageUrls
+        )
+      ){
+
+        images =
+          item.imageUrls;
+
+      }else{
+
         images = [
+
           item.image1,
           item.image2,
           item.image3,
           item.image4,
           item.image5,
+
           item["画像1URL"],
           item["画像2URL"],
           item["画像3URL"],
           item["画像4URL"],
           item["画像5URL"]
+
         ];
+
       }
 
       return images
         .filter(Boolean)
-        .map(convertImageUrl)
+        .map(
+          convertImageUrl
+        )
         .filter(Boolean);
+
     }
 
-    function statusClass(status) {
-      if (status === "公開") return "public";
-      if (status === "非公開") return "private";
+
+    function statusClass(
+      status
+    ){
+
+      if(
+        status === "公開"
+      ){
+
+        return "public";
+
+      }
+
+      if(
+        status === "非公開"
+      ){
+
+        return "private";
+
+      }
+
       return "pending";
+
     }
 
-    function renderStars(value) {
-      const count = Math.max(
-        0,
-        Math.min(5, Number(value) || 0)
+
+    function renderStars(
+      value
+    ){
+
+      const count =
+        Math.max(
+          0,
+          Math.min(
+            5,
+            Number(
+              value
+            ) ||
+            0
+          )
+        );
+
+      return(
+        "★".repeat(
+          count
+        ) +
+        "☆".repeat(
+          5 -
+          count
+        )
       );
 
-      return "★".repeat(count) + "☆".repeat(5 - count);
     }
 
-    function addText(parent, tag, className, text) {
-      const element = document.createElement(tag);
 
-      if (className) {
-        element.className = className;
+    function addText(
+      parent,
+      tag,
+      className,
+      text
+    ){
+
+      const element =
+        document.createElement(
+          tag
+        );
+
+      if(
+        className
+      ){
+
+        element.className =
+          className;
+
       }
 
-      element.textContent = text || "";
-      parent.appendChild(element);
+      element.textContent =
+        text ||
+        "";
+
+      parent.appendChild(
+        element
+      );
 
       return element;
+
     }
 
-    function addPhotos(parent, images) {
-      if (!images.length) return;
 
-      const box = document.createElement("div");
-      box.className = "photo-grid";
+    function addPhotos(
+      parent,
+      images
+    ){
 
-      images.forEach(url => {
-        const image = document.createElement("img");
-        image.src = url;
-        image.alt = "投稿写真";
-        image.loading = "lazy";
-        image.onerror = () => {
-          image.style.display = "none";
-        };
-        box.appendChild(image);
-      });
+      if(
+        !images.length
+      ){
 
-      parent.appendChild(box);
+        return;
+
+      }
+
+      const box =
+        document.createElement(
+          "div"
+        );
+
+      box.className =
+        "photo-grid";
+
+      images.forEach(
+        url => {
+
+          const image =
+            document.createElement(
+              "img"
+            );
+
+          image.src =
+            url;
+
+          image.alt =
+            "投稿写真";
+
+          image.loading =
+            "lazy";
+
+          image.onerror =
+            () => {
+
+              image.style.display =
+                "none";
+
+            };
+
+          box.appendChild(
+            image
+          );
+
+        }
+      );
+
+      parent.appendChild(
+        box
+      );
+
     }
 
-    async function loadNews() {
-      newsLoading.style.display = "block";
-      newsEmpty.style.display = "none";
-      newsList.innerHTML = "";
 
-      try {
-        const json = await getJson("admin");
-        const items = normalizeItems(json);
+    async function loadNews(){
 
-        newsLoading.style.display = "none";
+      newsLoading.style.display =
+        "block";
 
-        if (!items.length) {
-          newsEmpty.style.display = "block";
+      newsEmpty.style.display =
+        "none";
+
+      newsList.innerHTML =
+        "";
+
+      try{
+
+        const json =
+          await getJson(
+            "admin"
+          );
+
+        const items =
+          normalizeItems(
+            json
+          );
+
+        newsLoading.style.display =
+          "none";
+
+        if(
+          !items.length
+        ){
+
+          newsEmpty.style.display =
+            "block";
+
           return;
+
         }
 
-        items.forEach(item => {
-          const card = document.createElement("article");
-          card.className = "card";
+        items.forEach(
+          item => {
 
-          const status = getStatus(item);
-          const rowNumber = getRowNumber(item);
+            const card =
+              document.createElement(
+                "article"
+              );
 
-          addText(
-            card,
-            "span",
-            "status " + statusClass(status),
-            status
-          );
+            card.className =
+              "card";
 
-          addText(
-            card,
-            "div",
-            "meta",
-            getValue(item, ["date", "日付"]) || ""
-          );
+            const status =
+              getStatus(
+                item
+              );
 
-          addText(
-            card,
-            "h3",
-            "",
-            getValue(item, ["title", "タイトル"]) || ""
-          );
+            const rowNumber =
+              getRowNumber(
+                item
+              );
 
-          addText(
-            card,
-            "p",
-            "",
-            getValue(item, ["body", "本文"]) || ""
-          );
+            addText(
+              card,
+              "span",
+              "status " +
+              statusClass(
+                status
+              ),
+              status
+            );
 
-          const imageUrl = convertImageUrl(
-            getValue(item, ["imageUrl", "画像URL"])
-          );
+            addText(
+              card,
+              "div",
+              "meta",
+              getValue(
+                item,
+                [
+                  "date",
+                  "日付"
+                ]
+              ) ||
+              ""
+            );
 
-          if (imageUrl) {
-            addPhotos(card, [imageUrl]);
+            addText(
+              card,
+              "h3",
+              "",
+              getValue(
+                item,
+                [
+                  "title",
+                  "タイトル"
+                ]
+              ) ||
+              ""
+            );
+
+            addText(
+              card,
+              "p",
+              "",
+              getValue(
+                item,
+                [
+                  "body",
+                  "本文"
+                ]
+              ) ||
+              ""
+            );
+
+            const imageUrl =
+              convertImageUrl(
+                getValue(
+                  item,
+                  [
+                    "imageUrl",
+                    "画像URL"
+                  ]
+                )
+              );
+
+            if(
+              imageUrl
+            ){
+
+              addPhotos(
+                card,
+                [
+                  imageUrl
+                ]
+              );
+
+            }
+
+            const externalLink =
+              getValue(
+                item,
+                [
+                  "externalLink",
+                  "外部リンク"
+                ]
+              );
+
+            if(
+              externalLink
+            ){
+
+              const link =
+                document.createElement(
+                  "a"
+                );
+
+              link.className =
+                "small-link";
+
+              link.href =
+                externalLink;
+
+              link.target =
+                "_blank";
+
+              link.rel =
+                "noopener";
+
+              link.textContent =
+                "リンクを確認する";
+
+              card.appendChild(
+                link
+              );
+
+            }
+
+            if(
+              status !== "公開" &&
+              rowNumber > 0
+            ){
+
+              const button =
+                document.createElement(
+                  "button"
+                );
+
+              button.className =
+                "success-button";
+
+              button.type =
+                "button";
+
+              button.textContent =
+                "この記事を公開する";
+
+              button.addEventListener(
+                "click",
+                () => {
+
+                  publishNews(
+                    rowNumber,
+                    button
+                  );
+
+                }
+              );
+
+              card.appendChild(
+                button
+              );
+
+            }
+
+            newsList.appendChild(
+              card
+            );
+
           }
+        );
 
-          const externalLink = getValue(
-            item,
-            ["externalLink", "外部リンク"]
-          );
+      }catch(
+        error
+      ){
 
-          if (externalLink) {
-            const link = document.createElement("a");
-            link.className = "small-link";
-            link.href = externalLink;
-            link.target = "_blank";
-            link.rel = "noopener";
-            link.textContent = "リンクを確認する";
-            card.appendChild(link);
-          }
+        console.error(
+          error
+        );
 
-          if (status !== "公開" && rowNumber > 0) {
-            const button = document.createElement("button");
-            button.className = "success-button";
-            button.type = "button";
-            button.textContent = "この記事を公開する";
+        newsLoading.style.display =
+          "none";
 
-            button.addEventListener("click", () => {
-              publishNews(rowNumber, button);
-            });
+        newsEmpty.style.display =
+          "block";
 
-            card.appendChild(button);
-          }
-
-          newsList.appendChild(card);
-        });
-      } catch (error) {
-        console.error(error);
-        newsLoading.style.display = "none";
-        newsEmpty.style.display = "block";
         newsEmpty.textContent =
           "お知らせの読み込みに失敗しました。";
+
       }
+
     }
 
-    async function publishNews(rowNumber, button) {
-      if (!confirm("このお知らせを公開しますか？")) {
+
+    async function publishNews(
+      rowNumber,
+      button
+    ){
+
+      if(
+        !confirm(
+          "このお知らせを公開しますか？"
+        )
+      ){
+
         return;
+
       }
 
-      button.disabled = true;
-      button.textContent = "公開中です…";
+      button.disabled =
+        true;
 
-      try {
-        const result = await postJson({
-          mode: "publishNews",
-          rowNumber,
-          status: "公開",
-          publicStatus: "公開",
-          "公開": "公開"
-        });
+      button.textContent =
+        "公開中です…";
 
-        if (result.ok === false || result.error) {
-          throw new Error(result.error || "公開に失敗しました。");
+      try{
+
+        const result =
+          await postJson(
+            {
+              mode:"publishNews",
+              rowNumber,
+              status:"公開",
+              publicStatus:"公開",
+              "公開":"公開"
+            }
+          );
+
+        if(
+          result.ok === false ||
+          result.error
+        ){
+
+          throw new Error(
+            result.error ||
+            "公開に失敗しました。"
+          );
+
         }
 
-        alert("お知らせを公開しました。");
+        alert(
+          "お知らせを公開しました。"
+        );
+
         loadNews();
-      } catch (error) {
-        console.error(error);
-        alert("公開に失敗しました。");
-        button.disabled = false;
-        button.textContent = "この記事を公開する";
+
+      }catch(
+        error
+      ){
+
+        console.error(
+          error
+        );
+
+        alert(
+          "公開に失敗しました。"
+        );
+
+        button.disabled =
+          false;
+
+        button.textContent =
+          "この記事を公開する";
+
       }
+
     }
 
-    async function loadVoices() {
-      voiceLoading.style.display = "block";
-      voiceEmpty.style.display = "none";
-      voiceList.innerHTML = "";
 
-      try {
-        const json = await getJson("voiceAdmin");
-        const allItems = normalizeItems(json);
+    async function loadVoices(){
 
-        const items = allItems.filter(item => {
-          return getStatus(item) !== "公開";
-        });
+      voiceLoading.style.display =
+        "block";
 
-        voiceLoading.style.display = "none";
+      voiceEmpty.style.display =
+        "none";
 
-        if (!items.length) {
-          voiceEmpty.style.display = "block";
+      voiceList.innerHTML =
+        "";
+
+      try{
+
+        const json =
+          await getJson(
+            "voiceAdmin"
+          );
+
+        const allItems =
+          normalizeItems(
+            json
+          );
+
+        const items =
+          allItems.filter(
+            item => {
+
+              return(
+                getStatus(
+                  item
+                ) !== "公開"
+              );
+
+            }
+          );
+
+        voiceLoading.style.display =
+          "none";
+
+        if(
+          !items.length
+        ){
+
+          voiceEmpty.style.display =
+            "block";
+
           return;
+
         }
 
-        items.forEach(item => {
-          const card = document.createElement("article");
-          card.className = "card";
+        items.forEach(
+          item => {
 
-          const rowNumber = getRowNumber(item);
-          const status = getStatus(item);
+            const card =
+              document.createElement(
+                "article"
+              );
 
-          addText(
-            card,
-            "span",
-            "status " + statusClass(status),
-            status
-          );
+            card.className =
+              "card";
 
-          addText(
-            card,
-            "div",
-            "meta",
-            getValue(item, ["date", "日付", "投稿日"]) || ""
-          );
+            const rowNumber =
+              getRowNumber(
+                item
+              );
 
-          addText(
-            card,
-            "h3",
-            "",
-            getValue(item, ["name", "お名前", "名前"]) || "匿名"
-          );
+            const status =
+              getStatus(
+                item
+              );
 
-          addText(
-            card,
-            "div",
-            "stars",
-            renderStars(
-              getValue(item, ["stars", "星", "星評価"])
-            )
-          );
+            addText(
+              card,
+              "span",
+              "status " +
+              statusClass(
+                status
+              ),
+              status
+            );
 
-          addText(
-            card,
-            "p",
-            "",
-            getValue(item, ["body", "本文", "コメント"]) || ""
-          );
+            addText(
+              card,
+              "div",
+              "meta",
+              getValue(
+                item,
+                [
+                  "date",
+                  "日付",
+                  "投稿日"
+                ]
+              ) ||
+              ""
+            );
 
-          addPhotos(card, getImages(item));
+            addText(
+              card,
+              "h3",
+              "",
+              getValue(
+                item,
+                [
+                  "name",
+                  "お名前",
+                  "名前"
+                ]
+              ) ||
+              "匿名"
+            );
 
-          if (rowNumber > 0) {
-            const button = document.createElement("button");
-            button.className = "success-button";
-            button.type = "button";
-            button.textContent = "このお客様の声を公開する";
+            addText(
+              card,
+              "div",
+              "stars",
+              renderStars(
+                getValue(
+                  item,
+                  [
+                    "stars",
+                    "星",
+                    "星評価"
+                  ]
+                )
+              )
+            );
 
-            button.addEventListener("click", () => {
-              publishVoice(rowNumber, button);
-            });
+            addText(
+              card,
+              "p",
+              "",
+              getValue(
+                item,
+                [
+                  "body",
+                  "本文",
+                  "コメント"
+                ]
+              ) ||
+              ""
+            );
 
-            card.appendChild(button);
+            addPhotos(
+              card,
+              getImages(
+                item
+              )
+            );
+
+            if(
+              rowNumber > 0
+            ){
+
+              const button =
+                document.createElement(
+                  "button"
+                );
+
+              button.className =
+                "success-button";
+
+              button.type =
+                "button";
+
+              button.textContent =
+                "このお客様の声を公開する";
+
+              button.addEventListener(
+                "click",
+                () => {
+
+                  publishVoice(
+                    rowNumber,
+                    button
+                  );
+
+                }
+              );
+
+              card.appendChild(
+                button
+              );
+
+            }
+
+            voiceList.appendChild(
+              card
+            );
+
           }
+        );
 
-          voiceList.appendChild(card);
-        });
-      } catch (error) {
-        console.error(error);
-        voiceLoading.style.display = "none";
-        voiceEmpty.style.display = "block";
+      }catch(
+        error
+      ){
+
+        console.error(
+          error
+        );
+
+        voiceLoading.style.display =
+          "none";
+
+        voiceEmpty.style.display =
+          "block";
+
         voiceEmpty.textContent =
           "お客様の声の読み込みに失敗しました。";
+
       }
+
     }
 
-    async function publishVoice(rowNumber, button) {
-      if (!confirm("このお客様の声を公開しますか？")) {
+
+    async function publishVoice(
+      rowNumber,
+      button
+    ){
+
+      if(
+        !confirm(
+          "このお客様の声を公開しますか？"
+        )
+      ){
+
         return;
+
       }
 
-      button.disabled = true;
-      button.textContent = "公開中です…";
+      button.disabled =
+        true;
 
-      try {
-        const result = await postJson({
-          mode: "publishVoice",
-          rowNumber,
-          status: "公開",
-          publicStatus: "公開",
-          "公開": "公開"
-        });
+      button.textContent =
+        "公開中です…";
 
-        if (result.ok === false || result.error) {
-          throw new Error(result.error || "公開に失敗しました。");
+      try{
+
+        const result =
+          await postJson(
+            {
+              mode:"publishVoice",
+              rowNumber,
+              status:"公開",
+              publicStatus:"公開",
+              "公開":"公開"
+            }
+          );
+
+        if(
+          result.ok === false ||
+          result.error
+        ){
+
+          throw new Error(
+            result.error ||
+            "公開に失敗しました。"
+          );
+
         }
 
-        alert("お客様の声を公開しました。");
+        alert(
+          "お客様の声を公開しました。"
+        );
+
         loadVoices();
-      } catch (error) {
-        console.error(error);
-        alert("公開に失敗しました。");
-        button.disabled = false;
-        button.textContent = "このお客様の声を公開する";
+
+      }catch(
+        error
+      ){
+
+        console.error(
+          error
+        );
+
+        alert(
+          "公開に失敗しました。"
+        );
+
+        button.disabled =
+          false;
+
+        button.textContent =
+          "このお客様の声を公開する";
+
       }
+
     }
 
-    newsForm.addEventListener("submit", async event => {
-      event.preventDefault();
-      clearMessage(newsMessage);
 
-      const date = document.getElementById("newsDate").value;
-      const title = document.getElementById("newsTitle").value.trim();
-      const body = document.getElementById("newsBody").value.trim();
-      const imageUrl = document.getElementById("newsImageUrl").value.trim();
-      const externalLink =
-        document.getElementById("newsExternalLink").value.trim();
-      const publicStatus =
-        document.getElementById("newsStatus").value;
+    newsForm.addEventListener(
+      "submit",
+      async event => {
 
-      if (!date || !title || !body) {
-        showMessage(
-          newsMessage,
-          "日付・タイトル・本文を入力してください。",
-          "error"
+        event.preventDefault();
+
+        clearMessage(
+          newsMessage
         );
-        return;
-      }
 
-      newsSubmit.disabled = true;
-      newsSubmit.textContent = "保存中です…";
+        const date =
+          document
+            .getElementById(
+              "newsDate"
+            )
+            .value;
 
-      try {
-        const result = await postJson({
-          mode: "saveNews",
-          date,
-          title,
-          body,
-          imageUrl,
-          externalLink,
-          publicStatus,
-          status: publicStatus,
-          "公開": publicStatus
-        });
+        const title =
+          document
+            .getElementById(
+              "newsTitle"
+            )
+            .value
+            .trim();
 
-        if (result.ok === false || result.error) {
-          throw new Error(result.error || "保存に失敗しました。");
+        const body =
+          document
+            .getElementById(
+              "newsBody"
+            )
+            .value
+            .trim();
+
+        const imageUrl =
+          document
+            .getElementById(
+              "newsImageUrl"
+            )
+            .value
+            .trim();
+
+        const externalLink =
+          document
+            .getElementById(
+              "newsExternalLink"
+            )
+            .value
+            .trim();
+
+        const publicStatus =
+          document
+            .getElementById(
+              "newsStatus"
+            )
+            .value;
+
+        if(
+          !date ||
+          !title ||
+          !body
+        ){
+
+          showMessage(
+            newsMessage,
+            "日付・タイトル・本文を入力してください。",
+            "error"
+          );
+
+          return;
+
         }
 
-        showMessage(
-          newsMessage,
-          "お知らせを保存しました。",
-          "success"
-        );
+        newsSubmit.disabled =
+          true;
 
-        newsForm.reset();
-        loadNews();
-      } catch (error) {
-        console.error(error);
-        showMessage(
-          newsMessage,
-          "保存に失敗しました。",
-          "error"
-        );
-      } finally {
-        newsSubmit.disabled = false;
-        newsSubmit.textContent = "お知らせを保存する";
+        newsSubmit.textContent =
+          "保存中です…";
+
+        try{
+
+          const result =
+            await postJson(
+              {
+                mode:"saveNews",
+                date,
+                title,
+                body,
+                imageUrl,
+                externalLink,
+                publicStatus,
+                status:publicStatus,
+                "公開":publicStatus
+              }
+            );
+
+          if(
+            result.ok === false ||
+            result.error
+          ){
+
+            throw new Error(
+              result.error ||
+              "保存に失敗しました。"
+            );
+
+          }
+
+          showMessage(
+            newsMessage,
+            "お知らせを保存しました。",
+            "success"
+          );
+
+          newsForm.reset();
+
+          loadNews();
+
+        }catch(
+          error
+        ){
+
+          console.error(
+            error
+          );
+
+          showMessage(
+            newsMessage,
+            "保存に失敗しました。",
+            "error"
+          );
+
+        }finally{
+
+          newsSubmit.disabled =
+            false;
+
+          newsSubmit.textContent =
+            "お知らせを保存する";
+
+        }
+
       }
-    });
-
-    document.getElementById("newsRefresh").addEventListener(
-      "click",
-      loadNews
     );
 
-    document.getElementById("voiceRefresh").addEventListener(
-      "click",
-      loadVoices
-    );
+
+    document
+      .getElementById(
+        "newsRefresh"
+      )
+      .addEventListener(
+        "click",
+        loadNews
+      );
+
+
+    document
+      .getElementById(
+        "voiceRefresh"
+      )
+      .addEventListener(
+        "click",
+        loadVoices
+      );
+
 
     loadNews();
+
     loadVoices();
+
   </script>
+
 </body>
 </html>
