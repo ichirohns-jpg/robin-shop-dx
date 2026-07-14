@@ -652,7 +652,7 @@
   <script>
 
     const GAS_URL =
-      "https://script.google.com/macros/s/AKfycbyQYbLdtiWhEr27ZAWJi3D98eVJdXlD-lMr2D6T6RxvfIb_k2kFHDxxfdKE_WTiUCZ1HQ/exec";
+      "https://script.google.com/macros/s/AKfycbxadtn-j1_ZCiViOGZsMXsNeinjObSs007bB_ZDCP_evhJhUfst_X3sNA5mn9PvpjOORg/exec";
 
     const newsForm =
       document.getElementById(
@@ -2033,79 +2033,79 @@
               }
             );
 
-        if(
-          result.ok === false ||
-          result.error
+          if(
+            result.ok === false ||
+            result.error
+          ){
+
+            throw new Error(
+              result.error ||
+              "保存に失敗しました。"
+            );
+
+          }
+
+          showMessage(
+            newsMessage,
+            "お知らせを保存しました。",
+            "success"
+          );
+
+          newsForm.reset();
+
+          loadNews();
+
+        }catch(
+          error
         ){
 
-          throw new Error(
-            result.error ||
-            "保存に失敗しました。"
+          console.error(
+            error
           );
+
+          showMessage(
+            newsMessage,
+            "保存に失敗しました。",
+            "error"
+          );
+
+        }finally{
+
+          newsSubmit.disabled =
+            false;
+
+          newsSubmit.textContent =
+            "お知らせを保存する";
 
         }
 
-        showMessage(
-          newsMessage,
-          "お知らせを保存しました。",
-          "success"
-        );
-
-        newsForm.reset();
-
-        loadNews();
-
-      }catch(
-        error
-      ){
-
-        console.error(
-          error
-        );
-
-        showMessage(
-          newsMessage,
-          "保存に失敗しました。",
-          "error"
-        );
-
-      }finally{
-
-        newsSubmit.disabled =
-          false;
-
-        newsSubmit.textContent =
-          "お知らせを保存する";
-
       }
-
-    }
-  );
-
-
-  document
-    .getElementById(
-      "newsRefresh"
-    )
-    .addEventListener(
-      "click",
-      loadNews
     );
 
 
-  document
-    .getElementById(
-      "voiceRefresh"
-    )
-    .addEventListener(
-      "click",
-      loadVoices
-    );
+    document
+      .getElementById(
+        "newsRefresh"
+      )
+      .addEventListener(
+        "click",
+        loadNews
+      );
 
 
-  loadNews();
+    document
+      .getElementById(
+        "voiceRefresh"
+      )
+      .addEventListener(
+        "click",
+        loadVoices
+      );
 
-  loadVoices();
+
+    loadNews();
+
+    loadVoices();
 
   </script>
 
