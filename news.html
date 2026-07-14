@@ -37,6 +37,11 @@
 >
 
 <meta
+  property="og:locale"
+  content="ja_JP"
+>
+
+<meta
   property="og:site_name"
   content="ろびんショップDX"
 >
@@ -62,8 +67,23 @@
 >
 
 <meta
+  property="og:image:secure_url"
+  content="https://ichirohns-jpg.github.io/robin-shop-dx/robin-main-banner.jpg"
+>
+
+<meta
   property="og:image:type"
   content="image/jpeg"
+>
+
+<meta
+  property="og:image:width"
+  content="1200"
+>
+
+<meta
+  property="og:image:height"
+  content="630"
 >
 
 <meta
@@ -449,6 +469,61 @@ button{
   background:var(--green);
 }
 
+.news-share{
+  margin-top:22px;
+  padding-top:17px;
+  border-top:1px solid var(--line);
+}
+
+.news-share-title{
+  margin-bottom:10px;
+  color:var(--green-dark);
+  font-size:14px;
+  font-weight:900;
+}
+
+.news-share-buttons{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.share-button{
+  min-height:44px;
+  padding:9px 7px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:0;
+  border-radius:10px;
+  color:#ffffff;
+  font-size:14px;
+  font-weight:900;
+  text-align:center;
+  cursor:pointer;
+}
+
+.share-line{
+  background:#06c755;
+}
+
+.share-x{
+  background:#111111;
+}
+
+.share-facebook{
+  background:#1877f2;
+}
+
+.share-copy{
+  background:var(--yellow);
+  color:var(--text);
+}
+
+.share-button:hover{
+  opacity:.82;
+}
+
 .empty,
 .error,
 .loading{
@@ -486,12 +561,6 @@ button{
   font-size:14px;
   font-weight:900;
   text-align:center;
-}
-
-.page-link.active{
-  color:#ffffff;
-  background:var(--red);
-  border-color:var(--red);
 }
 
 .site-footer{
@@ -1005,15 +1074,6 @@ function convertDriveImageUrl(value){
 }
 
 
-function isYouTubeUrl(url){
-
-  return /youtube\.com|youtu\.be/i.test(
-    url
-  );
-
-}
-
-
 function getYouTubeEmbedUrl(url){
 
   const value =
@@ -1110,6 +1170,56 @@ function getYouTubeEmbedUrl(url){
 }
 
 
+function createSharePageUrl(
+  title,
+  body,
+  imageUrl,
+  linkUrl
+){
+
+  const sharePage =
+    new URL(
+      "share-news.html",
+      window.location.href
+    );
+
+  sharePage.searchParams.set(
+    "title",
+    title
+  );
+
+  if(body){
+
+    sharePage.searchParams.set(
+      "body",
+      body
+    );
+
+  }
+
+  if(imageUrl){
+
+    sharePage.searchParams.set(
+      "image",
+      imageUrl
+    );
+
+  }
+
+  if(linkUrl){
+
+    sharePage.searchParams.set(
+      "link",
+      linkUrl
+    );
+
+  }
+
+  return sharePage.toString();
+
+}
+
+
 function renderNews(items){
 
   const list =
@@ -1136,17 +1246,26 @@ function renderNews(items){
     items.map(
       item => {
 
-        const date =
-          escapeHTML(item.date);
-
-        const title =
-          escapeHTML(
+        const rawTitle =
+          String(
             item.title ||
             "ろびんからのお知らせ"
           );
 
+        const rawBody =
+          String(
+            item.body ||
+            ""
+          );
+
+        const date =
+          escapeHTML(item.date);
+
+        const title =
+          escapeHTML(rawTitle);
+
         const body =
-          escapeHTML(item.body);
+          escapeHTML(rawBody);
 
         const imageUrl =
           convertDriveImageUrl(
@@ -1165,6 +1284,47 @@ function renderNews(items){
         const youtubeEmbedUrl =
           getYouTubeEmbedUrl(
             linkUrl
+          );
+
+        const shareUrl =
+          createSharePageUrl(
+            rawTitle,
+            rawBody,
+            imageUrl,
+            linkUrl
+          );
+
+        const shareText =
+          (
+            rawTitle +
+            " " +
+            rawBody
+          )
+          .replace(/\s+/g, " ")
+          .trim();
+
+        const lineShareUrl =
+          "https://line.me/R/msg/text/?" +
+          encodeURIComponent(
+            shareText +
+            "\n" +
+            shareUrl
+          );
+
+        const xShareUrl =
+          "https://twitter.com/intent/tweet?text=" +
+          encodeURIComponent(
+            shareText
+          ) +
+          "&url=" +
+          encodeURIComponent(
+            shareUrl
+          );
+
+        const facebookShareUrl =
+          "https://www.facebook.com/sharer/sharer.php?u=" +
+          encodeURIComponent(
+            shareUrl
           );
 
         const imageHtml =
@@ -1220,14 +1380,62 @@ function renderNews(items){
             `
             : "";
 
+        const shareHtml =
+          `
+            <div class="news-share">
+
+              <p class="news-share-title">
+                このお知らせを共有する
+              </p>
+
+              <div class="news-share-buttons">
+
+                <a
+                  class="share-button share-line"
+                  href="${escapeHTML(lineShareUrl)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LINE
+                </a>
+
+                <a
+                  class="share-button share-x"
+                  href="${escapeHTML(xShareUrl)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  X
+                </a>
+
+                <a
+                  class="share-button share-facebook"
+                  href="${escapeHTML(facebookShareUrl)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                </a>
+
+                <button
+                  class="share-button share-copy"
+                  type="button"
+                  data-share-url="${escapeHTML(shareUrl)}"
+                >
+                  リンクをコピー
+                </button>
+
+              </div>
+
+            </div>
+          `;
+
         return `
           <article class="news-card">
 
             ${imageHtml}
 
-            ${
-              youtubeHtml
-            }
+            ${youtubeHtml}
 
             <div class="news-content">
 
@@ -1250,6 +1458,8 @@ function renderNews(items){
               }
 
               ${linkHtml}
+
+              ${shareHtml}
 
             </div>
 
@@ -1311,6 +1521,60 @@ async function loadNews(){
   }
 
 }
+
+
+document.addEventListener(
+  "click",
+  async function(event){
+
+    const button =
+      event.target.closest(
+        ".share-copy"
+      );
+
+    if(!button){
+
+      return;
+
+    }
+
+    const url =
+      button.dataset.shareUrl ||
+      window.location.href;
+
+    try{
+
+      await navigator.clipboard.writeText(
+        url
+      );
+
+      const originalText =
+        button.textContent;
+
+      button.textContent =
+        "コピーしました";
+
+      setTimeout(
+        function(){
+
+          button.textContent =
+            originalText;
+
+        },
+        1600
+      );
+
+    }catch(error){
+
+      window.prompt(
+        "下のリンクをコピーしてください。",
+        url
+      );
+
+    }
+
+  }
+);
 
 
 document.addEventListener(
